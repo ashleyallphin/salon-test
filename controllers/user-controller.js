@@ -6,7 +6,7 @@ exports.getUsers = (req, res) => {
     // get users from database
     const users = User.find()
     // this select method is optional -- if left out, ALL of the values will be returned
-    .select("_id firstName lastName username password")
+    .select("_id firstName lastName email username password hashed_password")
     .then((users) => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('users')

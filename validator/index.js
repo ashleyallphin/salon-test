@@ -74,6 +74,8 @@ exports.userSignUpValidator = (req, res, next) => {
     req.check('email', "Please enter a valid email address.").isEmail();
 
 // PASSWORD VALIDATIONS ----------------------------------------------------------
+    // check for password
+    req.check('password', "Password is required.").notEmpty();
     // password must be between 6 and fifteen chracters, 
     req.check('password', "Your password must be between 6 and 15 characaters.").isLength({
         min: 6,
