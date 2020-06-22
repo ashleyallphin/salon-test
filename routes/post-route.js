@@ -9,7 +9,7 @@ const { createPostValidator } = require ('../validator');
 const router = express.Router();
 
 // hand over to controller
-router.get('/post', getPosts);
+router.get('/', getPosts);
 // post to backend from frontend
 // before creating the post, run middleware to validate post meets specified criteria
 router.post('/post', createPostValidator, createPost)
