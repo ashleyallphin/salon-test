@@ -7,12 +7,12 @@ const crypto = require('crypto');
 
 // mongoose create schema method
 const userSchema = new mongoose.Schema ({
-    firstname: {
+    firstName: {
         type: String,
         required: true,
         trim: true,
     },
-    lastname: {
+    lastName: {
         type: String,
         required: true,
         trim: true,
@@ -62,7 +62,7 @@ userSchema.methods = {
             return crypto.createHmac('sha1', this.salt)
             .update(password)
             .digest('hex');
-        } catch {
+        } catch (err) {
             return ""
         }
     }

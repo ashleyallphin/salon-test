@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 // ues getPosts function from routes/post-route.js
 app.use("/", postRoutes);
-app.use("/signup", userRoutes);
+app.use("/", userRoutes);
 
 
 // LISTEN

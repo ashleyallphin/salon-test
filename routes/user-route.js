@@ -1,7 +1,8 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { getUsers, signUp } = require('../controllers/user-controller');
+const { signUp } = require('../controllers/user-controller');
+const { getUsers } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
 const { userSignUpValidator } = require ('../validator');
 
@@ -9,7 +10,7 @@ const { userSignUpValidator } = require ('../validator');
 const router = express.Router();
 
 // hand over to controller
-router.get('/signup', getUsers);
+router.get('/users', getUsers);
 // post to backend from frontend
 // before creating the post, run middleware to validate user sign up fields meet specified criteria
 router.post('/signup', userSignUpValidator, signUp)

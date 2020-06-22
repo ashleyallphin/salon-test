@@ -6,7 +6,7 @@ exports.getUsers = (req, res) => {
     // get users from database
     const users = User.find()
     // this select method is optional -- if left out, ALL of the values will be returned
-    .select("_id firstname lastname username password")
+    .select("_id firstName lastName username password")
     .then((users) => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('users')
@@ -21,7 +21,7 @@ exports.signUp = async (req, res) => {
     const emailExists = await User.findOne({ email: req.body.email})
     const usernameExists = await User.findOne({ username: req.body.username})
 
-    if(emailExists) return res.status(403).json({ 
+    if (emailExists) return res.status(403).json({ 
         error: "This email address is already assigned to a registered user."
     })
     if (usernameExists) return res.status(403).json({

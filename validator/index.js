@@ -27,30 +27,30 @@ exports.createPostValidator = (req, res, next) => {
 exports.userSignUpValidator = (req, res, next) => {
 // FIRST NAME VALIDATIONS ----------------------------------------------------------
     // not empty
-    req.check('firstname', "First name is required.").notEmpty();
+    req.check('firstName', "First name is required.").notEmpty();
     // allows alphanumeric, hyphens, spaces
-    // req.check('firstname', "First name contains invalid character.").matches();
+    // req.check('firstName', "First name contains invalid character.").matches();
     // no two hyphens or spaces in row
-    // req.check('firstname', "First name contains invalid input.").matches();
+    // req.check('firstName', "First name contains invalid input.").matches();
     // must not begin with hyphen
-    // req.check('firstname', "First name must not begin or end with a hyphen.").matches();
+    // req.check('firstName', "First name must not begin or end with a hyphen.").matches();
     // length is between 2 and twenty characters
-    req.check('firstname', "Please enter a first name between 2 and 20 characters.").isLength({
+    req.check('firstName', "Please enter a first name between 2 and 20 characters.").isLength({
         min: 2,
         max: 20
     });
 
 // LAST NAME VALIDATIONS ----------------------------------------------------------
     // not empty
-    req.check('lastname', "Last name is required.").notEmpty();
+    req.check('lastName', "Last name is required.").notEmpty();
     // allows alphanumeric, hyphens, spaces
-    // req.check('lastname', "Last name contains invalid character.").matches();
+    // req.check('lastName', "Last name contains invalid character.").matches();
     // no two hyphens or spaces in row
-    // req.check('lastname', "Last name contains invalid input.").matches(;
+    // req.check('lastName', "Last name contains invalid input.").matches(;
     // must not begin with hyphen
-    // req.check('lastname', "Last name must not begin or end with a hyphen.").matches();
+    // req.check('lastName', "Last name must not begin or end with a hyphen.").matches();
     // length is between 2 and twenty characters
-    req.check('lastname', "Please enter a last name between 2 and 20 characters.").isLength({
+    req.check('lastName', "Please enter a last name between 2 and 20 characters.").isLength({
         min: 2,
         max: 20
     });
