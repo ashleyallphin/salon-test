@@ -1,2 +1,1 @@
-# Final-Project
-The Final Full-Stack React Application Project for UTA Bootcamp.
+![Salon MERN Application Banner](public/assets/images/salon-banner.png "Salon Banner")
