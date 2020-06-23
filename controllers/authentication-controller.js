@@ -24,7 +24,7 @@ exports.signUp = async (req, res) => {
         res.status(200).json({ message: "You've joined Salon! Please log in to your account."})
 };
 
-exports.signIn = (req, res) => {
+exports.logIn = (req, res) => {
     // find the user based on the email username
         const {username, password} = req.body
     // if error, user is not found
@@ -37,7 +37,7 @@ exports.signIn = (req, res) => {
                 })
             }
             // if user is found, but username and password combo do not match
-            if(!user.authenticateSignInCredentials(password)) {
+            if(!user.authenticateLogInCredentials(password)) {
                 return res.status(401).json({
                 error: "Invalid username and password."
             })

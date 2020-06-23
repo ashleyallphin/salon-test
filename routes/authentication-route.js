@@ -1,7 +1,7 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { signUp, signIn, signOut } = require('../controllers/authentication-controller');
+const { signUp, logIn, signOut } = require('../controllers/authentication-controller');
 const { getUserById } = require('../controllers/user-controller');
 // const { getUserByUsername } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
@@ -20,7 +20,7 @@ const router = express.Router();
 // sign up page
 router.post('/signup', userSignUpValidator, signUp);
 // sign in page
-router.post("/signin", signIn);
+router.post("/logIn", logIn);
 //sign out page
 router.get('/signout', signOut);
 

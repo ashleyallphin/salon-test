@@ -1,10 +1,27 @@
 // import post model
 const Post = require ('../models/post-model')
+const formidable = require ('formidable');
+const fs = require ('fs');
+
+exports.postsById = (req, res, next, id) => {
+    Post.findById(id)
+    .populate("postedBy", "_id username email")
+    .exec((err, post) => {
+        if (err || !post) {
+            return res.status(400).json({
+                error: err
+            });
+        }
+        req.post = post;
+        next();
+    });
+};
+
 
 exports.getPosts = (req, res) => {
-
     // get posts from database
     const posts = Post.find()
+    .populate("postedBy", "_id username email")
     // this select method is optional -- if left out, ALL of the values will be returned
     .select("_id body title")
     .then((posts) => {
@@ -15,17 +32,76 @@ exports.getPosts = (req, res) => {
     .catch(err => console.log(err))
 };
 
-// method to create post
-exports.createPost = (req, res) => {
+// method to create a post
+exports.createPost = (req, res, next) => {
+    // method from formidable package
+    let form = new formidable.IncomingForm();
+    // keep extensions of the images
+    form.keepExtensions = true;
+    // parse the request
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+            return res.status(400).json({
+                error: "There was an error uploading your image."
+            });
+        }
+        // create a post based on all the fields coming from the req
+        let post = new Post(fields);
+        // from the post model, which is connected to the post to the user
+        post.postedBy = req.profile;
+        req.profile.hashed_password = undefined;
+        req.profile.salt = undefined;
+        // handle files
+        if(files.photo) {
+            post.photo.data = fs.readFileSync(files.photo.path);
+            post.photo.contentType = files.photo.type;
+        };
+        post.save((err, result) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            })
+            }
+            res.json(result);
+        });
+    });
+    
+};
 
-    const post = new Post(req.body)
+exports.postsByUser = (req, res) => {
+    Post.find({postedBy: req.profile._id})
+    .populate("postedBy", "_id username email")
+    .sort("_created")
+    .exec((err, posts) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            })
+        }
+        res.json(posts);
+    });
+};
 
-    post.save((err, result) => {
-        // validation handled with validator middleware
-        // if there's no error, return with status 200/OK
-        res.json({
-            message: "Post created successfully."
-        })
-    })
+exports.isPoster = (req, res, next) => {
+    let isPoster = req.post && req.auth && req.post.postedBy._id == req.auth._id
+    if (!isPoster) {
+        return res.status(403).json({
+            error: "User is not authorized to perform this action."
+        });
+    }
+    next();
+};
 
-}
+exports.deletePost = (req, res) => {
+    let post = req.post
+    post.remove((err, post) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        }
+        res.json ({
+            message: "Post deleted successfully."
+        });
+    });
+};

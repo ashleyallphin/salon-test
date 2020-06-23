@@ -57,7 +57,7 @@ userSchema.virtual('password')
 // userSchema methods
 userSchema.methods = {
     // authenticate sign in
-    authenticateSignInCredentials: function(plainText) {
+    authenticateLogInCredentials: function(plainText) {
         // encrpt the plain text input from log in form and see if it matches the hashed_password
         return this.encryptPassword(plainText) === this.hashed_password;
     },
