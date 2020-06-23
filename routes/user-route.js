@@ -1,7 +1,7 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { getAllUsers, getUserByUsername, getUserById, getSingleUser , updateUserProfile} = require('../controllers/user-controller');
+const { getAllUsers, getUserByUsername, getUserById, getSingleUser, updateUserProfile, deleteUser } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
 const { restrictRouteAccess } = require('../controllers/authentication-controller');
 
@@ -12,6 +12,7 @@ const router = express.Router();
 router.get("/users", restrictRouteAccess, getAllUsers);
 router.get("/user/:userId", restrictRouteAccess, getSingleUser);
 router.put("/user/:userId", restrictRouteAccess, updateUserProfile);
+router.delete("/user/:userId", restrictRouteAccess, deleteUser);
 // router.get("/user/:username", restrictRouteAccess,  getSingleUser);
 
 //if these params are in the routes above, the following middle and method will fire
