@@ -5,6 +5,7 @@
 const colors = require('colors');
 const express = require ('express');
 const bodyParser = require ('body-parser');
+const cookieParser = require ('cookie-parser');
 const morgan = require ("morgan");
 const mongoose = require("mongoose");
     //to circumvent deprecation warnings
@@ -40,11 +41,20 @@ console.log(`Error connectiong to MongoDB: ${err.message}`.red));
 app.use(morgan('dev'));
 // express get method for getting routes
 app.use(bodyParser.json());
+app.use(cookieParser());
 // validator for content posts
 app.use(expressValidator());
 // ues getPosts function from routes/post-route.js
 app.use("/", postRoutes);
 app.use("/", userRoutes);
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+    res.status(401).json('error: "Please sign in to Salon to access this content.');
+    }
+    });
+
+
+
 
 
 // LISTEN

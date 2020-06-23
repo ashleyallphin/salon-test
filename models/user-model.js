@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const uuidv1 = require ('uuidv1');
 // native node.js encryption
 const crypto = require('crypto');
+const colors = require('colors');
 
 
 // mongoose create schema method
@@ -48,14 +49,22 @@ userSchema.virtual('password')
     // generate a timestamp (for use in hashing the password)
     this.salt = uuidv1()
     // encrypt the password (process/function below in 'encryption process')
-    this.hashed_password = this.encryptPassword(password)
+    this.hashed_password = this.encryptPassword(password);
+    // console.log(`NEW USER\nUsername: ${this.username} \nPassword: ${password}\n`.gray);
 })
 .get(function () {
     return this._password
 });
 
-// encryption process
+// userSchema methods
 userSchema.methods = {
+    // authenticate sign in
+    authenticateSignInCredentials: function(plainText) {
+        // encrpt the plain text input from log in form and see if it matches the hashed_password
+        return this.encryptPassword(plainText) === this.hashed_password;
+    },
+
+    // encrypt Password on sign up and log in
     encryptPassword: function (password) {
         if (!password) return "";
         try {
@@ -63,7 +72,7 @@ userSchema.methods = {
             .update(password)
             .digest('hex');
         } catch (err) {
-            return ""
+            return "";
         }
     }
 }
