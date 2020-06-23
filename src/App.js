@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// Parent component that is used to store all of your <Route> components. The <Route> components are what tell your app which other components to display based on the route.
+import { BrowserRouter } from 'react-router-dom'
+import MainRouter from './MainRouter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <MainRouter>
+
+    </MainRouter>
+  </BrowserRouter>
+)
 
 export default App;
