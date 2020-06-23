@@ -1,0 +1,223 @@
+
+@import url(//db.onlinewebfonts.com/c/a3ed1d5bcb50e8c690267b58be509acc?family=St + Ryde);
+@import url(//db.onlinewebfonts.com/c/8b5e8b9fa5aee291739ff455417bb8d7?family=St + Ryde);
+@import url(//db.onlinewebfonts.com/c/4434dccc79e9d656ada889e101938012?family=St + Ryde);
+@import url(//db.onlinewebfonts.com/c/6536a8df9c8e429b0f9a5f95938eb798?family=St + Ryde);
+@import url(//db.onlinewebfonts.com/c/cd797e2f922f357405db78ed89f64a93?family=St + Ryde);
+@import url(//db.onlinewebfonts.com/c/f52f562f4bee4010e2592e140c97c57b?family=St + Ryde);
+
+@font-face {
+font-family: "St Ryde Light";
+src: url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.eot");
+src: url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/8b5e8b9fa5aee291739ff455417bb8d7.svg#St Ryde")
+    format("svg");
+}
+@font-face {
+font-family: "St Ryde Light Italic";
+src: url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.eot");
+src: url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/cd797e2f922f357405db78ed89f64a93.svg#St Ryde")
+    format("svg");
+}
+@font-face {
+font-family: "St Ryde Medium";
+src: url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.eot");
+src: url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/4434dccc79e9d656ada889e101938012.svg#St Ryde")
+    format("svg");
+}
+@font-face {
+font-family: "St Ryde Medium Italic";
+src: url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.eot");
+src: url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/f52f562f4bee4010e2592e140c97c57b.svg#St Ryde")
+    format("svg");
+}
+@font-face {
+font-family: "St Ryde Bold";
+src: url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.eot");
+src: url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/a3ed1d5bcb50e8c690267b58be509acc.svg#St Ryde")
+    format("svg");
+}
+@font-face {
+font-family: "St Ryde Bold Italic";
+src: url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.eot");
+src: url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.eot?#iefix")
+    format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.woff2")
+    format("woff2"),
+    url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.woff")
+    format("woff"),
+    url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.ttf")
+    format("truetype"),
+    url("//db.onlinewebfonts.com/t/6536a8df9c8e429b0f9a5f95938eb798.svg#St Ryde")
+    format("svg");
+}
+
+/*
+FONTS 
+    font-family: "St Ryde Light";
+    font-family: "St Ryde Light Italic";
+    font-family: "St Ryde Medium";
+    font-family: "St Ryde Medium Italic";
+    font-family: "St Ryde Bold";
+    font-family: "St Ryde Bold Italic";
+
+COLORS
+    gray: #566271
+    orange: #F26A21
+    green: #C6D930
+    blue: #A8DCD9
+    red: #C44D58
+*/
+
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    background-color: #A8DCD9;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.signup h1 {
+    font-size: 10vw;
+    color: #566271;
+    overflow: hidden;
+}
+
+.navbar,
+.footer {
+    background-color: #F26A21;
+    font-family: "St Ryde Bold";
+    color: #fff;
+    font-size: 5vw;
+    padding: 0 .75vh 0 2vh;
+}
+
+.navbar a:hover,
+.footer a:hover,
+.navbar a:focus,
+.footer a:focus {
+    opacity: 80%;
+    text-decoration: none;
+}
+
+
+.jumbotron {
+    background: transparent;
+    align-content: center;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.jumbotron img {
+    height: 23vw;
+    margin-bottom: 4px;
+}
+
+.footer {
+    background-color: #F26A21;
+    font-family: "St Ryde Bold";
+    color: #fff;
+    font-size: 5vw;
+    padding: .75vh;
+}
+
+.footer a,
+.navbar a {
+    opacity: 50%;
+    color: #fff;
+}
+
+
+.form-group {
+    margin: 2vw auto;
+    font-family: "St Ryde Light Italic";
+    color: #566271;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    width: 50vw;
+}
+
+.form-control {
+    margin-bottom: 2vh;
+    height: 5vh;
+
+}
+
+.buttons {
+    display: flex;
+    font-family: "St Ryde Medium";
+}
+
+.form-control:hover,
+.form-control:focus,
+.form-control:active,
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+    border: 1px solid #78828f;
+    box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
+}
+
+.btn:hover {
+    background-color: #4d5967 !important;   
+}
+
+#log-in-button,
+#sign-up-button {
+    flex-grow: 1;
+    background-color: #566271 ;
+    border: none !important;
+    padding-bottom: 5px;
+
+}
+
+#log-in-button {
+    margin-right: 1vh;
+}
+
+#sign-up-button {
+    margin-left: 1vh;
+}
