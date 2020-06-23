@@ -1,16 +1,41 @@
-const User = require ("../models/user-model");
+const User = require ('../models/user-model');
+// requre lodash
+const _ = require ('lodash');
+
+exports.getAllUsers = (req, res) => {
+    User.find((err, users) => {
+        if(err) {
+            return res.status(400).json({
+                error: err
+            });
+        }
+        return res.json({ users: users });
+    }).select("username email updated created updated");
+};
 
 exports.getUserById = (req, res, next, id) => {
-    User.findById(id).then.execute((err, user) => {
+    User.findById(id).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json ({
-                error: "User not found."
-            })
-        };
-        req.profile = user //adds profile object in request with user info
+                error: "User id not found."
+            });
+        }
+        req.profile = user; //adds profile object in request with user info
         next();
-        });
+    });
 };
+
+// exports.getUserByUsername = (req, res, next, username) => {
+//     User.findById(username).exec((err, user) => {
+//         if (err || !user) {
+//             return res.status(400).json ({
+//                 error: "Username not found."
+//             })
+//         };
+//         req.profile = user //adds profile object in request with user info
+//         next();
+//         });
+// };
 
 exports.isAuthorized = (req, res, next) => {
     // authorized if three conditions are met
@@ -18,7 +43,32 @@ exports.isAuthorized = (req, res, next) => {
     // if not authorized, return with unauthroized error 403
     if(!authorized) {
         return res.status(403).json({
-            error: "User is not authroized to perform this"
+            error: "User is not authroized to perform this action."
         })
-    }
-}
+    };
+};
+
+exports.getSingleUser = (req, res) => {
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    return res.json(req.profile);
+};
+
+exports.updateUserProfile = (req, res, next) => {
+    // extract user information from the profile
+    let user = req.profile
+    // lodash method: extend
+    user = _.extend(user, req.body) // changes the source object
+    user.updated = Date.now();
+    // save user database
+    user.save((err) => {
+        if(err) {
+            return res.status(400).json({
+                error: "You are not authorized to perform this action."
+            })
+        };
+        user.hashed_password = undefined;
+        user.salt = undefined;
+        res.json({ user: user });
+    });
+};

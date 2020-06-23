@@ -20,8 +20,9 @@ dotenv.config();
 // invoke express
 const app = express();
 // bring in routes
-const postRoutes = require("./routes/post-route")
-const userRoutes = require("./routes/authentication-route")
+const postRoutes = require("./routes/post-route");
+const authRoutes = require("./routes/authentication-route");
+const userRoutes = require("./routes/user-route");
 
 
 // DATABASE
@@ -35,6 +36,7 @@ mongoose.connect(db)
 mongoose.connection.on('error', err =>
 console.log(`Error connectiong to MongoDB: ${err.message}`.red));
 
+
 // MIDDLEWARE
 // ================================================
 // morgan middleware - posts methods to the terminal
@@ -47,16 +49,14 @@ app.use(expressValidator());
 // ues getPosts function from routes/post-route.js
 app.use("/", postRoutes);
 app.use("/", userRoutes);
+app.use("/", authRoutes);
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
     res.status(401).json('error: Please sign in to Salon to access this content.');
     }
     });
 
-
-
-
-
+    
 // LISTEN
 // ================================================
 //set up port -- deployed port or localhost 8080

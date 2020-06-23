@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const uuidv1 = require ('uuidv1');
 // native node.js encryption
 const crypto = require('crypto');
-const colors = require('colors');
-
 
 // mongoose create schema method
 const userSchema = new mongoose.Schema ({
