@@ -6,20 +6,6 @@ const User = require ("../models/user-model");
 // protect routes -- routes can only be accessed by signed in users
 const expressJwt = require('express-jwt');
 
-exports.getUsers = (req, res) => {
-
-    // get users from database
-    const users = User.find()
-    // this select method is optional -- if left out, ALL of the values will be returned
-    .select("_id firstName lastName email username unencryptedPassword password hashed_password")
-    .then((users) => {
-        // status 200 is default, so we can leave it out in the future
-        // when key and value are the same, we can leave it as one word ('users')
-        res.status(200).json({ users: users })
-    })
-    .catch(err => console.log(err))
-};
-
 // method to sign up a new user
 exports.signUp = async (req, res) => {
     // if there's an error, return the message that the email address is taken
@@ -75,6 +61,8 @@ exports.signOut = (req, res) => {
 };
 
 exports.restrictRouteAccess = expressJwt({
-    secret: process.env.JWT_SECRET
+    // if the token is valide, express-jwt appends the verified user's id in an auth key to request object
+    secret: process.env.JWT_SECRET, 
+    userProperty: "auth"
 });
 
