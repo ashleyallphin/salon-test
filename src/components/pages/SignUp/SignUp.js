@@ -26,28 +26,25 @@ class SignUp extends Component {
                 <Navbar href="/login" className="navbar">
                 <a href="/" >
                     salon</a>
-            </Navbar>
-
-                <Jumbotron fluid class="jumbotron" >
-                    
-                        <img
-                        alt="Salon Icon"
-                        src={logo}
-                    />{' '}
-                    <h1>bonjour</h1>
-                    <Form.Group
-                        controlId="exampleForm.ControlInput1">
-                        <Form.Control type="text" placeholder="username" />
-                        <Form.Control type="text" placeholder="password" />
-                        <div className="buttons">
-                        <Button id="log-in-button">Log In</Button>{' '}
-                        <Button id="sign-up-button">Sign Up</Button>{' '}
-                    </div>
-                    </Form.Group>
-
-                    
-                </Jumbotron>
-
+                </Navbar>
+                <div class ="content">
+                    <Jumbotron fluid class="jumbotron" >
+                            <img
+                            alt="Salon Icon"
+                            src={logo}
+                        />{' '}
+                        <h1>bonjour</h1>
+                        <Form.Group
+                            controlId="exampleForm.ControlInput1">
+                            <Form.Control type="text" placeholder="username" />
+                            <Form.Control type="text" placeholder="password" />
+                            <div className="buttons">
+                            <Button id="log-in-button">Log In</Button>{' '}
+                            <Button id="sign-up-button">Sign Up</Button>{' '}
+                        </div>
+                        </Form.Group>
+                    </Jumbotron>
+                </div>
                 <div className="footer text-center">
 
                         <a
