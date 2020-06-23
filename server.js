@@ -2,7 +2,8 @@
 // ================================================
 // import dependencies
 // colors terminal output
-const colors = require('colors');
+// const colors = require('colors');
+const color = require('colors-cli/toxic');
 const express = require ('express');
 const bodyParser = require ('body-parser');
 const cookieParser = require ('cookie-parser');
@@ -31,10 +32,10 @@ const userRoutes = require("./routes/user-route");
 var db = process.env.MONGODB_URI || "mongodb://localhost/salondb";
 
 mongoose.connect(db)
-.then(() => console.log(`Successfully connected to MongoDB.`.brightMagenta + 
-`\n-----------------------------------------------------`.white))
+.then(() => console.log(`Successfully connected to MongoDB.`.x206 + 
+`\n-----------------------------------------------------`.x255))
 mongoose.connection.on('error', err =>
-console.log(`Error connectiong to MongoDB: ${err.message}`.red));
+console.log(`Error connectiong to MongoDB: ${err.message}`.x196));
 
 
 // MIDDLEWARE
@@ -62,5 +63,5 @@ app.use(function (err, req, res, next) {
 //set up port -- deployed port or localhost 8080
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log(`\nApp listening on `.brightCyan + `http://localhost:${PORT}`.brightYellow);
+    console.log(`\nApp listening on `.x81 + `http://localhost:${PORT}`.x226.underline);
 });

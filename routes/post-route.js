@@ -1,7 +1,7 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { getPosts, createPost, postsByUser, postsById, isPoster, deletePost } = require('../controllers/post-controller');
+const { getPosts, createPost, postsByUser, postsById, isPoster, deletePost, updatePost } = require('../controllers/post-controller');
 // bring in validator from validator/index.js
 const { createPostValidator } = require ('../validator');
 const { restrictRouteAccess } = require('../controllers/authentication-controller');
@@ -19,6 +19,7 @@ const router = express.Router();
         router.get('/', restrictRouteAccess, getPosts);
 router.get("/posts/by/:userId", restrictRouteAccess, postsByUser);
 router.delete("/post/:postId", restrictRouteAccess, isPoster, deletePost)
+router.put("/post/:postId", restrictRouteAccess, isPoster, updatePost)
 
 // post to backend from frontend
 // before creating the post, run middleware to validate post meets specified criteria
