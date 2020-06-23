@@ -118,8 +118,6 @@ a:hover {
 .buttons {
     display: flex;
 }
-
-#log-in-button,
 #sign-up-button {
     background-color: #566271 ;
     border: none !important;
@@ -127,31 +125,7 @@ a:hover {
     font-size: 2vh;
     line-height: 5vh;
     padding: 0;
-}
-
-#log-in-button {
-    margin-right: 1vh;
-}
-
-#sign-up-button {
-    margin-left: 1vh;
-}
-
-.text-links {
-    margin-top: 2vh;
-    font-size: 2vh;
-    text-align: left;
-    display: flex;
-}
-
-.text-links p {
-    flex: 1;
-    color: #566271;
-    margin-bottom: 2vh;
-}
-
-.text-links a p:hover {
-    color: #3E4854;
+    margin: 0;
 }
 
 /* 

@@ -11,7 +11,9 @@ class SignUp extends Component {
     constructor() {
         super()
         this.state = {
-
+            firstname: "",
+            lastname: "",
+            email: "",
             username: "",
             password: "",
             error: ""
@@ -32,17 +34,14 @@ class SignUp extends Component {
                             alt="Salon Icon"
                             src={logo}
                         />{' '}
-                        <h1>bonjour</h1>
+                        <h1>sign up</h1>
                         <Form.Group>
+                            <Form.Control type="text" placeholder="first name" />
+                            <Form.Control type="text" placeholder="last name" />
                             <Form.Control type="text" placeholder="username" />
+                            <Form.Control type="text" placeholder="email" />
                             <Form.Control type="text" placeholder="password" />
-                            <div className="text-links">
-                            <a href="#">
-                                <p>forgot password?</p>
-                            </a>
-                            </div>
                             <div className="buttons">
-                                <Button href="/login" id="log-in-button">Log In</Button>{' '}
                                 <Button href="/signup"  id="sign-up-button">Sign Up</Button>{' '}
 
                             </div>
