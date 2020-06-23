@@ -1,7 +1,7 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { signUp, getUsers, signIn, signOut } = require('../controllers/user-controller');
+const { signUp, getUsers, signIn, signOut } = require('../controllers/authentication-controller');
 // bring in validator from validator/index.js
 const { userSignUpValidator } = require ('../validator');
 
@@ -16,6 +16,7 @@ router.post('/signup', userSignUpValidator, signUp);
 router.post("/signin", signIn);
 // sign out
 router.get('/signout', signOut);
+// make query to database and get user information
 
 
 module.exports = router;

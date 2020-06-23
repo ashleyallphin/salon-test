@@ -21,7 +21,7 @@ dotenv.config();
 const app = express();
 // bring in routes
 const postRoutes = require("./routes/post-route")
-const userRoutes = require("./routes/user-route")
+const userRoutes = require("./routes/authentication-route")
 
 
 // DATABASE
@@ -49,7 +49,7 @@ app.use("/", postRoutes);
 app.use("/", userRoutes);
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
-    res.status(401).json('error: "Please sign in to Salon to access this content.');
+    res.status(401).json('error: Please sign in to Salon to access this content.');
     }
     });
 

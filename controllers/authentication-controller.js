@@ -77,3 +77,4 @@ exports.signOut = (req, res) => {
 exports.restrictRouteAccess = expressJwt({
     secret: process.env.JWT_SECRET
 });
+

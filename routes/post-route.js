@@ -4,7 +4,7 @@ const express = require('express');
 const { getPosts, createPost} = require('../controllers/post-controller');
 // bring in validator from validator/index.js
 const { createPostValidator } = require ('../validator');
-const { restrictRouteAccess } = require('../controllers/user-controller');
+const { restrictRouteAccess } = require('../controllers/authentication-controller');
 
 
 // use express router
