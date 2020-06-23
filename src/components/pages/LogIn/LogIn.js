@@ -7,13 +7,10 @@ import logo from '../../../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-class SignUp extends Component {
+class LogIn extends Component {
     constructor() {
         super()
         this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
             username: "",
             password: "",
             error: ""
@@ -22,43 +19,47 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div class="signup">
+            <div class="login">
                 <Navbar href="/login" className="navbar">
                 <a href="/" >
                     salon</a>
                 </Navbar>
-                <div class ="content">
+
                     <Jumbotron fluid class="jumbotron" >
+                        <div class="vertical-center">
                             <img
                             alt="Salon Icon"
                             src={logo}
-                        />{' '}
+                            />{' '}
                         <h1>bonjour</h1>
-                        <Form.Group
-                            controlId="exampleForm.ControlInput1">
+                        <Form.Group>
                             <Form.Control type="text" placeholder="username" />
                             <Form.Control type="text" placeholder="password" />
+                            <div className="text-links">
+                            <a href="/">
+                                <p>forgot password?</p>
+                            </a>
+                            </div>
                             <div className="buttons">
-                            <Button id="log-in-button">Log In</Button>{' '}
-                            <Button id="sign-up-button">Sign Up</Button>{' '}
-                        </div>
-                        </Form.Group>
-                    </Jumbotron>
-                </div>
-                <div className="footer text-center">
+                                <Button href="/login" id="log-in-button">Log In</Button>{' '}
+                                <Button href="/signup"  id="sign-up-button">Sign Up</Button>{' '}
 
+                            </div>
+                        </Form.Group>
+                        </div>
+                    </Jumbotron>
+
+                <div className="footer text-center">
                         <a
                             href="https://github.com/ashleyallphin/"
                             target="_blank"
                             rel="noopener noreferrer">
                         <FontAwesomeIcon icon={["fab", "github"]} />
                         </a>
-
                 </div>
-
             </div>
         );
     }
 }
 
-export default SignUp;
+export default LogIn;

@@ -7,11 +7,13 @@ import MainRouter from './MainRouter'
 
 
 const App = () => (
-  <BrowserRouter>
-    <MainRouter>
+  <div className="app">
+    <BrowserRouter>
+      <MainRouter>
 
-    </MainRouter>
-  </BrowserRouter>
+      </MainRouter>
+    </BrowserRouter>
+  </div>
 )
 
 export default App;
