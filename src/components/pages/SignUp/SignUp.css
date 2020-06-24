@@ -22,7 +22,7 @@ red: #C44D58
 */
 
 
-.login {
+.signup {
     background-color: #A8DCD9;
     width: 100vw;
     display: flex;
@@ -34,7 +34,7 @@ a:hover {
     text-decoration: none;
 }
 
-.login h1 {
+.signup h1 {
     font-size: 8vw;
     color: #566271;
 }
@@ -93,6 +93,7 @@ a:hover {
     color: #566271;
     line-height: 1.5;
     width: 50vw;
+    max-width: 30rem;
 }
 
 .form-group p{
@@ -150,6 +151,5 @@ MEDIA QUERIES
 */
 
 @media only screen and (max-width: 480px) {
- 
 
     }

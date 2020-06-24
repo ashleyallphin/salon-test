@@ -1,0 +1,89 @@
+/*
+
+FONTS 
+---------------------------------------------
+font-family: "St Ryde Light";
+font-family: "St Ryde Light Italic";
+font-family: "St Ryde Medium";
+font-family: "St Ryde Medium Italic";
+font-family: "St Ryde Bold";
+font-family: "St Ryde Bold Italic";
+
+COLORS
+---------------------------------------------
+gray: #566271
+    dark gray: #3E4854
+    darker gray: #242C36
+orange: #F26A21
+green: #C6D930
+blue: #A8DCD9
+red: #C44D58
+
+*/
+
+.navbar {
+    font-size: 5vh;
+    border-bottom: 5px #fff solid;
+    padding: 0 .75vh 0 2vh;
+
+}
+
+.navigation {
+    background-color: #F26A21;
+    font-family: "St Ryde Bold";
+    color: #fff;
+    font-size: 5vh;
+}
+
+.navigation-brand {
+    background-color: #F26A21 !important;
+    font-family: "St Ryde Bold";
+    color: #fff;
+}
+
+.navigation-link {
+    opacity: 50%;
+    font-size: 2vh;
+    color: #fff !important;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+    text-decoration: none;
+}
+.navigation img {
+    margin-right: 10px;
+}
+
+.active {
+    /* border-bottom: 7px solid #C6D930; */
+    opacity: 100% !important;
+}
+
+
+.navbar-toggler {
+    margin: 1vh;
+    border: none;
+}
+
+.navbar-toggler-icon {
+    height: 1.5em;
+    width: 1.5em;
+    opacity: 75%;
+    margin: 0 0 4px 0;
+
+}
+
+.navigation-wordmark {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .navigation-wordmark {
+        display: block;
+        font-family: "St Ryde Bold";
+        color: #fff;
+        text-transform: lowercase;
+    }
+
+}

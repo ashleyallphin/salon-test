@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import './SignUp.css';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Upload.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from '../../../assets/images/salon-icon-red.svg';
+// import logo from '/../../assets/images/salon-icon-white.svg';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Navigation from '../../Navigation/Navigation';
 
-
-class SignUp extends Component {
+class Upload extends Component {
     constructor() {
         super()
         // initial state
@@ -56,20 +58,11 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className="signup">
-                
-                <Navbar href="/login" className="navbar">
-                <a href="/" >
-                    salon</a>
-                </Navbar>
-
+            <div className="upload">
+                <Navigation />
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
-                        <img
-                        alt="Salon Icon"
-                        src={logo}
-                    />{' '}
-                    <h1>sign up</h1>
+                    <h1>add to your gallery</h1>
                         <Form.Group>    
                             <Form.Control
                                 onChange={this.handleChange("firstName")}
@@ -93,15 +86,15 @@ class SignUp extends Component {
                                 id="password-input" type="password" placeholder="password" />
                             <div className="buttons">
                             <Button 
-                                onClick={this.submitSignUp}
-                                id="sign-up-button">Sign Up</Button>{' '}
+                                onClick={this.uploadProject}
+                                id="sign-up-button">Display Project</Button>{' '}
                             </div>
 
-                            <div className="text-links">
+                            {/* <div className="text-links">
                             <a href="/">
-                                <p>return to log in page</p>
+                                <p></p>
                             </a>
-                        </div>
+                        </div> */}
                         
                         </Form.Group>
                     
@@ -125,4 +118,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default Upload;
