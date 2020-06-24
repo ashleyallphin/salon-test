@@ -4,13 +4,14 @@ import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navigation.css';
 import logo from '../../assets/images/salon-wordmark-white.svg';
+import { NavLink } from 'react-router-dom'
 
 class Navigation extends Component {
-
+    
     render() {
         return (
 
-        <div className="navigation">    
+            <div className="navigation">    
             <Navbar collapseOnSelect className="navbar functional-navigation" expand="lg">
             <Navbar.Brand href="/">
                 <img src={logo}
@@ -19,8 +20,18 @@ class Navigation extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto navigation-links">
-                <Nav.Link className="active" href="#features"><span>Your Studio</span></Nav.Link>
-                <Nav.Link href="#pricing"><span>Browse Gallery</span></Nav.Link>
+                
+                <NavLink to="/" classname="navigation-links"
+                activeClassName="active">
+                    <h6><span>Your Studio</span></h6>
+                </NavLink>
+                <NavLink to="/gallery" classname="navigation-links"
+                activeClassName="active">
+                    <h6><span>Gallery</span></h6>
+                </NavLink>
+                
+                {/* <Nav.Link className="active" href="/studio"><span>Your Studio</span></Nav.Link>
+                <Nav.Link href="/gallery"><span>Browse Gallery</span></Nav.Link> */}
                 
                 {/* LEAVING THIS FOR DROPDOWN LINKS IF NEEDED
                 ===================================================

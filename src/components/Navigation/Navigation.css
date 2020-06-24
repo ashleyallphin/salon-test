@@ -27,8 +27,14 @@ red: #C44D58
     border-bottom: 5px solid white;
 }
 
+h6 {
+    font-family: "St Ryde Medium";
+    margin: .6em;
+    font-size: 1.25em;
+}
+
 .functional-navigation a {
-    opacity: 100% !important;
+    color: #fff;
 }
 
 .functional-navigation img {
@@ -45,19 +51,21 @@ red: #C44D58
 
 .nav-link {
     opacity: 50%;
-    font-size: calc(.25em + 13px);
+    font-size: calc(.5em + 13px);
     color: #fff !important;
     max-height: calc(.5 * 3);
 }
 
-.navigation text:hover {
-    opacity: 100% !important;
+.navigation h6 span:hover {
+    padding-bottom: 2px;
     border-bottom: 5px solid #C6D930;
 }
 
-.active {
+.active span {
     opacity: 100% !important;
     color: #fff;
+    border-bottom: 5px solid #C6D930;
+    padding-bottom: 2px;
 }
 
 .navbar-toggler {
@@ -77,19 +85,4 @@ red: #C44D58
     outline: none !important;
     border: none !important;
     box-shadow: 0 0 0 0.2rem rgba(75, 86, 99, .25) !important;
-}
-
-.navbar-toggler:focus {
-    border-radius: 5px;
-    outline: none !important;
-    border: none !important;
-    box-shadow: 0 0 0 0.2rem rgba(75, 86, 99, .25) !important;
-}
-
-.navigation-wordmark {
-    display: none;
-}
-
-@media (max-width: 991px) {
-
 }
