@@ -12,8 +12,8 @@ font-family: "St Ryde Bold Italic";
 COLORS
 ---------------------------------------------
 gray: #566271
-    dark gray: #3E4854
-    darker gray: #242C36
+=== dark gray: #3E4854
+=== darker gray: #242C36
 orange: #F26A21
 green: #C6D930
 blue: #A8DCD9
@@ -21,8 +21,7 @@ red: #C44D58
 
 */
 
-
-.login {
+.signup {
     background-color: #A8DCD9;
     width: 100vw;
     display: flex;
@@ -34,30 +33,9 @@ a:hover {
     text-decoration: none;
 }
 
-.login h1 {
-    font-size: 10vw;
+.signup h1 {
+    font-size: 8vw;
     color: #566271;
-}
-
-.navbar,
-.footer {
-    background-color: #F26A21;
-    font-family: "St Ryde Bold";
-    color: #fff;
-    padding: 0 .75vh 0 2vh;
-}
-
-.navbar {
-    font-size: 5vh;
-    border-bottom: 5px #fff solid;
-}
-
-.navbar a:hover,
-.footer a:hover,
-.navbar a:focus,
-.footer a:focus {
-    opacity: 80%;
-    text-decoration: none;
 }
 
 .vertical-center {
@@ -71,26 +49,11 @@ a:hover {
     display: flex;
     padding: 0;
     margin-bottom: 0;
-    flex-grow: 1;
 }
 
 .jumbotron img {
-    height: 20vh;
+    height: 18vw;
     margin-bottom: 4px;
-}
-
-.footer {
-    background-color: #F26A21;
-    font-family: "St Ryde Bold";
-    color: #fff;
-    padding: .75vh;
-    border-top: 5px #fff solid;
-}
-
-.footer a,
-.navbar a {
-    opacity: 50%;
-    color: #fff;
 }
 
 .form-group {
@@ -102,19 +65,35 @@ a:hover {
     max-width: 30rem;
 }
 
-.form-group p {
+.form-group p{
     display: block;
 }
 
 .form-control {
     margin-bottom: 2vh;
     height: 5vh;
+    min-height: 1.5rem;
     font-size: 2vh !important;
-    min-height: 1.25rem;
 }
 
-.form-control:focus, .form-control:active, .form-control:focus-within, .btn:hover, .btn:focus, .btn:active,
-.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, btn:focus-within {
+.flex-input {
+    display: flex;
+}
+
+#first-name-input,
+#username-input {
+    margin-right: 1vh;
+}
+
+.form-control:focus,
+.form-control:active,
+.form-control:focus-within,
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn:focus-within {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
 }
@@ -123,45 +102,22 @@ a:hover {
     background-color: #3E4854 !important;   
 }
 
-.buttons {
-    display: flex;
-}
-
-#log-in-button,
 #sign-up-button {
-    flex-grow: 1;
     background-color: #566271 ;
     border: none !important;
     height: 5vh;
     font-size: 2vh;
     line-height: 5vh;
     padding: 0;
-    font-family: "St Ryde Medium";
-}
-
-#log-in-button {
-    margin-right: 2vh;
-}
-
-#sign-up-button {
-    margin-left: 2vh;
+    margin: 0;
 }
 
 .text-links {
+    font-family: "St Ryde light italic";
     margin-top: 2vh;
     font-size: 2vh;
     text-align: left;
     display: flex;
-}
-
-.text-links p {
-    flex: 1;
-    color: #566271;
-    margin-bottom: 2vh;
-}
-
-.text-links a p:hover {
-    color: #3E4854;
 }
 
 /* 
@@ -170,9 +126,6 @@ MEDIA QUERIES
 ---------------------------------------------
 */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px) {
 
-    .jumbotron img {
-        height: 55vh;  
     }
-  }

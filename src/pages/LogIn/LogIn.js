@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
+import TopNav from '../../components/TopNav/TopNav';
 import './LogIn.css'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from '../../../assets/images/salon-icon-red.svg'
+import logo from '../../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Footer from '../../components/Footer/Footer'
 
 class LogIn extends Component {
     constructor() {
@@ -20,10 +20,8 @@ class LogIn extends Component {
     render() {
         return (
             <div className="login">
-                <Navbar href="/login" className="navbar">
-                <a href="/" >
-                    salon</a>
-                </Navbar>
+
+                <TopNav />
 
                     <Jumbotron fluid className="jumbotron" >
                         <div className="vertical-center">
@@ -48,15 +46,7 @@ class LogIn extends Component {
                         </Form.Group>
                         </div>
                     </Jumbotron>
-
-                <div className="footer text-center">
-                        <a
-                            href="https://github.com/ashleyallphin/"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={["fab", "github"]} />
-                        </a>
-                </div>
+                <Footer />
             </div>
         );
     }

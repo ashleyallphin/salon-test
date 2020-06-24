@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
+import TopNav from '../../components/TopNav/TopNav';
 import './SignUp.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from '../../../assets/images/salon-icon-red.svg';
+import logo from '../../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Footer from '../../components/Footer/Footer'
 
 
 class SignUp extends Component {
@@ -58,10 +58,7 @@ class SignUp extends Component {
         return (
             <div className="signup">
                 
-                <Navbar href="/login" className="navbar">
-                <a href="/" >
-                    salon</a>
-                </Navbar>
+                <TopNav />
 
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
@@ -104,21 +101,12 @@ class SignUp extends Component {
                         </div>
                         
                         </Form.Group>
-                    
-                        
 
                     </div>
                     
                 </Jumbotron>
 
-                <div className="footer text-center">
-                    <a
-                        href="https://github.com/ashleyallphin/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "github"]} />
-                    </a>
-                </div>
+                <Footer />
             
             </div>
         );

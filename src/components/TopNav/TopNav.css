@@ -21,17 +21,17 @@ red: #C44D58
 
 */
 
-.functional-navigation {
+.top-nav {
     padding: 0 .5em 0 2em;;
     background-color: #F26A21 !important;
     border-bottom: 5px solid white;
 }
 
-.functional-navigation a {
+.top-nav a {
     opacity: 100% !important;
 }
 
-.functional-navigation img {
+.top-nav img {
     height: 3.75vh;
     min-height: 30px;
     margin: .6em 0em .75em 0;
@@ -84,12 +84,4 @@ red: #C44D58
     outline: none !important;
     border: none !important;
     box-shadow: 0 0 0 0.2rem rgba(75, 86, 99, .25) !important;
-}
-
-.navigation-wordmark {
-    display: none;
-}
-
-@media (max-width: 991px) {
-
 }

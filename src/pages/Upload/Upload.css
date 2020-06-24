@@ -22,7 +22,7 @@ red: #C44D58
 */
 
 
-.signup {
+.upload {
     background-color: #A8DCD9;
     width: 100vw;
     display: flex;
@@ -30,30 +30,18 @@ red: #C44D58
     flex-direction: column;
 }
 
+.fill-screen {
+    min-height: 1px;
+    flex-grow: 1;
+}
+
 a:hover {
     text-decoration: none;
 }
 
-.signup h1 {
-    font-size: 8vw;
+.upload h1 {
+    font-size: 6vw;
     color: #566271;
-}
-
-.navbar,
-.footer {
-    background-color: #F26A21;
-    font-family: "St Ryde Bold";
-    color: #fff;
-    padding: 0 .75vh 0 2vh;
-    font-size: 5vh;
-}
-
-.navbar a:hover,
-.footer a:hover,
-.navbar a:focus,
-.footer a:focus {
-    opacity: 80%;
-    text-decoration: none;
 }
 
 .vertical-center {
@@ -69,10 +57,10 @@ a:hover {
     margin-bottom: 0;
 }
 
-.jumbotron img {
+/* .jumbotron img {
     height: 18vw;
     margin-bottom: 4px;
-}
+} */
 
 .footer {
     background-color: #F26A21;
@@ -81,9 +69,7 @@ a:hover {
     padding: .75vh;
 }
 
-.footer a,
-.navbar a {
-    opacity: 50%;
+.footer a {
     color: #fff;
 }
 
@@ -150,6 +136,7 @@ MEDIA QUERIES
 ---------------------------------------------
 */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768) {
+
 
     }

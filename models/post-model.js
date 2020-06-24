@@ -2,17 +2,39 @@ const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema;
 
 // mongoose create schema method
-const postSchema = new mongoose.Schema ({
-    title: {
+const projectSchema = new mongoose.Schema ({
+    projectName: {
         type: String,
         required: true,
     },
-    body: {
-        type: String
+    projectImage: {
+        type: String,
+        required: true
     },
-    photo: {
-        data: Buffer,
+    projectCategory: {
+        type: String,
+        required: true
+    },
+    projectDescription: {
+        type: String,
+        required: true
+    },
+    projectMaterials: {
+        type: String,
+        required: true
+    },
+    projectTags: {
         contentType: String
+    },
+    projectYear: {
+        contentType: Number,
+        required: true,
+    },
+    projectLink: {
+        contentType: String
+    },
+    projectWIP: {
+        contentType: Boolean
     },
     // build relationship between the post schema and the user schema
     postedBy: {
@@ -25,4 +47,4 @@ const postSchema = new mongoose.Schema ({
     }
 });
 
-module.exports = mongoose.model("Post", postSchema)
+module.exports = mongoose.model("Post", projectSchema)

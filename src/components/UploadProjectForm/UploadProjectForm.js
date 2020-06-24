@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import './Upload.css';
+import './UploadProjectForm.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import logo from '/../../assets/images/salon-icon-white.svg';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Navigation from '../../Navigation/Navigation';
 
-class Upload extends Component {
+class UploadProjectForm extends Component {
     constructor() {
         super()
         // initial state
         this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            username: "",
-            password: "",
+            projectName: "",
+            projectImage: "",
+            projectYear: "",
+            projectCategory: "",
+            projectDescription: "",
+            projectMaterials: "",
+            projectTags: "",
+            projectWorkInProgress: false,
+            projectLink: "",
             error: ""
         }
     };
@@ -58,8 +59,7 @@ class Upload extends Component {
 
     render() {
         return (
-            <div className="upload">
-                <Navigation />
+            <div className="upload-project-form">
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
                     <h1>add to your gallery</h1>
@@ -95,27 +95,16 @@ class Upload extends Component {
                                 <p></p>
                             </a>
                         </div> */}
-                        
                         </Form.Group>
-                    
-                        
-
                     </div>
                     
                 </Jumbotron>
 
-                <div className="footer text-center">
-                    <a
-                        href="https://github.com/ashleyallphin/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "github"]} />
-                    </a>
-                </div>
+
             
             </div>
         );
     }
 }
 
-export default Upload;
+export default UploadProjectForm;
