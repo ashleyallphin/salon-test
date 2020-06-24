@@ -39,12 +39,12 @@ class SignUp extends Component {
             username: username,
             password: password
         };
-        // console.log(user);
-        fetch("http://localhost:8080/signup", {
+        console.log(user);
+        fetch("/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                "Content-Type": "application/json"
+                dataType: "application/json"
             },
             body: JSON.stringify(user)
         })
@@ -97,7 +97,15 @@ class SignUp extends Component {
                                 id="sign-up-button">Sign Up</Button>{' '}
                             </div>
                         </Form.Group>
+                    
+                        <div className="text-links">
+                            <a href="/">
+                                <p>back to log in page</p>
+                            </a>
+                        </div>
+
                     </div>
+                    
                 </Jumbotron>
 
                 <div className="footer text-center">

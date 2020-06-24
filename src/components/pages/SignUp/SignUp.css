@@ -102,6 +102,7 @@ a:hover {
 .form-control {
     margin-bottom: 2vh;
     height: 5vh;
+    min-height: 1.5rem;
     font-size: 2vh !important;
 }
 
@@ -114,8 +115,8 @@ a:hover {
     margin-right: 1vh;
 }
 
-.form-control:hover, .form-control:focus, .form-control:active, .btn:hover, .btn:focus, .btn:active,
-.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus {
+.form-control:focus, .form-control:active, .form-control:focus-within, .btn:hover, .btn:focus, .btn:active,
+.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, btn:focus-within {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
 }
@@ -132,6 +133,14 @@ a:hover {
     line-height: 5vh;
     padding: 0;
     margin: 0;
+}
+
+.text-links {
+    font-family: "St Ryde light italic";
+    margin-top: 2vh;
+    font-size: 2vh;
+    text-align: left;
+    display: flex;
 }
 
 /* 

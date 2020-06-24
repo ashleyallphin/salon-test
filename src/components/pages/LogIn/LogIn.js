@@ -19,14 +19,14 @@ class LogIn extends Component {
 
     render() {
         return (
-            <div class="login">
+            <div className="login">
                 <Navbar href="/login" className="navbar">
                 <a href="/" >
                     salon</a>
                 </Navbar>
 
-                    <Jumbotron fluid class="jumbotron" >
-                        <div class="vertical-center">
+                    <Jumbotron fluid className="jumbotron" >
+                        <div className="vertical-center">
                             <img
                             alt="Salon Icon"
                             src={logo}

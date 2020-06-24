@@ -49,6 +49,7 @@ a:hover {
 
 .navbar {
     font-size: 5vh;
+    border-bottom: 5px #fff solid;
 }
 
 .navbar a:hover,
@@ -83,6 +84,7 @@ a:hover {
     font-family: "St Ryde Bold";
     color: #fff;
     padding: .75vh;
+    border-top: 5px #fff solid;
 }
 
 .footer a,
@@ -107,10 +109,11 @@ a:hover {
     margin-bottom: 2vh;
     height: 5vh;
     font-size: 2vh !important;
+    min-height: 1.25rem;
 }
 
-.form-control:hover, .form-control:focus, .form-control:active, .btn:hover, .btn:focus, .btn:active,
-.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus {
+.form-control:focus, .form-control:active, .form-control:focus-within, .btn:hover, .btn:focus, .btn:active,
+.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, btn:focus-within {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
 }
