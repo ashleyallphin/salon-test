@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import './UploadProjectForm.css';
+import '../styles/Components.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import logo from '/../../assets/images/salon-icon-white.svg';

@@ -1,5 +1,3 @@
-@import url('./index.css');
-
 /*
 FONTS 
     font-family: "St Ryde Light";
@@ -16,37 +14,6 @@ COLORS
     blue: #A8DCD9
     red: #C44D58
 */
-
-/* APP ============================================== APP */
-
-
-.app {
-
-}
-
-h1 {
-  font-family: "St Ryde Bold";
-}
-
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
 
 /* NAVIGATION ===================================== NAVIGATION */
 

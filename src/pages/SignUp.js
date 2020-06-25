@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TopNav from '../../components/TopNav/TopNav';
-import './SignUp.css';
+import TopNav from '../components/TopNav';
+import '../styles/Pages.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import logo from '../../assets/images/salon-icon-red.svg'
+import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Footer from '../../components/Footer/Footer'
+import Footer from '../components//Footer'
 
 
 class SignUp extends Component {

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import './Upload.css';
+import '../styles/Pages.css';
 // import Jumbotron from 'react-bootstrap/Jumbotron';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import logo from '/../../assets/images/salon-icon-white.svg';
 // import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
-import Navigation from '../../components/Navigation/Navigation';
-import Footer from '../../components/Footer/Footer';
-import UploadProjectForm from '../../components/UploadProjectForm/UploadProjectForm';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import UploadProjectForm from '../components/UploadProjectForm';
 
 
 class Upload extends Component {
