@@ -8,6 +8,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class UploadProjectForm extends Component {
+    
+
     constructor() {
         super()
         // initial state
@@ -63,10 +65,11 @@ class UploadProjectForm extends Component {
 
     render() {
         return (
-            <div className="upload-project-form">
+
+            <div className="page">
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
-                    <h1>add to your gallery</h1>
+                    <div className="page page-title">add to your gallery</div>
                         <Form.Group>    
                             <Form.Control
                                 onChange={this.handleChange("projectTitle")}
@@ -77,28 +80,25 @@ class UploadProjectForm extends Component {
                                 // value={this.state.lastName}
                                 id="project-image-input" type="text" placeholder="image" />
                             
-                            <Form.Group>
                                 <Form>
-                                <Form.File 
-                                    id="custom-file"
-                                    label="Custom file input"
-                                    custom
-                                />
+                                    <Form.File 
+                                        id="custom-file"
+                                        label="upload image"
+                                        custom
+                                    />
                                 </Form>
-                            </Form.Group>
 
                             <Form.Control
                                 onChange={this.handleChange("projectCategory")}
                                 // value={this.state.email}
                                 id="project-category-input" type="email" placeholder="category" />
                             
-                            <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Group>
                                 <Form.Control 
                                 onChange={this.handleChange("projectDescription")}
                                 // value={this.state.username})}
                                 id="project-description-input" type="text" as="textarea" rows="3" placeholder="project description">
-                                </Form.Control> 
-                                
+                                </Form.Control>  
                             </Form.Group>
 
                             <Form.Control
@@ -114,17 +114,24 @@ class UploadProjectForm extends Component {
                                 // value={this.state.username}
                                 id="project-tags-input" type="text" placeholder="tags (separate by commas)" />
                             
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Control as="select">
+                            <div className="flex-div">
                                 
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <Form.Control className="date-select" as="select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
                                 </Form.Control>
-                            </Form.Group>
                             
+                                <Form.Control className="status-select" as="select" placeholder="status">
+                                    <option hidden>status</option>
+                                    <option>completed</option>
+                                    <option>work in progress</option>
+                                </Form.Control>
+  
+                            </div>
+
                             <Form.Control
                                 onChange={this.handleChange("projectYear")}
                                 // value={this.state.password}
@@ -134,19 +141,14 @@ class UploadProjectForm extends Component {
                                 onClick={this.uploadProject}
                                 id="upload-project-button">Upload Project</Button>{' '}
                             </div>
-
                             {/* <div className="text-links">
                             <a href="/">
                                 <p></p>
                             </a>
                         </div> */}
                         </Form.Group>
-                    </div>
-                    
+                        </div>                    
                 </Jumbotron>
-
-
-            
             </div>
         );
     }

@@ -61,10 +61,9 @@ class Upload extends Component {
 
     render() {
         return (
-            <div className="upload">
+            <div className="page">
                 <Navigation />
                 <UploadProjectForm />
-                <div className="fill-screen"></div>
                 <Footer />
             
             </div>

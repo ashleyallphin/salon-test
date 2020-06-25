@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from '../components/TopNav';
-import '../styles/Pages.css';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import logo from '../assets/images/salon-icon-red.svg'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import SignUpForm from '../components/SignUpForm';
+import '../styles/Components.css';
 import Footer from '../components//Footer'
 
 
@@ -56,58 +53,10 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className="signup">
-                
+            <div className="page">
                 <TopNav />
-
-                <Jumbotron fluid className="jumbotron" >
-                    <div className="vertical-center">
-                        <img
-                        alt="Salon Icon"
-                        src={logo}
-                    />{' '}
-                    <h1>sign up</h1>
-                        <Form.Group>    
-                            <Form.Control
-                                onChange={this.handleChange("firstName")}
-                                // value={this.state.firstName}
-                                id="first-name-input" type="text" placeholder="first name" />
-                            <Form.Control
-                                onChange={this.handleChange("lastName")}
-                                // value={this.state.lastName}
-                                id="last-name-input" type="text" placeholder="last name" />
-                            <Form.Control
-                                onChange={this.handleChange("email")}
-                                // value={this.state.email}
-                                id="email-input" type="email" placeholder="email address" />
-                            <Form.Control
-                                onChange={this.handleChange("username")}
-                                // value={this.state.username}
-                                id="username-input" type="text" placeholder="username" />
-                            <Form.Control
-                                onChange={this.handleChange("password")}
-                                // value={this.state.password}
-                                id="password-input" type="password" placeholder="password" />
-                            <div className="buttons">
-                            <Button 
-                                onClick={this.submitSignUp}
-                                id="sign-up-button">Sign Up</Button>{' '}
-                            </div>
-
-                            <div className="text-links">
-                            <a href="/">
-                                <p>return to log in page</p>
-                            </a>
-                        </div>
-                        
-                        </Form.Group>
-
-                    </div>
-                    
-                </Jumbotron>
-
+                    <SignUpForm />
                 <Footer />
-            
             </div>
         );
     }

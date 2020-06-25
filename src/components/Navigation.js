@@ -21,11 +21,11 @@ class Navigation extends Component {
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto navigation-links">
                 
-                <NavLink to="/" classname="navigation-links"
+                <NavLink to="/" className="navigation-links"
                 activeClassName="active">
                     <h6><span>Your Studio</span></h6>
                 </NavLink>
-                <NavLink to="/gallery" classname="navigation-links"
+                <NavLink to="/gallery" className="navigation-links"
                 activeClassName="active">
                     <h6><span>Gallery</span></h6>
                 </NavLink>
