@@ -65,7 +65,8 @@ h6 {
     opacity: 100% !important;
     color: #fff;
     border-bottom: 5px solid #C6D930;
-    padding-bottom: 2px;
+        padding-bottom: 2px;
+
 }
 
 .navbar-toggler {

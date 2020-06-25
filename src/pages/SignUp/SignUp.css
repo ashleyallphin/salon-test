@@ -43,6 +43,10 @@ a:hover {
     padding: 2rem 0 4rem 0;
 }
 
+.vertical-center img {
+    margin-top: 2em;
+}
+
 .jumbotron {
     background: transparent;
     text-align: center;

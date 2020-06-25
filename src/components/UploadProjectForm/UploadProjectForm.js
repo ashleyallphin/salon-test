@@ -12,12 +12,12 @@ class UploadProjectForm extends Component {
         super()
         // initial state
         this.state = {
-            projectName: "",
+            projectTitle: "",
             projectImage: "",
             projectYear: "",
             projectCategory: "",
             projectDescription: "",
-            projectMaterials: "",
+            projectMedium: "",
             projectTags: "",
             projectWorkInProgress: false,
             projectLink: "",
@@ -34,13 +34,17 @@ class UploadProjectForm extends Component {
     // grab data when sign up button is pressed to send to backend
     submitSignUp = event => {
         event.preventDefault();
-        const { firstName, lastName, email, username, password } = this.state
+        const { projectTitle, projectImage, projectCategory, projectDescription, projectMedium, projectTags, projectYear, projectLink, projectWIP } = this.state
         const user = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            username: username,
-            password: password
+            projectTitle: projectTitle,
+            projectImage: projectImage,
+            projectCategory: projectCategory,
+            projectDescription: projectDescription,
+            projectMedium: projectMedium,
+            projectTags: projectTags,
+            projectYear: projectYear,
+            projectLink: projectLink,
+            projectWIP: projectWIP,
         };
         console.log(user);
         fetch("/signup", {
@@ -65,29 +69,70 @@ class UploadProjectForm extends Component {
                     <h1>add to your gallery</h1>
                         <Form.Group>    
                             <Form.Control
-                                onChange={this.handleChange("firstName")}
+                                onChange={this.handleChange("projectTitle")}
                                 // value={this.state.firstName}
-                                id="first-name-input" type="text" placeholder="first name" />
+                                id="project-title-input" type="text" placeholder="title" />
                             <Form.Control
-                                onChange={this.handleChange("lastName")}
+                                onChange={this.handleChange("projectImage")}
                                 // value={this.state.lastName}
-                                id="last-name-input" type="text" placeholder="last name" />
+                                id="project-image-input" type="text" placeholder="image" />
+                            
+                            <Form.Group>
+                                <Form>
+                                <Form.File 
+                                    id="custom-file"
+                                    label="Custom file input"
+                                    custom
+                                />
+                                </Form>
+                            </Form.Group>
+
                             <Form.Control
-                                onChange={this.handleChange("email")}
+                                onChange={this.handleChange("projectCategory")}
                                 // value={this.state.email}
-                                id="email-input" type="email" placeholder="email address" />
+                                id="project-category-input" type="email" placeholder="category" />
+                            
+                            <Form.Group controlId="exampleForm.ControlTextarea1">
+                                <Form.Control 
+                                onChange={this.handleChange("projectDescription")}
+                                // value={this.state.username})}
+                                id="project-description-input" type="text" as="textarea" rows="3" placeholder="project description">
+                                </Form.Control> 
+                                
+                            </Form.Group>
+
                             <Form.Control
-                                onChange={this.handleChange("username")}
-                                // value={this.state.username}
-                                id="username-input" type="text" placeholder="username" />
-                            <Form.Control
-                                onChange={this.handleChange("password")}
+                                onChange={this.handleChange("projectMedium")}
                                 // value={this.state.password}
-                                id="password-input" type="password" placeholder="password" />
+                                id="project-medium-input" type="password" placeholder="medium" />
+                            <Form.Control
+                                onChange={this.handleChange("projectLink")}
+                                // value={this.state.email}
+                                id="project-link-input" type="email" placeholder="URL" />
+                            <Form.Control
+                                onChange={this.handleChange("projectTags")}
+                                // value={this.state.username}
+                                id="project-tags-input" type="text" placeholder="tags (separate by commas)" />
+                            
+                            <Form.Group controlId="exampleForm.ControlSelect1">
+                                <Form.Control as="select">
+                                
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </Form.Control>
+                            </Form.Group>
+                            
+                            <Form.Control
+                                onChange={this.handleChange("projectYear")}
+                                // value={this.state.password}
+                                id="project-year-input" type="password" placeholder="year" />
                             <div className="buttons">
                             <Button 
                                 onClick={this.uploadProject}
-                                id="sign-up-button">Display Project</Button>{' '}
+                                id="upload-project-button">Upload Project</Button>{' '}
                             </div>
 
                             {/* <div className="text-links">

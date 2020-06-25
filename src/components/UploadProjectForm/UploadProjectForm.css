@@ -35,13 +35,12 @@ a:hover {
 }
 
 .upload-project-form h1 {
-    font-size: 6vw;
+    font-size: calc(4vw + 2em);
     color: #566271;
 }
 
 .vertical-center {
     margin:auto;
-    padding: 2rem 0 4rem 0;
 }
 
 .jumbotron {
@@ -57,19 +56,14 @@ a:hover {
     margin-bottom: 4px;
 } */
 
-.footer {
-    background-color: #F26A21;
-    font-family: "St Ryde Bold";
-    color: #fff;
-    padding: .75vh;
+.form {
+    margin: 0;
+    padding: 0;
 }
 
-.footer a {
-    color: #fff;
-}
-
-.form-group {
-    margin: 2vw auto;
+.form-group,
+.custom-file-input {
+    margin: 0 auto;
     font-family: "St Ryde Light Italic";
     color: #566271;
     line-height: 1.5;
@@ -81,8 +75,8 @@ a:hover {
     display: block;
 }
 
-.form-control {
-    margin-bottom: 2vh;
+.form-control,
+.custom-file-input {
     height: 5vh;
     min-height: 1.5rem;
     font-size: 2vh !important;
@@ -92,22 +86,32 @@ a:hover {
     display: flex;
 }
 
-#first-name-input,
-#username-input {
-    margin-right: 1vh;
-}
-
-.form-control:focus, .form-control:active, .form-control:focus-within, .btn:hover, .btn:focus, .btn:active,
-.btn:active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, btn:focus-within {
-    border: 1px solid #78828f;
-    box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
+.form-control:focus,
+.form-control:active,
+.form-control:focus-within,
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+btn:focus-within,
+.custom:focus
+.custom-file-input:focus,
+.custom-file-input:active,
+.custom-file:focus,
+.custom-file:active,
+#custom-file:active,
+#custom-file:focus {
+    border: 1px solid #78828f !important;
+    box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25) !important;
+    outline: none !important;
 }
 
 .btn:hover {
     background-color: #3E4854 !important;   
 }
 
-#sign-up-button {
+#upload-project-button {
     background-color: #566271 ;
     border: none !important;
     height: 5vh;
@@ -115,6 +119,8 @@ a:hover {
     line-height: 5vh;
     padding: 0;
     margin: 0;
+    width: 100%;
+    font-family: "St Ryde Medium";
 }
 
 .text-links {

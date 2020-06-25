@@ -4,7 +4,7 @@ const { ObjectId } = mongoose.Schema;
 
 // mongoose create schema method
 const projectSchema = new mongoose.Schema ({
-    projectName: {
+    projectTitle: {
         type: String,
         required: true,
     },
@@ -20,7 +20,7 @@ const projectSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    projectMaterials: {
+    projectMedium: {
         type: String,
         required: true
     },
