@@ -11,8 +11,8 @@ class Navigation extends Component {
     render() {
         return (
 
-            <div className="navigation">    
-            <Navbar collapseOnSelect className="navbar functional-navigation" expand="lg">
+            <div className="functional-navigation">    
+            <Navbar collapseOnSelect className="navbar" expand="lg">
             <Navbar.Brand href="/">
                 <img src={logo}
                 alt="Salon logo"></img>

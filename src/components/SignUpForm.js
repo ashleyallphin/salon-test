@@ -5,9 +5,6 @@ import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-
-
-
 class SignUpForm extends Component {
     constructor() {
         super()
@@ -56,10 +53,10 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div className="page">
+            <div className="component">
 
                 <Jumbotron fluid className="jumbotron" >
-                    <div className="vertical-center">
+                    <div className="vertical-center ">
                         <img
                         alt="Salon Icon"
                         src={logo}
@@ -100,12 +97,10 @@ class SignUpForm extends Component {
                         </div>
                         
                         </Form.Group>
-
                     </div>
                     
+                    
                 </Jumbotron>
-
-
             
             </div>
         );

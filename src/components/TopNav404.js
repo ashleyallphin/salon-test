@@ -5,12 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import '../styles/Components.css';
 import logo from '../assets/images/salon-wordmark-white.svg';
 
-class TopNav extends Component {
+class TopNav404 extends Component {
 
     render() {
         return (
 
-        <div className="top-nav">    
+        <div className="top-nav nav-404">    
             <Navbar collapseOnSelect className="navbar" expand="lg">
             <Navbar.Brand href="/">
                 <img src={logo}
@@ -22,4 +22,4 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav;
+export default TopNav404;

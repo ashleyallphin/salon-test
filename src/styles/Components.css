@@ -17,6 +17,11 @@ COLORS
 
 /* GLOBAL ============================================ GLOBAL */
 
+.component {
+    background-color: #A8DCD9;
+    width: 100vw;
+}
+
 .page-title {
   font-family: "St Ryde Bold";
   font-size: calc(3vw + 1.5em);
@@ -28,6 +33,12 @@ h1 {
   font-family: "St Ryde Bold";
   font-size: calc(4vw + 2em);
   color: #566271;
+}
+
+h5 {
+  font-family: "St Ryde Medium";
+  font-size: .25em;
+  line-height: 1.5;
 }
 
 h6 {
@@ -86,24 +97,40 @@ a:hover {
   min-height: 1.5rem;
 }
 
-/* NAVIGATION ===================================== NAVIGATION */
+.flex-grow {
+  height: 200px;
+  min-height: 1px;
+  flex-grow: 1;
+}
 
-.functional-navigation {
-  padding: 0 .5em 0 2em;;
-  background-color: #F26A21 !important;
+/* FUNCTIONAL NAVIGATION & TOP NAV ============  */
+
+.navbar {
+  padding: 0;
+}
+
+.functional-navigation,
+.top-nav {
+  background-color: #F26A21;
   border-bottom: 5px solid white;
-  margin-bottom: 1em;
+}
+
+.nav-404 {
+  background-color: #C6D930;
+}
+
+.functional-navigation img,
+.top-nav img {
+  height: 3.75vh;
+  min-height: 30px;
+}
+
+.top-nav img {
+  opacity: 50%;
 }
 
 .functional-navigation a {
   color: #fff;
-}
-
-.functional-navigation img {
-  height: 3.75vh;
-  min-height: 30px;
-  margin: .6em 0em .75em 0;
-  opacity: 100% !important;
 }
 
 .nav-link {
@@ -113,7 +140,7 @@ a:hover {
   max-height: calc(.5 * 3);
 }
 
-.navigation h6 span:hover {
+.functional-navigation h6 span:hover {
   padding-bottom: 2px;
   border-bottom: 5px solid #C6D930;
 }
@@ -122,11 +149,10 @@ a:hover {
   opacity: 100% !important;
   color: #fff;
   border-bottom: 5px solid #C6D930;
-      padding-bottom: 2px;
+  padding-bottom: 2px;
 }
 
 .navbar-toggler {
-  margin: 1vh;
   border: none;
 }
 
@@ -142,32 +168,6 @@ a:hover {
   outline: none !important;
   border: none !important;
   box-shadow: 0 0 0 0.2rem rgba(75, 86, 99, .25) !important;
-}
-
-/* TOPNAV ============================================ TOPNAV */
-
-.top-nav {
-  padding: 0 .5em 0 2em;;
-  background-color: #F26A21 !important;
-  border-bottom: 5px solid white;
-  margin-bottom: 2em;
-}
-
-.top-nav a {
-  opacity: 100% !important;
-}
-
-.top-nav img {
-  height: 3.75vh;
-  min-height: 30px;
-  margin: .6em 0em .75em 0;
-  opacity: 100% !important;
-}
-
-
-.navigation text:hover {
-  opacity: 100% !important;
-  border-bottom: 5px solid #C6D930;
 }
 
 
@@ -198,13 +198,11 @@ a:hover {
 
 /* LOG IN ============================ LOG IN */
 
+.login-form {
+}
 
 .form-group p {
   display: block;
-}
-
-.buttons {
-  display: flex;
 }
 
 #log-in-button,
@@ -245,6 +243,7 @@ a:hover {
   color: #3E4854;
 }
 
+
 /* UPLOAD PROJECT FORM ============================ UPLOAD PROJECT FORM */
 
 .upload-project-form {
@@ -262,9 +261,9 @@ a:hover {
 .jumbotron {
   background: transparent;
   text-align: center;
-  display: flex;
   padding: 0;
   margin-bottom: 0;
+  flex-grow: 1;
 }
 
 #upload-project-button,
@@ -280,7 +279,7 @@ a:hover {
 }
 
 .form-check-input {
- height: 100%; 
+  height: 100%; 
 }
 
 .status-select {
@@ -297,10 +296,9 @@ a:hover {
   background-color: #F26A21;
   font-family: "St Ryde Bold";
   color: #fff;
-  font-size: calc(2vh + 1.25em);
-  line-height: 2;
+  font-size: calc(2vh + 1rem);
+  line-height: 1.5;
   border-top: 5px solid #fff;
-  margin-top: 1em;
 }
 
 .footer a:hover,
@@ -309,14 +307,13 @@ a:hover {
   text-decoration: none;
 }
 
-.footer {
-  background-color: #F26A21;
-  font-family: "St Ryde Bold";
-  color: #fff;
+.footer-404 {
+  background-color: #C6D930;
 }
 
-.footer a
-{
+.footer a {
   opacity: 50%;
   color: #fff;
 }
+
+

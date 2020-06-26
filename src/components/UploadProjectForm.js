@@ -66,32 +66,32 @@ class UploadProjectForm extends Component {
     render() {
         return (
 
-            <div className="page">
+            <div className="component">
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
                     <div className="page page-title">add to your gallery</div>
-                        <Form.Group>    
+                        <Form.Group>
+
                             <Form.Control
                                 onChange={this.handleChange("projectTitle")}
                                 // value={this.state.firstName}
                                 id="project-title-input" type="text" placeholder="title" />
-                            <Form.Control
-                                onChange={this.handleChange("projectImage")}
-                                // value={this.state.lastName}
-                                id="project-image-input" type="text" placeholder="image" />
                             
                                 <Form>
                                     <Form.File 
-                                        id="custom-file"
-                                        label="upload image"
-                                        custom
+                                    onChange={this.handleChange("projectImage")}
+                                    id="custom-file"
+                                    label="upload image"
+                                    custom
                                     />
                                 </Form>
 
-                            <Form.Control
-                                onChange={this.handleChange("projectCategory")}
-                                // value={this.state.email}
-                                id="project-category-input" type="email" placeholder="category" />
+                                <Form.Control className="" as="select" placeholder="status">
+                                    <option hidden>category</option>
+                                    <option>visual arts</option>
+                                    <option>literary arts</option>
+                                    <option>performance arts</option>
+                                </Form.Control>
                             
                             <Form.Group>
                                 <Form.Control 
@@ -117,11 +117,7 @@ class UploadProjectForm extends Component {
                             <div className="flex-div">
                                 
                                 <Form.Control className="date-select" as="select">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option hidden>year</option>
                                 </Form.Control>
                             
                                 <Form.Control className="status-select" as="select" placeholder="status">
@@ -132,10 +128,6 @@ class UploadProjectForm extends Component {
   
                             </div>
 
-                            <Form.Control
-                                onChange={this.handleChange("projectYear")}
-                                // value={this.state.password}
-                                id="project-year-input" type="password" placeholder="year" />
                             <div className="buttons">
                             <Button 
                                 onClick={this.uploadProject}

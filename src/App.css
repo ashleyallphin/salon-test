@@ -14,3 +14,11 @@ COLORS
     blue: #A8DCD9
     red: #C44D58
 */
+
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}

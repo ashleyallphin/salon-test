@@ -5,9 +5,6 @@ import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-
-
-
 class LogInForm extends Component {
     constructor() {
         super()
@@ -51,9 +48,8 @@ class LogInForm extends Component {
 
     render() {
         return (
-            <div className="page">
+            <div className="component">
                 
-
                 <Jumbotron fluid className="jumbotron" >
                         <div className="vertical-center">
                             <img
@@ -69,7 +65,7 @@ class LogInForm extends Component {
                                 <p>forgot password?</p>
                             </a>
                             </div>
-                            <div className="buttons">
+                            <div className="flex-div">
                                 <Button href="/login" id="log-in-button">Log In</Button>{' '}
                                 <Button href="/signup"  id="sign-up-link-button">Sign Up</Button>{' '}
 
@@ -77,8 +73,6 @@ class LogInForm extends Component {
                         </Form.Group>
                         </div>
                     </Jumbotron>
-
-
             
             </div>
         );

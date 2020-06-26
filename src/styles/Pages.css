@@ -35,8 +35,12 @@ red: #C44D58
 }
 
 .vertical-center img {
+    margin-top: 0;
 }
 
+.div-grow {
+    flex-grow: 1;
+}
 
 .jumbotron {
     background: transparent;
@@ -44,7 +48,6 @@ red: #C44D58
     display: flex;
     padding: 0;
     margin-bottom: 0;
-    flex-grow: 1;
 }
 
 .jumbotron img {
@@ -60,3 +63,5 @@ red: #C44D58
 
 
 /* UPLOAD ====================================================== UPLOAD */
+
+/* 404 ====================================================== 404 */

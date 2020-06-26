@@ -6,12 +6,13 @@ import Footer from '../components/Footer'
 
 class LogIn extends Component {
 
+    
     render() {
         return (
             <div className="page">
-                <TopNav />
+                    <TopNav />
                     <LogInForm />
-                <Footer />
+                    <Footer />
             </div>
         );
     }

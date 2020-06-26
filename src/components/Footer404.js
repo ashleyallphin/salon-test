@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
-class Footer extends Component {
+class Footer404 extends Component {
 
     render() {
         return (
-                <div className="footer text-center">
+                <div className="footer text-center footer-404">
                     <a
                         href="https://github.com/ashleyallphin/"
                         target="_blank"
@@ -21,4 +21,4 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+export default Footer404;
