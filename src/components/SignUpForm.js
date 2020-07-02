@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class SignUpForm extends Component {
+
     constructor() {
         super()
         // initial state
@@ -41,7 +42,7 @@ class SignUpForm extends Component {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                dataType: "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         })
