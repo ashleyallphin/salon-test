@@ -196,6 +196,14 @@ a:hover {
   display: flex;
 }
 
+.form-message {
+  font-family: "St Ryde bold";
+  margin-top: 2vh;
+  font-size: calc(2vh + 5px);
+  text-align: left;
+  color: #3E4854;
+}
+
 /* LOG IN ============================ LOG IN */
 
 .login-form {

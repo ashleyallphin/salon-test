@@ -69,6 +69,7 @@ class SignUpForm extends Component {
     };
 
     render() {
+
         return (
             <div className="component">
 
@@ -79,27 +80,32 @@ class SignUpForm extends Component {
                         src={logo}
                     />{' '}
                     <h1>sign up</h1>
+                        
+                        <p className="form-message text-center">
+                            { this.state.error }
+                        </p>
+
                         <Form.Group>   
                             
                             <Form.Control
                                 onChange={this.handleChange("firstName")}
-                                // value={this.state.firstName}
+                                value={this.state.firstName}
                                 id="first-name-input" type="text" placeholder="first name" />
                             <Form.Control
                                 onChange={this.handleChange("lastName")}
-                                // value={this.state.lastName}
+                                value={this.state.lastName}
                                 id="last-name-input" type="text" placeholder="last name" />
                             <Form.Control
                                 onChange={this.handleChange("email")}
-                                // value={this.state.email}
+                                value={this.state.email}
                                 id="email-input" type="email" placeholder="email address" />
                             <Form.Control
                                 onChange={this.handleChange("username")}
-                                // value={this.state.username}
+                                value={this.state.username}
                                 id="username-input" type="text" placeholder="username" />
                             <Form.Control
                                 onChange={this.handleChange("password")}
-                                // value={this.state.password}
+                                value={this.state.password}
                                 id="password-input" type="password" placeholder="password" />
                             <div className="buttons">
                             <Button 
