@@ -60,7 +60,7 @@ exports.signOut = (req, res) => {
     return res.json({ message: 'Sign out successful.'})
 };
 
-exports.restrictRouteAccess = expressJwt({
+exports.restrictedRouteAccess = expressJwt({
     // if the token is valide, express-jwt appends the verified user's id in an auth key to request object
     secret: process.env.JWT_SECRET, 
     userProperty: "auth"

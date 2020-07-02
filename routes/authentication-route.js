@@ -6,14 +6,14 @@ const { getUserById } = require('../controllers/user-controller');
 // const { getUserByUsername } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
 const { userSignUpValidator } = require ('../validator');
-// const { restrictRouteAccess } = require('../controllers/authentication-controller');
+// const { restrictedRouteAccess } = require('../controllers/authentication-controller');
 
 
 // use express router
 const router = express.Router();
 
 // hand over to controller
-// router.get('/users', restrictRouteAccess, getSingleUsers);
+// router.get('/users', restrictedRouteAccess, getSingleUsers);
 
 // post to backend from frontend
 // before creating the post, run middleware to validate user sign up fields meet specified criteria

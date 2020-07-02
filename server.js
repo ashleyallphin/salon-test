@@ -29,7 +29,7 @@ const userRoutes = require("./routes/user-route");
 // DATABASE
 // ================================================
 // If deployed, use the deployed database. Otherwise, use the 'salon' database on localhost.
-var db = process.env.MONGODB_URI || "mongodb://localhost/salondb";
+var db = process.env.MONGODB_URI
 
 mongoose.connect(db)
 .then(() => console.log(`Successfully connected to MongoDB.`.x206 + 
