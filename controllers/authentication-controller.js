@@ -13,7 +13,7 @@ exports.signUp = async (req, res) => {
     const usernameExists = await User.findOne({ username: req.body.username})
 
     if (emailExists) return res.status(403).json({ 
-        error: "This email address is already assigned to a registered user."
+        error: "This email address is assigned to an existing user."
     })
     if (usernameExists) return res.status(403).json({
         error: "A fellow artist is already using this username."
@@ -21,7 +21,7 @@ exports.signUp = async (req, res) => {
     //if no error, create user
     const user = await new User (req.body)
     await user.save()
-        res.status(200).json({ message: "You've joined Salon! Please log in to your account."})
+        res.status(200).json({ message: "You've joined Salon! Please log in to your account to continue."})
 };
 
 exports.logIn = (req, res) => {

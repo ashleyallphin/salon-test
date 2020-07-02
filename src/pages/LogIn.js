@@ -11,7 +11,7 @@ class LogIn extends Component {
         return (
             <div className="page">
                     <TopNav />
-                    <LogInForm />
+                        <LogInForm />
                     <Footer />
             </div>
         );

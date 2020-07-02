@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class SignUpForm extends Component {
-
     constructor() {
         super()
         // initial state
@@ -29,7 +28,7 @@ class SignUpForm extends Component {
     // grab data when sign up button is pressed to send to backend
     submitSignUp = event => {
         event.preventDefault();
-        const { firstName, lastName, email, username, password } = this.state
+        const { firstName, lastName, email, username, password } = this.state;
         const user = {
             firstName: firstName,
             lastName: lastName,
@@ -38,7 +37,24 @@ class SignUpForm extends Component {
             password: password
         };
         console.log(user);
-        fetch("/signup", {
+        this.signUp(user)
+        .then(data => {
+            // sets the errors as data so we can return it to the client
+            if(data.error) this.setState({ error: data.error });
+                else
+                    this.setState({
+                        error: "",
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        username: "",
+                        password: ""
+                    });
+        });
+    };
+
+    signUp = (user) => {
+        return fetch("/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -47,9 +63,9 @@ class SignUpForm extends Component {
             body: JSON.stringify(user)
         })
         .then(response => {
-            return response.json()
+            return response.json();
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     };
 
     render() {
@@ -105,7 +121,7 @@ class SignUpForm extends Component {
             
             </div>
         );
-    }
+    };
 }
 
 export default SignUpForm;

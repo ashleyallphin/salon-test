@@ -37,7 +37,7 @@ class UploadProjectForm extends Component {
     submitSignUp = event => {
         event.preventDefault();
         const { projectTitle, projectImage, projectCategory, projectDescription, projectMedium, projectTags, projectYear, projectLink, projectWIP } = this.state
-        const user = {
+        const project = {
             projectTitle: projectTitle,
             projectImage: projectImage,
             projectCategory: projectCategory,
@@ -48,14 +48,14 @@ class UploadProjectForm extends Component {
             projectLink: projectLink,
             projectWIP: projectWIP,
         };
-        console.log(user);
+        console.log(project);
         fetch("/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                dataType: "application/json"
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(project)
         })
         .then(response => {
             return response.json()
