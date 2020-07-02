@@ -27,6 +27,7 @@ exports.createPostValidator = (req, res, next) => {
 exports.userSignUpValidator = (req, res, next) => {
 // FIRST NAME VALIDATIONS ----------------------------------------------------------
     // not empty
+    console.log(req.body)
     req.check('firstName', "First name is required.").notEmpty();
     // allows alphanumeric, hyphens, spaces
     // req.check('firstName', "First name contains invalid character.").matches();

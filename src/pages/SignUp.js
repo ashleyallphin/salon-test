@@ -41,7 +41,7 @@ class SignUp extends Component {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                dataType: "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         })

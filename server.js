@@ -48,9 +48,9 @@ app.use(cookieParser());
 // validator for content posts
 app.use(expressValidator());
 // ues getPosts function from routes/post-route.js
-app.use("/", postRoutes);
-app.use("/", userRoutes);
-app.use("/", authRoutes);
+app.use(postRoutes);
+app.use(userRoutes);
+app.use(authRoutes);
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
     res.status(401).json('error: Please sign in to Salon to access this content.');
@@ -61,7 +61,7 @@ app.use(function (err, req, res, next) {
 // LISTEN
 // ================================================
 //set up port -- deployed port or localhost 8080
-var PORT = process.env.PORT || 8080;
+var PORT = 8080
 app.listen(PORT, () => {
     console.log(`\nApp listening on `.x81 + `http://localhost:${PORT}`.x226.underline);
 });
