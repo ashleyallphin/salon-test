@@ -196,18 +196,7 @@ a:hover {
   display: flex;
 }
 
-.form-message {
-  font-family: "St Ryde bold";
-  margin-top: 2vh;
-  font-size: calc(2vh + 5px);
-  text-align: left;
-  color: #3E4854;
-}
-
 /* LOG IN ============================ LOG IN */
-
-.login-form {
-}
 
 .form-group p {
   display: block;
@@ -248,6 +237,22 @@ a:hover {
 }
 
 .text-links a p:hover {
+  color: #3E4854;
+}
+
+.form-message-error {
+  font-family: "St Ryde bold";
+  margin-top: 2vh;
+  font-size: calc(2vh + 5px);
+  text-align: left;
+  color: #C44D58;
+}
+
+.form-message-success {
+  font-family: "St Ryde bold";
+  margin-top: 2vh;
+  font-size: calc(2vh + 5px);
+  text-align: left;
   color: #3E4854;
 }
 

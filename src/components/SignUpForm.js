@@ -15,12 +15,15 @@ class SignUpForm extends Component {
             email: "",
             username: "",
             password: "",
-            error: ""
+            error: "",
+            welcome: true,
+            success: false
         }
     };
 
     // record values of input fields
     handleChange = (name) => (event) => {
+        this.setState({error: ""});
         // array syntax -- will dynamically pick up values for all fields
         this.setState({ [name]: event.target.value })
     };
@@ -40,6 +43,7 @@ class SignUpForm extends Component {
         this.signUp(user)
         .then(data => {
             // sets the errors as data so we can return it to the client
+            // sets the success state to true to show the sign up confirmation message
             if(data.error) this.setState({ error: data.error });
                 else
                     this.setState({
@@ -48,7 +52,9 @@ class SignUpForm extends Component {
                         lastName: "",
                         email: "",
                         username: "",
-                        password: ""
+                        password: "",
+                        success: true,
+                        welcome: false
                     });
         });
     };
@@ -68,7 +74,48 @@ class SignUpForm extends Component {
         .catch(err => console.log(err));
     };
 
+    signUpInputFields = ( firstName, lastName, email, username, password) => (
+
+        <Form.Group>   
+            <h1 className="text-center">sign up</h1>            
+            <Form.Control
+                onChange={this.handleChange("firstName")}
+                value={this.state.firstName}
+                id="first-name-input" type="text" placeholder="first name" />
+            <Form.Control
+                onChange={this.handleChange("lastName")}
+                value={this.state.lastName}
+                id="last-name-input" type="text" placeholder="last name" />
+            <Form.Control
+                onChange={this.handleChange("email")}
+                value={this.state.email}
+                id="email-input" type="email" placeholder="email address" />
+            <Form.Control
+                onChange={this.handleChange("username")}
+                value={this.state.username}
+                id="username-input" type="text" placeholder="username" />
+            <Form.Control
+                onChange={this.handleChange("password")}
+                value={this.state.password}
+                id="password-input" type="password" placeholder="password" />
+            <div className="buttons">
+            <Button 
+                onClick={this.submitSignUp}
+                id="sign-up-button">Sign Up</Button>{' '}
+            </div>
+
+            <div className="text-links">
+            <a href="/">
+                <p>return to log in page</p>
+            </a>
+        </div>
+        
+        </Form.Group>
+    );
+
     render() {
+
+        const { firstName, lastName, email, username, password, error, success, welcome } = this.state;
 
         return (
             <div className="component">
@@ -79,53 +126,32 @@ class SignUpForm extends Component {
                         alt="Salon Icon"
                         src={logo}
                     />{' '}
-                    <h1>sign up</h1>
-                        
-                        <p className="form-message text-center">
-                            { this.state.error }
+
+                        <p
+                            className="form-message-error text-center"
+                            style={{ display: error ? "" : "none"}} >
+                                { error }
                         </p>
 
-                        <Form.Group>   
-                            
-                            <Form.Control
-                                onChange={this.handleChange("firstName")}
-                                value={this.state.firstName}
-                                id="first-name-input" type="text" placeholder="first name" />
-                            <Form.Control
-                                onChange={this.handleChange("lastName")}
-                                value={this.state.lastName}
-                                id="last-name-input" type="text" placeholder="last name" />
-                            <Form.Control
-                                onChange={this.handleChange("email")}
-                                value={this.state.email}
-                                id="email-input" type="email" placeholder="email address" />
-                            <Form.Control
-                                onChange={this.handleChange("username")}
-                                value={this.state.username}
-                                id="username-input" type="text" placeholder="username" />
-                            <Form.Control
-                                onChange={this.handleChange("password")}
-                                value={this.state.password}
-                                id="password-input" type="password" placeholder="password" />
-                            <div className="buttons">
-                            <Button 
-                                onClick={this.submitSignUp}
-                                id="sign-up-button">Sign Up</Button>{' '}
-                            </div>
+                        <p
+                            className="form-message-success text-center"
+                            style={{ display: success ? "" : "none"}}>
+                                <h1>oui!</h1>
+                                You've joined Salon! Please log in to your account to continue.
+                        </p>
 
-                            <div className="text-links">
-                            <a href="/">
-                                <p>return to log in page</p>
-                            </a>
-                        </div>
                         
-                        </Form.Group>
                     </div>
                     
                     
                 </Jumbotron>
+
+                {/* renders form from above */}
+                {this.signUpInputFields( firstName, lastName, email, username, password)}
             
             </div>
+
+
         );
     };
 }
