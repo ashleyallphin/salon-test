@@ -39,8 +39,7 @@ class SignUpForm extends Component {
             password: password
         };
         console.log(user);
-        this.signUp(user)
-        .then(data => {
+        this.signUp(user).then(data => {
             // sets the errors as data so we can return it to the client
             // sets the success state to true to show the sign up confirmation message
             if(data.error) this.setState({ error: data.error });
@@ -126,18 +125,18 @@ class SignUpForm extends Component {
                     />{' '}
                     <h1>sign up</h1>
                         
-                        <p
+                        <div
                             className="form-message-error text-center"
                             style={{ display: error ? "" : "none"}}>    
                                 { error }
-                        </p>
+                        </div>
 
-                        <p
+                        <div
                             className="form-message-success text-center"
                             style={{ display: success ? "" : "none"}}>
                                 <h1>oui!</h1>    
                                 You've joined Salon. Please log in to your account to continue.
-                        </p>
+                        </div>
 
                         
                     </div>
