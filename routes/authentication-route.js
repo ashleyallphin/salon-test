@@ -19,7 +19,7 @@ const router = express.Router();
 // before creating the post, run middleware to validate user sign up fields meet specified criteria
 // sign up page
 router.post('/signup', userSignUpValidator, signUp);
-// sign in page
+// log in page
 router.post("/logIn", logIn);
 //sign out page
 router.get('/signout', signOut);

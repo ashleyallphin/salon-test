@@ -53,7 +53,7 @@ app.use(userRoutes);
 app.use(authRoutes);
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
-    res.status(401).json('error: Please sign in to Salon to access this content.');
+    res.status(401).json('error: Please log in to Salon to access this content.');
     }
     });
 

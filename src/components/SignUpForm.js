@@ -16,7 +16,6 @@ class SignUpForm extends Component {
             username: "",
             password: "",
             error: "",
-            welcome: true,
             success: false
         }
     };
@@ -53,8 +52,7 @@ class SignUpForm extends Component {
                         email: "",
                         username: "",
                         password: "",
-                        success: true,
-                        welcome: false
+                        success: true
                     });
         });
     };
@@ -77,7 +75,7 @@ class SignUpForm extends Component {
     signUpInputFields = ( firstName, lastName, email, username, password) => (
 
         <Form.Group>   
-            <h1 className="text-center">sign up</h1>            
+                            
             <Form.Control
                 onChange={this.handleChange("firstName")}
                 value={this.state.firstName}
@@ -115,7 +113,7 @@ class SignUpForm extends Component {
 
     render() {
 
-        const { firstName, lastName, email, username, password, error, success, welcome } = this.state;
+        const { firstName, lastName, email, username, password, error, success } = this.state;
 
         return (
             <div className="component">
@@ -126,18 +124,19 @@ class SignUpForm extends Component {
                         alt="Salon Icon"
                         src={logo}
                     />{' '}
-
+                    <h1>sign up</h1>
+                        
                         <p
                             className="form-message-error text-center"
-                            style={{ display: error ? "" : "none"}} >
+                            style={{ display: error ? "" : "none"}}>    
                                 { error }
                         </p>
 
                         <p
                             className="form-message-success text-center"
                             style={{ display: success ? "" : "none"}}>
-                                <h1>oui!</h1>
-                                You've joined Salon! Please log in to your account to continue.
+                                <h1>oui!</h1>    
+                                You've joined Salon. Please log in to your account to continue.
                         </p>
 
                         

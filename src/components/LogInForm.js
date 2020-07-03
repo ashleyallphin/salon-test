@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Redirect } from 'react-router-dom'
 
 class LogInForm extends Component {
     constructor() {
@@ -12,71 +13,131 @@ class LogInForm extends Component {
         this.state = {
             username: "",
             password: "",
-            error: ""
+            error: "",
+            redirectToReferer: false
         }
     };
 
     // record values of input fields
     handleChange = (name) => (event) => {
+        this.setState({error: ""});
         // array syntax -- will dynamically pick up values for all fields
         this.setState({ [name]: event.target.value })
     };
 
-    // grab data when sign up button is pressed to send to backend
-    submitSignUp = event => {
-        event.preventDefault();
-        const { firstName, lastName, email, username, password } = this.state
-        const user = {
+    // authenticate method to send token and set redirect value to true
+    authenticate (jwt, cb) {
+        if(typeof window !== "undefined") {
+            localStorage.setItem( "jwt", JSON.stringify(jwt) );
+            cb();
+        }
+    }
 
+    // grab data when sign up button is pressed to send to backend
+    submitLogIn = event => {
+        event.preventDefault();
+        const { username, password } = this.state;
+        const user = {
             username: username,
             password: password
         };
         console.log(user);
-        fetch("/signup", {
+        this.logIn(user)
+        .then(data => {
+            // sets the errors as data so we can return it to the client
+            // sets the success state to true to show the sign up confirmation message
+            if(data.error) this.setState({ error: data.error });
+                // if the user successfully logs in, redirect
+                else {
+                    // check credentials + callback function
+                    this.authenticate(data, () => {
+                        // redirect if successful log in
+                        this.setState({ redirectToReferer:true })
+                    })
+                }
+        });
+    };
+
+    logIn = (user) => {
+        return fetch("/login", {
             method: "POST",
             headers: {
                 Accept: "application/json",
-                dataType: "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         })
         .then(response => {
-            return response.json()
+            return response.json();
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     };
 
-    render() {
-        return (
-            <div className="component">
-                
-                <Jumbotron fluid className="jumbotron" >
-                        <div className="vertical-center">
-                            <img
-                            alt="Salon Icon"
-                            src={logo}
-                            />{' '}
-                        <h1>bonjour</h1>
-                        <Form.Group>
-                            <Form.Control type="text" placeholder="username" />
-                            <Form.Control type="text" placeholder="password" />
-                            <div className="text-links">
-                            <a href="/">
-                                <p>forgot password?</p>
-                            </a>
-                            </div>
-                            <div className="flex-div">
-                                <Button href="/login" id="log-in-button">Log In</Button>{' '}
-                                <Button href="/signup"  id="sign-up-link-button">Sign Up</Button>{' '}
+    LogInInputFields = ( username, password ) => (
 
-                            </div>
-                        </Form.Group>
-                        </div>
-                    </Jumbotron>
+        <Form.Group>   
+                            
+            <Form.Control
+                onChange={this.handleChange("username")}
+                value={this.state.username}
+                id="username-input" type="username" placeholder="username" />
+
+            <Form.Control
+                onChange={this.handleChange("password")}
+                value={this.state.password}
+                id="password-input" type="password" placeholder="password" />
+
+            <div className="flex-div">
+                
+                <Button onClick={this.submitLogIn} id="log-in-button">Log In</Button>{' '}
+                
+                <Button href="/signup"  id="sign-up-link-button">Sign Up</Button>{' '}
             
             </div>
+
+            <div className="text-links">
+                <a href="/">
+                    <p>forgot password?</p>
+                </a>
+            </div>
+        
+        </Form.Group>
+    );
+
+    render() {
+
+        const { username, password, error } = this.state;
+
+        return (
+            <div className="component">
+
+                <Jumbotron fluid className="jumbotron" >
+                    <div className="vertical-center ">
+                        <img
+                        alt="Salon Icon"
+                        src={logo}
+                    />{' '}
+                    <h1>bonjour</h1>
+                        
+                        <p
+                            className="form-message-error text-center"
+                            style={{ display: error ? "" : "none"}}>    
+                                { error }
+                        </p>
+                        
+                    </div>
+                    
+                    
+                </Jumbotron>
+
+                {/* renders form from above */}
+                {this.LogInInputFields( username, password )}
+            
+            </div>
+
+
         );
-    }
+    };
 }
 
 export default LogInForm;

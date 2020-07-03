@@ -50,7 +50,7 @@ exports.logIn = (req, res) => {
             // return response with user and token to front end
             const { _id, username, firstName, lastName, email } = user;
             // return response to front end
-            return res.json({message: "Sign in successful.", token, user: { _id, username, firstName, lastName, password, email } });
+            return res.json({message: "log in successful.", token, user: { _id, username, firstName, lastName, password, email } });
     });
 };
 
