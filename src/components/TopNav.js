@@ -24,8 +24,17 @@ export const logout = next => {
         .catch(err => console.log(err));
 };
 
-const TopNav = ({ history }) => (
+export const isAuthenticated = () => {
+    if(typeof window == "undefined") {
+        return false
+    } if(localStorage.getItem("jwt")) {
+        return JSON.parse(localStorage.getItem("jwt"))
+    } else {
+        return false
+    }
+}
 
+const TopNav = ({ history }) => (
 
         <div className="top-nav">
             <Navbar collapseOnSelect expand="lg">
@@ -75,7 +84,9 @@ const TopNav = ({ history }) => (
                         <Nav.Link>
                             <NavLink
                                 activeClassName="navbar-active"
-                                className="nav-link" to="/gallery">
+                                className="nav-link"
+                                to={`/studio/${isAuthenticated().user.username}`}
+                            >
                                 Studio
                             </NavLink>
                         </Nav.Link>

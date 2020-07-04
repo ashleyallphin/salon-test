@@ -23,7 +23,6 @@ router.post('/signup', userSignUpValidator, signUp);
 router.post("/logIn", logIn);
 //sign out page
 router.get('/logout', logout);
-
 // make query to database and get user information for any route containing :userId
 router.param("userId", getUserById);
 // router.param("userUsername", getUserByUsername);
