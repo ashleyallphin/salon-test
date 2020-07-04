@@ -8,15 +8,13 @@ import { Redirect } from 'react-router-dom'
 
 class LogInForm extends Component {
     constructor() {
-        super()
+        super();
         // initial state
         this.state = {
-
             username: "",
             password: "",
             error: "",
             redirectToReferer: false
-
         }
     };
 
@@ -27,10 +25,9 @@ class LogInForm extends Component {
         this.setState({ [name]: event.target.value });
     };
 
-    authenticate (jwt, next) {
-        // good practice to make sure window is available
-        if(typeof window !== "undefined") {
-            localStorage.setItem(jwt, JSON.stringify(jwt));
+    authenticate(jwt, next) {
+        if (typeof window !== "undefined") {
+            localStorage.setItem("jwt", JSON.stringify(jwt));
             next();
         }
     }
@@ -40,7 +37,6 @@ class LogInForm extends Component {
         event.preventDefault();
         const { username, password } = this.state;
         const user = {
-
             username: username,
             password: password
         };
@@ -53,7 +49,7 @@ class LogInForm extends Component {
                 // authenticate user
                 this.authenticate(data, () => {
                     // set redirect state to true
-                    this.setState({ redirectToReferer: true })
+                    this.setState({ redirectToReferer: true });
                 });
             };
         });
@@ -136,7 +132,7 @@ class LogInForm extends Component {
                 </Jumbotron>
 
                 {/* renders form from above */}
-                {this.LogInInputFields( username, password)}
+                {this.LogInInputFields( username, password )}
             
             </div>
 

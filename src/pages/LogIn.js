@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopNav from '../components/TopNav';
 import '../styles/Pages.css';
 import LogInForm from '../components/LogInForm';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 
 class LogIn extends Component {
 

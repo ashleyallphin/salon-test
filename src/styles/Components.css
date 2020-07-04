@@ -109,6 +109,11 @@ a:hover {
   padding: 0;
 }
 
+.navbar-active {
+  opacity: 100% !important;
+  background-color: #C6D930 !important;
+  }
+
 .functional-navigation,
 .top-nav {
   background-color: #F26A21;
@@ -138,6 +143,9 @@ a:hover {
   font-size: calc(.5em + 13px);
   color: #fff !important;
   max-height: calc(.5 * 3);
+  line-height: 1;
+  margin-right: 12px;
+  padding-left: 0 !important;
 }
 
 .functional-navigation h6 span:hover {
@@ -170,6 +178,56 @@ a:hover {
   box-shadow: 0 0 0 0.2rem rgba(75, 86, 99, .25) !important;
 }
 
+.search-input-field {
+  padding: 4px 0 4px 7px !important;
+  margin: 0 10px 0 0 !important;
+  font-family: 'St Ryde Light';
+  border: 1px rgba(255, 255, 255, .5) solid;
+  background-color: transparent;
+  font-size: 10px;
+  color: #fff;
+  max-width: 120px;
+  width: 70%
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  opacity: 50%;
+  font-size: 20px;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.search-input-field::placeholder {
+  font-family: 'St Ryde Medium';
+  color: #fff;
+  opacity: 50%;
+}
+
+.search-input-field .form-control {
+  color: #fff !important;
+}
+
+.search-button:hover,
+.search-button:active,
+.search-button:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #F26A21 !important;
+  opacity: 100%;
+}
+
+.search-input-field::placeholder {
+  font-family: 'St Ryde Medium';
+  color: #fff;
+  opacity: 50%;
+}
+
+.search-input-field .form-control {
+  color: #fff !important;
+}
 
 /* SIGN UP FORM ============================ SIGN UP FORM */
 

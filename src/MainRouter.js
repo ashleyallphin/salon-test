@@ -13,8 +13,9 @@ const MainRouter = () => (
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/upload" component={Upload} />
-            <Route path="/404" component={PageNotFound} />
-            <Redirect to="/404" />
+            <Route path="/pagenotfound" component={PageNotFound} />
+            
+            <Redirect to="/pagenotfound" />
         </Switch>
     </div>
 )

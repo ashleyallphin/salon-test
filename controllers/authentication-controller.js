@@ -50,14 +50,20 @@ exports.logIn = (req, res) => {
             // return response with user and token to front end
             const { _id, username, firstName, lastName, email } = user;
             // return response to front end
-            return res.json({message: "log in successful.", token, user: { _id, username, firstName, lastName, password, email } });
+            return res.json(
+                {
+                    message: "Log in successful.",
+                    token,
+                    user:
+                        { _id, username, firstName, lastName, password, email
+                        }
+                });
     });
 };
 
-exports.signOut = (req, res) => {
-    // clear cookie to sign out
-    res.clearCookie("token")
-    return res.json({ message: 'Sign out successful.'})
+exports.logout = (req, res) => {
+    res.clearCookie('token');
+    return res.json({ message: 'Logout successful.' });
 };
 
 exports.restrictedRouteAccess = expressJwt({
