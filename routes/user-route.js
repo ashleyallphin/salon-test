@@ -1,10 +1,16 @@
 // require express
 const express = require('express');
 // bring in controllers
-const { getAllUsers, getUserByUsername, getUserById, getSingleUser, updateUserProfile, deleteUser } = require('../controllers/user-controller');
+const {
+    getAllUsers,
+    getUserByUsername,
+    getUserById,
+    getSingleUser,
+    updateUserProfile,
+    deleteUser
+} = require('../controllers/user-controller');
 // bring in validator from validator/index.js
 const { restrictedRouteAccess } = require('../controllers/authentication-controller');
-
 // use express router
 const router = express.Router();
 

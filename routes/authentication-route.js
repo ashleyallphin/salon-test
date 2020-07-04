@@ -20,12 +20,13 @@ const router = express.Router();
 // sign up page
 router.post('/signup', userSignUpValidator, signUp);
 // log in page
-router.post("/logIn", logIn);
+router.post("/login", logIn);
 //sign out page
 router.get('/logout', logout);
 // make query to database and get user information for any route containing :userId
 router.param("userId", getUserById);
-router.param("userUsername", getUserByUsername);
+// make query to database and get user information for any route containing :username
+router.param("username", getUserByUsername);
 
 
 module.exports = router;
