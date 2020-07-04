@@ -81,6 +81,7 @@ const TopNav = ({ history }) => (
                         </Nav.Link>
                         <Nav.Link>
                             <div
+                                className="nav-link" 
                                 onClick={() => logout(() => history.push("/login"))}>
                                     Logout
                             </div>

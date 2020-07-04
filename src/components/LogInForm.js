@@ -41,7 +41,7 @@ class LogInForm extends Component {
             password: password
         };
         console.log(user);
-        this.LogIn(user).then(data => {
+        this.logIn(user).then(data => {
             // sets the errors as data so we can return it to the client
             if(data.error) {
                 this.setState({ error: data.error });
@@ -55,7 +55,7 @@ class LogInForm extends Component {
         });
     };
 
-    LogIn = (user) => {
+    logIn = (user) => {
         return fetch("/login", {
             method: "POST",
             headers: {
