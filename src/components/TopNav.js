@@ -42,9 +42,15 @@ const TopNav = ({ history }) => (
                 <Navbar.Brand>
                 <img src={logo} alt="Salon logo"></img>
                 </Navbar.Brand>
+                
+                {!isAuthenticated() && (
+                    <div></div>
+                )}
 
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                {isAuthenticated() && (
                     
+                    <>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         {/* <Nav.Link><Link to="/login">Log In</Link></Nav.Link>
@@ -58,9 +64,8 @@ const TopNav = ({ history }) => (
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                         </NavDropdown> */}
                     </Nav>
-                    
                     <Nav>
-                        <Nav.Link>
+                        {/* <Nav.Link>
                             <NavLink
                                 activeClassName="navbar-active"
                                 className="nav-link" to="/login">
@@ -73,7 +78,7 @@ const TopNav = ({ history }) => (
                                 className="nav-link" to="/signup">
                                 Sign Up
                             </NavLink>
-                        </Nav.Link>
+                        </Nav.Link> */}
                         <Nav.Link>
                             <NavLink
                                 activeClassName="navbar-active"
@@ -98,8 +103,7 @@ const TopNav = ({ history }) => (
                             </div>
                         </Nav.Link>
                     </Nav>
-                    
-                    <Form inline>
+                    {/* <Form inline>
                         <FormControl 
                             type="text"
                             placeholder="Search"
@@ -108,9 +112,17 @@ const TopNav = ({ history }) => (
                         <Button className="search-button">
                             <FontAwesomeIcon icon={faSearch} />
                         </Button>
-                    </Form>
+                    </Form> */}
                 </Navbar.Collapse>
-            
+                </>
+
+                )}
+
+
+
+
+
+
             </Navbar>
         </div>
 
