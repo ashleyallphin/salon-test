@@ -25,17 +25,17 @@ exports.getUserById = (req, res, next, id) => {
     });
 };
 
-// exports.getUserByUsername = (req, res, next, username) => {
-//     User.findById(username).exec((err, user) => {
-//         if (err || !user) {
-//             return res.status(400).json ({
-//                 error: "Username not found."
-//             })
-//         };
-//         req.profile = user //adds profile object in request with user info
-//         next();
-//         });
-// };
+exports.getUserByUsername = (req, res, next, username) => {
+    User.findByUsername(username).exec((err, user) => {
+        if (err || !user) {
+            return res.status(400).json ({
+                error: "Username not found."
+            });
+        }
+        req.profile = user; //adds profile object in request with user info
+        next();
+    });
+};
 
 exports.isAuthorized = (req, res, next) => {
     // authorized if three conditions are met
