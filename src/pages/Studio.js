@@ -27,13 +27,13 @@ class Profile extends Component {
 
     componentDidMount() {
         const username = this.props.match.params.username;
-        fetch(`${process.env.REACT_APP_API_URL}/studio/${username}`, {
+        fetch(`/studio/${username}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${isAuthenticated().token}`
-            },
+            }
         })
             .then(response => {
                 return response.json();
