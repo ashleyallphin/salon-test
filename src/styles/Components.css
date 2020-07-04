@@ -18,28 +18,55 @@ COLORS
 /* GLOBAL ============================================ GLOBAL */
 
 .component {
-    background-color: #A8DCD9;
-    width: 100vw;
+  background-color: #A8DCD9;
+  width: 100vw;
+}
+
+.flex-div {
+display: flex;
 }
 
 .page-title {
-  font-family: "St Ryde Bold";
-  font-size: calc(3vw + 1.5em);
-  color: #566271;
-  margin-bottom: 1rem;
+font-family: "St Ryde Bold";
+font-size: calc(3vw + 1.5em);
+color: #566271;
+margin-bottom: 1rem;
 }
 
 h1 {
-  font-family: "St Ryde Bold";
-  font-size: calc(4vw + 2em);
-  color: #566271;
+font-family: "St Ryde Bold";
+font-size: calc(4vw + 2em);
+color: #566271;
 }
 
-h5 {
-  font-family: "St Ryde Medium";
-  font-size: .25em;
-  line-height: 1.5;
+h2 {
+font-family: "St Ryde Bold";
+font-size: 2.25rem;
+color: #C44D58;
+margin-bottom: .2rem;
 }
+
+h3 {
+font-family: "St Ryde Bold";
+font-size: 1.25rem; 
+color: #566271;
+margin-bottom: .3rem;
+}
+
+h4 {
+font-family: "St Ryde Light";
+font-size: 1.25rem;
+line-height: 1.2;
+margin-bottom: 1.25rem;
+}
+
+
+h5 {
+font-family: "St Ryde Medium";
+font-size: .25em;
+line-height: 1.5;
+}
+
 
 h6 {
   font-family: "St Ryde Medium";
@@ -386,4 +413,65 @@ a:hover {
   color: #fff;
 }
 
+
+.profile-section {
+  background-color: #fff;
+}
+
+.section-title {
+  background-color: #3E4854;
+  font-family: "St Ryde Bold";
+  font-size: calc(1vh + 14px);
+  color: #fff;
+  line-height: 1;
+  padding: 16px;
+  border-bottom: 5px solid #C6D930;
+}
+
+.profile-card {
+  background-color: #fff;
+  padding: 2rem;
+  width: 90vw;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0px auto;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: calc(18vh + 30px);
+  height: calc(18vh + 30px);
+  object-fit:cover;
+  cursor: pointer;
+  border: 5px #A8DCD9 solid;
+}
+
+.profile-card-body {
+  padding-left: 30px;
+  padding-bottom: 10px;
+  margin: 0 15px 15px 15px 15px;
+  padding-top: 0;
+}
+
+.profile-link-icon {
+  color: #566271;
+  margin-right: .75rem;
+  margin-bottom: 1rem;
+  font-size: min(max(10px, 6vw), 30px);
+}
+
+.profile-link-icon:hover {
+  color: #3E4854;
+}
+
+.edit-profile-button,
+.upload-project-button {
+  background-color: #F26A21;
+  color: #fff;
+  font-family: "St Ryde Medium";
+  border: transparent 1px solid;
+  margin: 0 10px 0 0;
+}
 

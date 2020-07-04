@@ -44,11 +44,10 @@ const TopNav = ({ history }) => (
                 </Navbar.Brand>
                 
                 {!isAuthenticated() && (
-                    <div></div>
+                    <></>
                 )}
 
                 {isAuthenticated() && (
-                    
                     <>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -90,7 +89,7 @@ const TopNav = ({ history }) => (
                             <NavLink
                                 activeClassName="navbar-active"
                                 className="nav-link"
-                                to={`/studio/${isAuthenticated().user.username}`}
+                                to={`/studio/${isAuthenticated().studio.username}`}
                             >
                                 Studio
                             </NavLink>
@@ -117,11 +116,6 @@ const TopNav = ({ history }) => (
                 </>
 
                 )}
-
-
-
-
-
 
             </Navbar>
         </div>
