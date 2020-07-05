@@ -10,7 +10,7 @@ exports.getAllUsers = (req, res) => {
                 error: err
             });
         }
-        return res.json({ users: users });
+        return res.json(users);
     });
 };
 
@@ -66,7 +66,7 @@ exports.updateUserProfile = (req, res, next) => {
     user.save((err) => {
         if(err) {
             return res.status(400).json({
-                error: "You are not authorized to perform this action."
+                error: "User is not authroized to perform this action."
             })
         };
         user.hashed_password = undefined;

@@ -1,9 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const cookieParser = require ('cookie-parser');
-// import user model
 const User = require ("../models/user-model");
-// protect routes -- routes can only be accessed by signed in users
 const expressJwt = require('express-jwt');
 
 // method to sign up a new user
@@ -26,7 +24,7 @@ exports.signUp = async (req, res) => {
 
 exports.logIn = (req, res) => {
     // find the user based on the username
-        const {username, password} = req.body
+        const { username, password } = req.body
     // if error, user is not found
         User.findOne({ username }, (err, user) => {
         // handle errors
@@ -44,9 +42,9 @@ exports.logIn = (req, res) => {
         }
         // generate a token with userID and jwt secret
             // create token using cookie-parser and JWT_SECRET
-            const token = jwt.sign({ _id: user._id}, process.env.JWT_SECRET);
+            const token = jwt.sign({ _id: user._id}, process.env.JWT_SECRET, {expiresIn: '12h'});
             // add the token in the cookie with expiry date
-            res.cookie("token", token, {expire: new Date() + 10000})
+            res.cookie("token", token, {expires: new Date() + 10000})
             // return response with user and token to front end
             const { _id, username, firstName, lastName, email } = user;
             // return response to front end
@@ -66,6 +64,8 @@ exports.logout = (req, res) => {
     return res.json({ message: 'Logout successful.' });
 };
 
+// protect routes -- routes can only be accessed by signed in users
+// https://www.oreilly.com/library/view/full-stack-react-projects/9781788835534/f7b06b77-b976-4b1e-8167-1d7328c8e080.xhtml
 exports.restrictedRouteAccess = expressJwt({
     // if the token is valid, express-jwt appends the verified user's id in an auth key to request object
     secret: process.env.JWT_SECRET, 

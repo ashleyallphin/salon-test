@@ -51,6 +51,11 @@ app.use(expressValidator());
 app.use(postRoutes);
 app.use(userRoutes);
 app.use(authRoutes);
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+    res.status(401).json('Authorization error: Please log in to Salon to access this content.');
+    }
+    });
 
     
 // LISTEN

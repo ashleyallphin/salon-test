@@ -11,13 +11,36 @@ class Users extends Component {
 
     componentDidMount() {
         listArtists().then(data => {
-            this.setState({ users: data });
-            });
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                this.setState({ users:data });
+            }
+        });
     }
 
     render() {
+
+        const { users } = this.state;
+
         return (
-            <div>users</div>
+            
+            <div className = "container">
+
+                <h1>Users</h1>
+                
+                <div className="card">
+                    
+                    {users.map(( user, i) => (
+
+                        <div key={i}>
+                            <p>{user.username}</p>
+                        </div>
+                    ))}
+
+                </div>
+
+            </div>
         );
     }
 }
