@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { listArtists } from "../api/user-api";
 import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
 import { Link } from 'react-router-dom';
+// import { isAuthenticated } from '../api/authentication-api';
 
 class Users extends Component {
     constructor() {
@@ -10,6 +11,29 @@ class Users extends Component {
             users: []
         };
     }
+
+    // init = (username) => {
+    //     const token = isAuthenticated().token
+    //     this.read(username, token)
+    //     .then(data => {
+    //             this.setState({user:data})
+    //     });
+    // }
+
+    // read = (username, token) => {
+    //     return fetch(`/users`, {
+    //         method: "GET",
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json",
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     })
+    //         .then(response => {
+    //             return response.json();
+    //         })
+    //         .catch (err => console.log(err))
+    // };
 
     componentDidMount() {
         listArtists().then(data => {

@@ -22,11 +22,13 @@ class Profile extends Component {
         const token = isAuthenticated().token
         read(username, token)
         .then(data => {
-            
-                this.setState({user:data})
-            
+            if (data.error) {
+                this.setState({ redirectToSignin: true });
+            } else {
+                this.setState({ user: data });
+            }
         });
-    }
+    };
 
     componentDidMount() {
         const username = this.props.match.params.username;
