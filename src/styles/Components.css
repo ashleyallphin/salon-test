@@ -79,7 +79,8 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: #3E4854 !important;   
+  background-color: #3E4854 !important;  
+  color: #fff !important; 
 }
 
 .flex-div {
@@ -439,7 +440,8 @@ a:hover {
   margin: 0px auto;
 }
 
-.profile-image {
+.profile-image,
+.artist-profile-pic {
   border-radius: 50%;
   width: calc(18vh + 30px);
   height: calc(18vh + 30px);
@@ -473,5 +475,12 @@ a:hover {
   font-family: "St Ryde Medium";
   border: transparent 1px solid;
   margin: 0 10px 0 0;
+}
+
+.visit-studio-button {
+  background-color: #F26A21;
+  color: #fff;
+  font-family: "St Ryde Medium";
+  border: transparent 1px solid;
 }
 

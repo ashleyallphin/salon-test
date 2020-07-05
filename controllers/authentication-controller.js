@@ -44,7 +44,7 @@ exports.logIn = (req, res) => {
             // create token using cookie-parser and JWT_SECRET
             const token = jwt.sign({ _id: user._id}, process.env.JWT_SECRET, {expiresIn: '12h'});
             // add the token in the cookie with expiry date
-            res.cookie("token", token, {expires: new Date() + 10000})
+            res.cookie("token", token)
             // return response with user and token to front end
             const { _id, username, firstName, lastName, email } = user;
             // return response to front end

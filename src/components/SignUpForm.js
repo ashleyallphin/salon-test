@@ -4,6 +4,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+import { signUp } from '../api/authentication-api';
 
 class SignUpForm extends Component {
     constructor() {
@@ -39,7 +41,7 @@ class SignUpForm extends Component {
             password: password
         };
         console.log(user);
-        this.signUp(user).then(data => {
+        signUp(user).then(data => {
             // sets the errors as data so we can return it to the client
             // sets the success state to true to show the sign up confirmation message
             if(data.error) this.setState({ error: data.error });
@@ -54,21 +56,6 @@ class SignUpForm extends Component {
                         success: true
                     });
         });
-    };
-
-    signUp = (user) => {
-        return fetch("/signup", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => console.log(err));
     };
 
     signUpInputFields = ( firstName, lastName, email, username, password) => (
@@ -135,7 +122,7 @@ class SignUpForm extends Component {
                             className="form-message-success text-center"
                             style={{ display: success ? "" : "none"}}>
                                 <h1>oui!</h1>    
-                                You've joined Salon. Please log in to your account to continue.
+                                You've joined Salon. Please <Link to="/login">log in</Link> to your account to continue.
                         </div>
 
                         

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import '../styles/components.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import logo from '../assets/images/salon-icon-red.svg'
+import logo from '../assets/images/salon-icon-red.svg';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import { logIn, authenticate } from '../api/authentication-api';
+
 
 class LogInForm extends Component {
     constructor() {
@@ -25,13 +27,6 @@ class LogInForm extends Component {
         this.setState({ [name]: event.target.value });
     };
 
-    authenticate(jwt, next) {
-        if (typeof window !== "undefined") {
-            localStorage.setItem("jwt", JSON.stringify(jwt));
-            next();
-        }
-    }
-
     // grab data when sign up button is pressed to send to backend
     submitLogIn = event => {
         event.preventDefault();
@@ -41,33 +36,18 @@ class LogInForm extends Component {
             password: password
         };
         console.log(user);
-        this.logIn(user).then(data => {
+        logIn(user).then(data => {
             // sets the errors as data so we can return it to the client
             if(data.error) {
                 this.setState({ error: data.error });
             } else {
                 // authenticate user
-                this.authenticate(data, () => {
+                authenticate(data, () => {
                     // set redirect state to true
                     this.setState({ redirectToReferer: true });
                 });
             };
         });
-    };
-
-    logIn = (user) => {
-        return fetch("/login", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => console.log(err));
     };
 
     LogInInputFields = ( username, password ) => (

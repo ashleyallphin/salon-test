@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
-import jwt_decode from 'jwt-decode';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStore, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Button from 'react-bootstrap/Button';
-
-export const isAuthenticated = () => {
-    if(typeof window == "undefined") {
-        return false
-    } if(localStorage.getItem("jwt")) {
-        return JSON.parse(localStorage.getItem("jwt"))
-    } else {
-        return false
-    }
-}
+import { isAuthenticated } from '../api/authentication-api';
 
 class Profile extends Component {
     constructor () {

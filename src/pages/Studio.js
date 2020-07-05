@@ -7,16 +7,7 @@ import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Redirect, Link } from 'react-router-dom';
 import { read } from '../api/user-api';
 import TopNav from '../components/TopNav';
-
-export const isAuthenticated = () => {
-    if(typeof window == "undefined") {
-        return false
-    } if(localStorage.getItem("jwt")) {
-        return JSON.parse(localStorage.getItem("jwt"))
-    } else {
-        return false
-    }
-}
+import { isAuthenticated } from '../api/authentication-api';
 
 class Profile extends Component {
     constructor () {
@@ -63,7 +54,7 @@ class Profile extends Component {
             <div className="profile-section">
 				
                     <div className="section-title">
-                        {isAuthenticated().user.username}'s Profile
+                        {user.username}'s Profile
                     </div>
 
                     <Card
@@ -72,7 +63,7 @@ class Profile extends Component {
                         <Card.Img
                             className="profile-image"
                             src="https://thevelvetonion.files.wordpress.com/2012/02/noelfielding_painting.jpg?w=350&h=200&crop=1"
-                            alt={isAuthenticated().user.username}>
+                            alt={user.username}>
                             </Card.Img>
                         
                         <Card.Body
@@ -80,7 +71,7 @@ class Profile extends Component {
                         >
 
                             <h2>
-                                {isAuthenticated().user.username}
+                                {user.username}
                                 {/* <FontAwesomeIcon icon={faUserTimes} /> */}
                             </h2>
                             <h3>London</h3>
@@ -139,6 +130,22 @@ class Profile extends Component {
                                     variant="primary">
                                     Upload a Project
                                     </Button>
+                                
+                                </div>
+                            )}
+
+                            {isAuthenticated().user &&
+                            isAuthenticated().user._id !== user._id && (
+
+                                <div className="flex-div">
+                                
+                                <a href="http://www.paypal.com">
+                                    <Button className="edit-profile-button"
+                                    variant="primary">
+                                    Donate to User
+                                    </Button>
+                                </a>
+                                    
                                 
                                 </div>
                             )}

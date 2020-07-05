@@ -1,38 +1,16 @@
-import React, { Component } from 'react';
-import { NavLink, Link, withRouter } from 'react-router-dom';
+import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { isAuthenticated, logout } from '../api/authentication-api';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
+// import FormControl from 'react-bootstrap/FormControl';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/components.css';
 import logo from '../assets/images/salon-wordmark-white.svg';
-
-export const logout = next => {
-    if (typeof window !== "undefined") localStorage.removeItem("jwt");
-    next();
-    return fetch("/logout", {
-        method: "GET"
-    })
-        .then(response => {
-            console.log("logout", response);
-            return response.json();
-        })
-        .catch(err => console.log(err));
-};
-
-export const isAuthenticated = () => {
-    if(typeof window == "undefined") {
-        return false
-    } if(localStorage.getItem("jwt")) {
-        return JSON.parse(localStorage.getItem("jwt"))
-    } else {
-        return false
-    }
-}
 
 const TopNav = ({ history }) => (
 
