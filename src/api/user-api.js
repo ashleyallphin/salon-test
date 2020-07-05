@@ -1,5 +1,5 @@
 export const read = (username, token) => {
-    return fetch(`/studio/${username}`, {
+    return fetch(`/user/${username}`, {
         method: "GET",
         headers: {
             Accept: "application/json",
