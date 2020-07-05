@@ -5,7 +5,7 @@ const { getPosts, createPost, postsByUser, postsById, isPoster, deletePost, upda
 // bring in validator from validator/index.js
 const { createPostValidator } = require ('../validator');
 const { restrictedRouteAccess } = require('../controllers/authentication-controller');
-const { getUserById } = require('../controllers/user-controller');
+const { getUserById, getUserByUsername } = require('../controllers/user-controller');
 
 
 // use express router
@@ -26,7 +26,7 @@ router.put("/post/:postId", restrictedRouteAccess, isPoster, updatePost)
     // make sure to run validator after post is created
 router.post('/post/new/:userId', restrictedRouteAccess, createPost, createPostValidator)
 // make query to database and get user information for any route containing :userId
-router.param("userId", getUserById);
+router.param("username", getUserByUsername);
 // make query to database and get user information for any route containing :postId
 router.param("postId", postsById);
 

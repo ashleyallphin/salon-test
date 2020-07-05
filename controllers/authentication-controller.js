@@ -25,7 +25,7 @@ exports.signUp = async (req, res) => {
 };
 
 exports.logIn = (req, res) => {
-    // find the user based on the email username
+    // find the user based on the username
         const {username, password} = req.body
     // if error, user is not found
         User.findOne({ username }, (err, user) => {
@@ -69,6 +69,7 @@ exports.logout = (req, res) => {
 exports.restrictedRouteAccess = expressJwt({
     // if the token is valide, express-jwt appends the verified user's id in an auth key to request object
     secret: process.env.JWT_SECRET, 
-    userProperty: "auth"
+    userProperty: "auth",
+    algorithms: ['HS256']
 });
 

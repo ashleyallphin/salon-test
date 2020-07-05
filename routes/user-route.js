@@ -23,10 +23,8 @@ router.delete("/studio/:username", restrictedRouteAccess, deleteUser);
 
 //if these params are in the routes above, the following middle and method will fire
 // (make query to database and get user information for any route containing :userId)
-router.param("userId", getUserById);
 router.param("username", getUserByUsername);
 // make query to database and get user information for any route containing :username
-// router.param("username", restrictedRouteAccess,  getUserByUsername);
 
 module.exports = router;
 

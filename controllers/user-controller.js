@@ -13,6 +13,7 @@ exports.getAllUsers = (req, res) => {
     }).select("username email updated created updated");
 };
 
+
 exports.getUserById = (req, res, next, id) => {
     User.findById(id).exec((err, user) => {
         if (err || !user) {
@@ -26,7 +27,7 @@ exports.getUserById = (req, res, next, id) => {
 };
 
 exports.getUserByUsername = (req, res, next, username) => {
-    User.findByUsername(username).exec((err, user) => {
+    User.findOne({ username }).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json ({
                 error: "Username not found."

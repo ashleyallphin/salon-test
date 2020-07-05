@@ -42,7 +42,7 @@ class Profile extends Component {
                 if (data.error) {
                     this.setState({ redirectToSignin: true });
                 } else {
-                    this.setState({ user: data });
+                    this.setState({user:data})
                 }
             });
     }
@@ -76,6 +76,7 @@ class Profile extends Component {
 
                             <h2>{isAuthenticated().user.username}</h2>
                             <h3>London</h3>
+        <p>{`Joined ${new Date(this.state.user.created).toDateString()}`}</p>
                             <h4>Studied fine art at Croydon University.  Has exhibited artworks in the Royal Albert Hall, the Saatchi Gallery and The Tate Liverpool, among others. Paintings are visceral and animated, worked on in bursts of energetic vigour, drawing on surrealism, dada and neo-expressionism.</h4>
 
                             <div className="flex-div">
