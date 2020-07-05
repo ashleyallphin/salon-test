@@ -8,7 +8,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import '../styles/Components.css';
+import '../styles/components.css';
 import logo from '../assets/images/salon-wordmark-white.svg';
 
 export const logout = next => {
@@ -89,7 +89,7 @@ const TopNav = ({ history }) => (
                             <NavLink
                                 activeClassName="navbar-active"
                                 className="nav-link"
-                                to={`/studio/${isAuthenticated().studio.username}`}
+                                to={`/studio/${isAuthenticated().user.username}`}
                             >
                                 Studio
                             </NavLink>

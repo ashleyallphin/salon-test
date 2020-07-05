@@ -170,7 +170,7 @@ a:hover {
   color: #fff !important;
   max-height: calc(.5 * 3);
   line-height: 1;
-  margin-right: 12px;
+  margin-left: 12px;
   padding-left: 0 !important;
 }
 
@@ -424,7 +424,7 @@ a:hover {
   font-size: calc(1vh + 14px);
   color: #fff;
   line-height: 1;
-  padding: 16px;
+  padding: 16px 0;
   border-bottom: 5px solid #C6D930;
 }
 

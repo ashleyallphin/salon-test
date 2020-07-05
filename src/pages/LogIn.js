@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopNav from '../components/TopNav-backup';
-import '../styles/Pages.css';
+import '../styles/pages.css';
 import LogInForm from '../components/LogInForm';
 import Footer from '../components/Footer';
 

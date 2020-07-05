@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopNav404 from '../components//TopNav404';
-import '../styles/Pages.css';
+import '../styles/pages.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import logo from '../assets/images/salon-404.svg'
 import Footer404 from '../components/Footer404'

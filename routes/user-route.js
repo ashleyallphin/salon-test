@@ -4,10 +4,10 @@ const express = require('express');
 const {
     getAllUsers,
     getUserByUsername,
-    getUserById,
     getSingleUser,
     updateUserProfile,
     deleteUser
+    // getUserById,
 } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
 const { restrictedRouteAccess } = require('../controllers/authentication-controller');

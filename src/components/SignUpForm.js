@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/Components.css';
+import '../styles/components.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import logo from '../assets/images/salon-icon-red.svg'
 import Form from 'react-bootstrap/Form';

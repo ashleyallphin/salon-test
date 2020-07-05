@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/Pages.css';
+import '../styles/pages.css';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import UploadProjectForm from '../components/UploadProjectForm';
