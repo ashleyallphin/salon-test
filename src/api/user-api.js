@@ -12,3 +12,13 @@ export const read = (username, token) => {
         })
         .catch (err => console.log(err))
 };
+
+export const listArtists = () => {
+    return fetch(`/users`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
