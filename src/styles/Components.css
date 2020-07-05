@@ -474,7 +474,7 @@ a:hover {
   color: #fff;
   font-family: "St Ryde Medium";
   border: transparent 1px solid;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
 }
 
 .visit-studio-button {
@@ -484,3 +484,6 @@ a:hover {
   border: transparent 1px solid;
 }
 
+.delete-profile-icon {
+  height: 10px !important;
+}

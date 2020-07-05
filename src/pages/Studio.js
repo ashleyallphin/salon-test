@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStore, faHome, faUserTimes } from '@fortawesome/free-solid-svg-icons'
+import { faStore, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Redirect, Link } from 'react-router-dom';
 import { read } from '../api/user-api';
 import TopNav from '../components/TopNav';
 import { isAuthenticated } from '../api/authentication-api';
+import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
+import DeleteUserButton from '../components/DeleteUserButton';
 
 class Profile extends Component {
     constructor () {
@@ -23,7 +25,7 @@ class Profile extends Component {
         read(username, token)
         .then(data => {
             if (data.error) {
-                this.setState({ redirectToSignin: true });
+                this.setState({ redirectToSignin:true });
             } else {
                 this.setState({ user: data });
             }
@@ -35,13 +37,16 @@ class Profile extends Component {
         this.init(username);
     }
 
+    // upload current logged in user data on return to studio from navbar from someone else's studio
+    componentWillReceiveProps(props) {
+        const username = props.match.params.username;
+        this.init(username);
+    }
+
     render() {
 
-
-        const { redirectToSignIn, user } = this.state
+        const { redirectToSignIn, user } = this.state;
         if(redirectToSignIn) return <Redirect to="/login" />
-
-        
 
         return (
             
@@ -62,7 +67,7 @@ class Profile extends Component {
                         
                         <Card.Img
                             className="profile-image"
-                            src="https://thevelvetonion.files.wordpress.com/2012/02/noelfielding_painting.jpg?w=350&h=200&crop=1"
+                            src={DefaultProfilePic}
                             alt={user.username}>
                             </Card.Img>
                         
@@ -130,6 +135,8 @@ class Profile extends Component {
                                     variant="primary">
                                     Upload a Project
                                     </Button>
+
+                                    <DeleteUserButton />
                                 
                                 </div>
                             )}
@@ -142,7 +149,7 @@ class Profile extends Component {
                                 <a href="http://www.paypal.com">
                                     <Button className="edit-profile-button"
                                     variant="primary">
-                                    Donate to User
+                                    Donate to Artist
                                     </Button>
                                 </a>
                                     

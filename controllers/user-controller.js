@@ -3,7 +3,6 @@ const User = require ('../models/user-model');
 const _ = require ('lodash');
 
 exports.getAllUsers = (req, res) => {
-    console.log("getallusers")
     User.find((err, users) => {
         if(err) {
             return res.status(400).json({

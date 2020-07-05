@@ -3,6 +3,8 @@ import { listArtists } from "../api/user-api";
 import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
 import { Link } from 'react-router-dom';
 // import { isAuthenticated } from '../api/authentication-api';
+// import { read } from '../api/user-api';
+
 
 class Users extends Component {
     constructor() {
@@ -14,25 +16,14 @@ class Users extends Component {
 
     // init = (username) => {
     //     const token = isAuthenticated().token
-    //     this.read(username, token)
+    //     read(username, token)
     //     .then(data => {
-    //             this.setState({user:data})
-    //     });
-    // }
-
-    // read = (username, token) => {
-    //     return fetch(`/users`, {
-    //         method: "GET",
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json",
-    //             Authorization: `Bearer ${token}`
+    //         if (data.error) {
+    //             this.setState({ redirectToSignin:true });
+    //         } else {
+    //             this.setState({ user: data });
     //         }
-    //     })
-    //         .then(response => {
-    //             return response.json();
-    //         })
-    //         .catch (err => console.log(err))
+    //     });
     // };
 
     componentDidMount() {
