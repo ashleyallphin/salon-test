@@ -79,8 +79,7 @@ class Profile extends Component {
                                 {/* <FontAwesomeIcon icon={faUserTimes} /> */}
                             </h2>
                             <h3>London</h3>
-        {/* showing connection to backend */}
-        <p>{`Joined ${new Date(user.created).toDateString()}`}</p>
+
                             <h4>Studied fine art at Croydon University.  Has exhibited artworks in the Royal Albert Hall, the Saatchi Gallery and The Tate Liverpool, among others. Paintings are visceral and animated, worked on in bursts of energetic vigour, drawing on surrealism, dada and neo-expressionism.</h4>
 
                             <div className="flex-div">
