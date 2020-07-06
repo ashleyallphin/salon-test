@@ -40,14 +40,14 @@ export const remove = (username, token) => {
 };
 
 export const updateAccount = (username, token, user) => {
+    console.log(user)
     return fetch(`/user/${username}`, {
         method: "PUT",
         headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(user)
+        body: user
     })
         .then(response => {
             return response.json();

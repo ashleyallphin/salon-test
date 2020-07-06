@@ -70,6 +70,7 @@ class UploadProjectForm extends Component {
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
                     <div className="page page-title">add to your gallery</div>
+                        
                         <Form.Group>
 
                             <Form.Control
@@ -139,7 +140,9 @@ class UploadProjectForm extends Component {
                             </a>
                         </div> */}
                         </Form.Group>
+                        
                         </div>                    
+                
                 </Jumbotron>
             </div>
         );

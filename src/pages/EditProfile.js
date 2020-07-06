@@ -5,6 +5,7 @@ import { isAuthenticated } from '../api/authentication-api';
 import { read, updateAccount } from '../api/user-api';
 import { Link, Redirect } from 'react-router-dom';
 import DeleteUserButton from '../components/DeleteUserButton';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 class EditProfile extends Component {
 
@@ -40,12 +41,19 @@ class EditProfile extends Component {
         });
     };
 
-    // record values of input fields
+    
     handleChange = (name) => (event) => {
-        this.setState({ [name]: event.target.value })
+        this.setState({ error: "" });
+        const value = name === "profileImage" ? event.target.files[0] : event.target.value;
+        const fileSize = name === "profileImage" ? event.target.files[0].size : 0;
+        // populate the form data
+        this.userData.set(name, value);
+        this.setState({ [name]: value, fileSize });
     };
 
     componentDidMount() {
+        // for sending the file
+        this.userData = new FormData();
         const username = this.props.match.params.username;
         this.init(username);
     }
@@ -92,10 +100,9 @@ class EditProfile extends Component {
                 password: password || undefined
             };
             
-            console.log(user);
             const token = isAuthenticated().token;
             
-            updateAccount(username, token, user).then(data => {
+            updateAccount(username, token, this.userData).then(data => {
                 if (data.error) this.setState({ error: data.error });
                 else
                     this.setState ({
@@ -108,8 +115,17 @@ class EditProfile extends Component {
 
     updateProfileInputFields = ( firstName, lastName, email, username, password) => (
 
-        <Form.Group>   
-                            
+        <Form.Group className="text-center">   
+            <Form>
+                <Form.File 
+                onChange={this.handleChange("profileImage")}
+                id="custom-file"
+                type="file"
+                accept="image/*"
+                label="profile image"
+                custom
+                />
+            </Form>
             <Form.Control
                 onChange={this.handleChange("firstName")}
                 value={this.state.firstName}
@@ -132,12 +148,15 @@ class EditProfile extends Component {
                 id="sign-up-button">Update Profile</Button>{' '}
             </div>
 
-            <div className="text-links">
-            <Link to={`/studio/${username}`}>
-                <p>return to your studio</p>
-            </Link>
-        
-            </div>
+            <DeleteUserButton
+                // to access the user id in the delete user component, from this.state above
+                username={username} />
+
+            {/* <div className="text-links">
+                <Link to={`/studio/${username}`}>
+                    <p>return to your studio</p>
+                </Link>
+            </div> */}
         
         </Form.Group>
     );
@@ -151,18 +170,23 @@ class EditProfile extends Component {
         }
 
         return (
-            <div>
-                <h1>Edit Profile </h1>
+            <div className="component">
+                
+                <Jumbotron fluid className="jumbotron" >
+                    <div className="vertical-center">
+                    <div className="page page-title">edit profile</div>
+                        
+
+                        
+                        </div>                    
+                
+                </Jumbotron>
 
                 <div
                     className="form-message-error text-center"
                     style={{ display: error ? "" : "none"}}>    
                         { error }
                 </div>
-
-                <DeleteUserButton
-                // to access the user id in the delete user component, from this.state above
-                username={username} />
 
                 {this.updateProfileInputFields( firstName, lastName, email, username, password)}
                 
