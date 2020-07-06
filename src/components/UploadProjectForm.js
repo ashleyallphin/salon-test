@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import bsCustomFileInput from 'bs-custom-file-input';
 import { isAuthenticated } from '../api/authentication-api';
 import { uploadProject } from '../api/post-api';
-import { read } from '../api/user-api';
 import { Redirect } from 'react-router-dom';
 
 class UploadProjectForm extends Component {
@@ -23,7 +22,7 @@ class UploadProjectForm extends Component {
             projectLink: "",
             projectStatus: "",
             user: {},
-            redirectToStudio: false,
+            // redirectToStudio: false,
             fileSize: 0,
             error: ""
         }
@@ -51,25 +50,26 @@ class UploadProjectForm extends Component {
     // check if the input fields are valid
     isValid = () => {
         const { fileSize, title, body, projectMedium, projectYear } = this.state;
-            if ( fileSize > 2000000 ) {
-            this.setState({
-                error: "Maximum image size is 2MB. Please select a smaller file." });
+            
+            if (title.length === 0) {
+                this.setState({ error: "Please declare a title for your project. If you have not named your project, you may input 'Untitled.'" });
                 return false;
             }
             if (title.length > 100) {
                 this.setState({ error: "Maximum title input is 100 characters." });
                 return false;
             }
-            if (title.length > 100) {
-                this.setState({ error: "Please declare a title for your project. If you have not named your project, you may input 'Untitled." });
+            if ( fileSize > 2000000 ) {
+            this.setState({
+                error: "Maximum image size is 2MB. Please select a smaller file." });
                 return false;
             }
             if (body.length === 0) {
                 this.setState({ error: "Please provide a description of your project." });
                 return false;
             }
-            if (body.length > 700 ) {
-                this.setState({ error: "Maximum description input is 700 characters." });
+            if (body.length > 1000 ) {
+                this.setState({ error: "Maximum description input is 1000 characters." });
                 return false;
                 }
             if (projectMedium.length === 0) {
@@ -77,7 +77,7 @@ class UploadProjectForm extends Component {
                 return false;
             }
             if (projectYear.length === 0) {
-                this.setState({ error: "Please provide a date for your project." });
+                this.setState({ error: "Please assign a production year to your project." });
                 return false;
             }
             return true;
@@ -140,6 +140,7 @@ class UploadProjectForm extends Component {
                 <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
                 </InputGroup.Prepend>
+            
             <Form.Control
                 onChange={this.handleChange("projectLink")}
                 value={this.state.projectLink}
@@ -149,12 +150,15 @@ class UploadProjectForm extends Component {
             <Form.Control
                 onChange={this.handleChange("projectTags")}
                 value={this.state.projectTags}
-                id="location-input" type="text" placeholder="project tags (separate by commas)" />
+                id="project-tags-input" type="text" placeholder="project tags" />
             
             <div className="flex-div">
                                 
             <Form.Control
-                className="date-select" as="select">
+                className="date-select"
+                as="select"
+                onChange={this.handleChange("projectYear")}
+            >
                 <option hidden>year</option>
                     <option value='2020'>2020</option>
                     <option value='2019'>2019</option>
@@ -232,7 +236,7 @@ class UploadProjectForm extends Component {
             <Form.Control
                 className="status-select"
                 as="select"
-                value={this.state.projectStatus}
+                onChange={this.handleChange("projectStatus")}
             >
                 <option hidden>project status</option>
                 <option value='completed'>completed</option>

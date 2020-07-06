@@ -20,16 +20,18 @@ const postSchema = new mongoose.Schema ({
         required: true
     },
     projectTags: {
-        contentType: String
+        type: String,
     },
     projectYear: {
-        contentType: Number,
+        type: String,
+        required: true
     },
     projectLink: {
-        contentType: String
+        type: String,
     },
     projectStatus: {
-        type: String
+        type: String,
+        required: true
     },
     // build relationship between the post schema and the user schema
     postedBy: {

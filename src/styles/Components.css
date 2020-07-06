@@ -96,12 +96,17 @@ a:hover {
 .btn:active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn:focus-within
-.checkbox:focus,
-.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #3E4854;
+.checkbox:focus {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
     outline: 0px auto -webkit-focus-ring-color;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #3E4854;
+  border: 1px solid #78828f;
+  box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
 button:focus {
