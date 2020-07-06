@@ -47,16 +47,16 @@ const userSchema = new mongoose.Schema ({
 	bio: {
 		type: String
 	},
-	website_URL: {
+	websiteURL: {
 		type: String
 	},
-	twitter_handle: {
+	twitterHandle: {
 		type: String
 	},
-	instagram_handle: {
+	instagramHandle: {
 		type: String
 	},
-	shop_URL: {
+	shopURL: {
         type: String
     }
 });

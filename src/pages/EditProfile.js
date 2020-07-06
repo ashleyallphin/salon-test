@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup'
 import { isAuthenticated } from '../api/authentication-api';
 import { read, updateAccount } from '../api/user-api';
 import { Redirect } from 'react-router-dom';
 import DeleteUserButton from '../components/DeleteUserButton';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-// import loadingImage from '../assets/images/salon-mustach-twitch.gif';
 import bsCustomFileInput from 'bs-custom-file-input';
-// import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
 
 class EditProfile extends Component {
 
@@ -24,7 +23,13 @@ class EditProfile extends Component {
             redirectToStudio: false,
             error: "",
             fileSize: 0,
-            // loading: false
+            location: "",
+            bio: "",
+            websiteURL: "",
+            twitterHandle: "",
+            instagramHandle: "",
+            shopURL: "",
+            PayPalUsername: ""
         }
     }
 
@@ -41,6 +46,13 @@ class EditProfile extends Component {
                     lastName: data.lastName,
                     email: data.email,
                     username: data.username,
+                    location: data.location,
+                    bio: data.bio,
+                    websiteURL: data.websiteURL,
+                    twitterHandle: data.twitterHandle,
+                    instagramHandle: data.instagramHandle,
+                    shopURL: data.shopURL,
+                    PayPalUsername: data.PayPalUsername
                 });
             }
         });
@@ -110,7 +122,19 @@ class EditProfile extends Component {
         }
     };
 
-    updateProfileInputFields = ( firstName, lastName, email, username, password) => (
+    updateProfileInputFields = (
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+        location,
+        bio, 
+        shopURL,
+        twitterHandle,
+        instagramHandle,
+        websiteURL,
+        PayPalUsername) => (
 
         <Form.Group className="text-center">   
             
@@ -141,6 +165,61 @@ class EditProfile extends Component {
                 onChange={this.handleChange("password")}
                 value={this.state.password}
                 id="password-input" type="password" placeholder="password" />
+            <Form.Control
+                onChange={this.handleChange("location")}
+                value={this.state.location}
+                id="location-input" type="text" placeholder="location" />
+            <Form.Control
+                onChange={this.handleChange("bio")}
+                value={this.state.bio}
+                id="bio-input" type="text" placeholder="bio"
+                as="textarea" rows="3" />
+            
+            <InputGroup className="input-group">
+                <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                </InputGroup.Prepend>
+            <Form.Control
+                onChange={this.handleChange("websiteURL")}
+                value={this.state.websiteURL}
+                id="websiteURL-input" type="text" placeholder="personal website" />
+            </InputGroup>
+            
+            <InputGroup className="input-group">
+            <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
+                    onChange={this.handleChange("shopURL")}
+                    value={this.state.shopURL}
+                    id="shopURL-input" type="text" placeholder="shop" />
+            </InputGroup>
+
+            <InputGroup className="input-group">
+            <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
+                onChange={this.handleChange("twitterHandle")}
+                value={this.state.twitterHandle}
+                id="twitterHandle-input" type="text" placeholder="twitter handle" />
+            </InputGroup>
+
+            <InputGroup className="input-group">
+            <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
+                onChange={this.handleChange("instagramHandle")}
+                value={this.state.instagramHandle}
+                id="instagramHandle-input" type="text" placeholder="instagram handle" />
+            </InputGroup>
+
+            <Form.Control
+                onChange={this.handleChange("PayPalUsername")}
+                value={this.state.PayPalUsername}
+                id="PayPalUsername-input" type="text" placeholder="PayPal username" />
+            
             <div className="buttons">
             <Button 
                 onClick={this.clickUpdateProfile}
@@ -148,14 +227,8 @@ class EditProfile extends Component {
             </div>
 
             <DeleteUserButton
-                // to access the user id in the delete user component, from this.state above
+                // to access the username in the delete user component, from this.state above
                 username={username} />
-
-            {/* <div className="text-links">
-                <Link to={`/studio/${username}`}>
-                    <p>return to your studio</p>
-                </Link>
-            </div> */}
 
         </Form.Group>
             
@@ -172,16 +245,18 @@ class EditProfile extends Component {
             password,
             redirectToStudio,
             error,
-            // loading
+            location,
+            bio, 
+            shopURL,
+            twitterHandle,
+            instagramHandle,
+            websiteURL,
+            PayPalUsername
         } = this.state;
         
         if (redirectToStudio) {
             return <Redirect to={`/studio/${username}`} />;
         }
-
-        // const profileImageURL = username
-        // ? `/user/image/${username}?${new Date().getTime()}`
-        // : DefaultProfilePic;
 
         return (
             <div className="component text-center">
@@ -199,26 +274,7 @@ class EditProfile extends Component {
                         { error }
                 </div>
 
-                {/* loading state is set to true upon click; show this div after click & before page redirect */}
-                {/* { loading ? (
-                    <div className="jumbotron text-center">
-                        <img
-                        alt="Loading"
-                        src={loadingImage}
-                        />{' '}
-                    </div>
-                ) : (
-                    ""
-                )} */}
-
-                {/* <img
-                    className="edit-profile-image"
-                    src={profileImageURL}
-                    alt={username}
-                >
-                </img> */}
-
-                {this.updateProfileInputFields( firstName, lastName, email, username, password)}
+                {this.updateProfileInputFields( firstName, lastName, email, username, password, location, bio, shopURL, websiteURL, instagramHandle, twitterHandle, PayPalUsername)}
                 
             </div>
         );

@@ -74,40 +74,38 @@ class Profile extends Component {
                         className="profile-card-body"
                         >
 
-                            <h2>
-                                {user.username}
-                                {/* <FontAwesomeIcon icon={faUserTimes} /> */}
-                            </h2>
-                            <h3>London</h3>
+                            <h2>{user.username}</h2>
+                            
+                            <h3>{user.location}</h3>
 
-                            <h4>Studied fine art at Croydon University.  Has exhibited artworks in the Royal Albert Hall, the Saatchi Gallery and The Tate Liverpool, among others. Paintings are visceral and animated, worked on in bursts of energetic vigour, drawing on surrealism, dada and neo-expressionism.</h4>
+                            <h4>{user.bio}</h4>
 
                             <div className="flex-div">
 
                             <a
                             className="profile-link-icon"
-                            href="/"
+                            href={`http://www.${user.websiteURL}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faHome} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href="/"
+                            href={`http://www.${user.shopURL}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faStore} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href="/"
+                            href={`http://www.instagram.com/${user.instagramHandle}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faInstagram} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href="/"
+                            href={`http://www.twitter.com/${user.twitterHandle}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faTwitter} />

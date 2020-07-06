@@ -117,7 +117,8 @@ button:focus {
 
 .form-control,
 .custom-file-input,
-.custom-file {
+.custom-file,
+.input-group {
   margin-bottom: 2vh;
   min-height: 1.5rem;
   font-size: calc(1vh + 10px) !important;
@@ -455,16 +456,7 @@ a:hover {
   object-fit:cover;
   cursor: pointer;
   border: 5px #A8DCD9 solid;
-}
-
-.edit-profile-image {
-  border-radius: 50%;
-  width: calc(18vh + 30px);
-  height: calc(18vh + 30px);
-  object-fit:cover;
-  cursor: pointer;
-  border: 5px #fff solid;
-  margin-bottom: 3vh;
+  cursor: default;
 }
 
 .profile-card-body {

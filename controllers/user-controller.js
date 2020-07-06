@@ -57,7 +57,7 @@ exports.getSingleUser = (req, res) => {
     return res.json(req.profile);
 };
 
-exports.updateUser = (req, res, next) => {
+exports.updateUserProfile = (req, res, next) => {
     let form = new formidable.IncomingForm();
     console.log("incoming form data: ", form);
     form.keepExtensions = true;
