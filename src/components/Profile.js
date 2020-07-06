@@ -34,7 +34,6 @@ class Profile extends Component {
                         
                         <Card.Img
                             className="profile-image"
-                            src="https://thevelvetonion.files.wordpress.com/2012/02/noelfielding_painting.jpg?w=350&h=200&crop=1"
                             alt={isAuthenticated().user.username}
                         >
                         </Card.Img>

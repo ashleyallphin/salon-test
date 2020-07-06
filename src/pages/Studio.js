@@ -6,7 +6,6 @@ import { faStore, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Redirect, Link } from 'react-router-dom';
 import { read } from '../api/user-api';
-import TopNav from '../components/TopNav';
 import { isAuthenticated } from '../api/authentication-api';
 import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
 
@@ -49,12 +48,7 @@ class Profile extends Component {
 
         return (
             
-            <>
-            
-            <TopNav />
-
-            
-            
+            <> 
             <div className="profile-section">
 				
                     <div className="section-title">

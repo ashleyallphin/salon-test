@@ -134,7 +134,7 @@ a:hover {
 /* FUNCTIONAL NAVIGATION & TOP NAV ============  */
 
 .navbar {
-  padding: 0;
+  padding: 10px 20px 10px 30px;
 }
 
 .navbar-active {
@@ -145,6 +145,7 @@ a:hover {
 .top-nav {
   background-color: #F26A21;
   border-bottom: 5px solid white;
+  font-family: "St Ryde Medium";
 }
 
 .nav-404 {
@@ -158,7 +159,7 @@ a:hover {
 }
 
 .top-nav img {
-  opacity: 50%;
+  opacity: 80%;
 }
 
 .functional-navigation a {
@@ -166,13 +167,13 @@ a:hover {
 }
 
 .nav-link {
-  opacity: 50%;
+  opacity: 80%;
   font-size: calc(.5em + 13px);
   color: #fff !important;
   max-height: calc(.5 * 3);
   line-height: 1;
   margin-left: 12px;
-  padding-left: 0 !important;
+  padding: 0 !important;
 }
 
 .functional-navigation h6 span:hover {
@@ -425,7 +426,7 @@ a:hover {
   font-size: calc(1vh + 14px);
   color: #fff;
   line-height: 1;
-  padding: 16px 0;
+  padding: 12px 0 12px 30px;
   border-bottom: 5px solid #C6D930;
 }
 

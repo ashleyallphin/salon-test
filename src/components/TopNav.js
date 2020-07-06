@@ -3,14 +3,14 @@ import { NavLink, withRouter } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { isAuthenticated, logout } from '../api/authentication-api';
+import '../styles/components.css';
+import logo from '../assets/images/salon-wordmark-white.svg';
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 // import FormControl from 'react-bootstrap/FormControl';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import '../styles/components.css';
-import logo from '../assets/images/salon-wordmark-white.svg';
 
 const TopNav = ({ history }) => (
 

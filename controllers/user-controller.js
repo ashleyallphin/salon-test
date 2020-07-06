@@ -1,6 +1,7 @@
 const User = require ('../models/user-model');
-// requre lodash
 const _ = require ('lodash');
+const formidable = require ('formidable');
+const fs = require ('fs');
 
 exports.getAllUsers = (req, res) => {
     console.log("getallusers")
@@ -56,23 +57,36 @@ exports.getSingleUser = (req, res) => {
     return res.json(req.profile);
 };
 
-exports.updateUserProfile = (req, res, next) => {
-    // extract user information from the profile
-    let user = req.profile
-    // lodash method: extend
-    user = _.extend(user, req.body) // changes the source object
-    user.updated = Date.now();
-    // save user database
-    user.save((err) => {
+exports.updateUserProfile = ( req, res, next ) => {
+    let form = new formidable.IncomingForm()
+    form.keepExtenions = true
+    form.parse (req, (err, fields, files) => {
         if(err) {
             return res.status(400).json({
-                error: "User is not authroized to perform this action."
+                message: "Image could not be uploaded."
             })
-        };
-        user.hashed_password = undefined;
-        user.salt = undefined;
-        res.json({ user: user });
-    });
+        }
+        let user = req.profile
+        user= _.extend(user, fields)
+        user.updated = Date.now()
+
+        if(files.profileImage) {
+            user.profileImage.data = fs.readFileSync(files.profileImage.path)
+            user.profileImage.contentType = files.profileImage.type
+        }
+
+        user.save((err, result) => {
+            if(err) {
+                return res.status(400).json({
+                    error: err
+                })
+            }
+            user.hashed_password = undefined
+            user.salt = undefined
+            res.json(user);
+        })
+
+    })
 };
 
 exports.deleteUser = (req, res, next) => {

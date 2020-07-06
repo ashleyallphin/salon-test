@@ -6,6 +6,8 @@ import { read, updateAccount } from '../api/user-api';
 import { Link, Redirect } from 'react-router-dom';
 import DeleteUserButton from '../components/DeleteUserButton';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+// import loadingImage from '../assets/images/salon-mustach-twitch.gif';
+import bsCustomFileInput from 'bs-custom-file-input';
 
 class EditProfile extends Component {
 
@@ -19,9 +21,12 @@ class EditProfile extends Component {
             email: "",
             password: "",
             redirectToStudio: false,
-            error: ""
+            error: "",
+            // loading: false
         }
     }
+
+
 
     init = (username) => {
         const token = isAuthenticated().token
@@ -52,6 +57,7 @@ class EditProfile extends Component {
     };
 
     componentDidMount() {
+        bsCustomFileInput.init()
         // for sending the file
         this.userData = new FormData();
         const username = this.props.match.params.username;
@@ -89,19 +95,12 @@ class EditProfile extends Component {
     // grab data when sign up button is pressed to send to backend
     clickUpdateProfile = event => {
         event.preventDefault();
+        this.setState({ loading:true });
 
         if (this.isValid()) {
-            const { firstName, lastName, email, username, password } = this.state;
-            const user = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                username: username,
-                password: password || undefined
-            };
-            
+            const { username } = this.state;   
+            console.log(username)         
             const token = isAuthenticated().token;
-            
             updateAccount(username, token, this.userData).then(data => {
                 if (data.error) this.setState({ error: data.error });
                 else
@@ -110,12 +109,12 @@ class EditProfile extends Component {
                     });
         });
         }
-
     };
 
     updateProfileInputFields = ( firstName, lastName, email, username, password) => (
 
         <Form.Group className="text-center">   
+            
             <Form>
                 <Form.File 
                 onChange={this.handleChange("profileImage")}
@@ -126,6 +125,7 @@ class EditProfile extends Component {
                 custom
                 />
             </Form>
+
             <Form.Control
                 onChange={this.handleChange("firstName")}
                 value={this.state.firstName}
@@ -157,13 +157,24 @@ class EditProfile extends Component {
                     <p>return to your studio</p>
                 </Link>
             </div> */}
-        
+
         </Form.Group>
+            
     );
+
 
     render() {
         
-        const { firstName, lastName, email, username, password, redirectToStudio, error } = this.state;
+        const {
+            firstName,
+            lastName,
+            email,
+            username,
+            password,
+            redirectToStudio,
+            error,
+            loading
+        } = this.state;
         
         if (redirectToStudio) {
             return <Redirect to={`/studio/${username}`} />;
@@ -174,11 +185,8 @@ class EditProfile extends Component {
                 
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
-                    <div className="page page-title">edit profile</div>
-                        
-
-                        
-                        </div>                    
+                        <div className="page page-title">edit profile</div>
+                    </div>                    
                 
                 </Jumbotron>
 
@@ -187,6 +195,18 @@ class EditProfile extends Component {
                     style={{ display: error ? "" : "none"}}>    
                         { error }
                 </div>
+
+                {/* loading state is set to true upon click; show this div after click & before page redirect */}
+                {/* { loading ? (
+                    <div className="jumbotron text-center">
+                        <img
+                        alt="Loading"
+                        src={loadingImage}
+                        />{' '}
+                    </div>
+                ) : (
+                    ""
+                )} */}
 
                 {this.updateProfileInputFields( firstName, lastName, email, username, password)}
                 

@@ -36,7 +36,29 @@ const userSchema = new mongoose.Schema ({
             type: Date,
             default: Date.now
         },
-    updated: Date
+    updated: Date,
+    profileImage: {
+        data: Buffer,
+        contentType: String 
+	},
+	location: {
+		type: String
+	},
+	bio: {
+		type: String
+	},
+	website_URL: {
+		type: String
+	},
+	twitter_handle: {
+		type: String
+	},
+	instagram_handle: {
+		type: String
+	},
+	shop_URL: {
+        type: String
+    }
 });
 
 // instead of storing the password input value in the database, use this virtual field to hash the input string
@@ -62,7 +84,7 @@ userSchema.methods = {
         return this.encryptPassword(plainText) === this.hashed_password;
     },
 
-    // encrypt Password on sign up and log in
+    // encrypt passowrd on sign up and log in
     encryptPassword: function (password) {
         if (!password) return "";
         try {

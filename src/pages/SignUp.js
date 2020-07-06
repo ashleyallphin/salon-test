@@ -10,9 +10,7 @@ class SignUp extends Component {
     render() {
         return (
             <div className="page">
-                <TopNav />
-                    <SignUpForm />
-                <Footer />
+            <SignUpForm />
             </div>
         );
     }

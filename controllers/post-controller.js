@@ -1,9 +1,8 @@
 // import post model
-const Post = require ('../models/post-model')
+const Post = require ('../models/post-model');
 const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
-const { post } = require('../routes/post-route');
 
 exports.postsById = (req, res, next, id) => {
     Post.findById(id)
@@ -28,7 +27,7 @@ exports.getPosts = (req, res) => {
     .then((posts) => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('posts')
-        res.status(200).json({ posts: posts })
+        res.status(200).json({ posts:posts })
     })
     .catch(err => console.log(err))
 };

@@ -8,11 +8,13 @@ import Studio from './pages/Studio';
 import Artists from './pages/Artists';
 import EditProfile from './pages/EditProfile';
 import PrivateRoute from './components/PrivateRoute';
-
+import TopNav from './components/TopNav';
+import Footer from './components/Footer';
 
 const MainRouter = () => (
 
     <div>
+        <TopNav />
         <Switch>
             <Route exact path="/" component={LogIn} />
             <Route exact path="/login" component={LogIn} />
@@ -24,6 +26,7 @@ const MainRouter = () => (
             <PrivateRoute path="/artist/edit/:username" component={EditProfile} />
             <Redirect to="/pagenotfound" />
         </Switch>
+        <Footer />
     </div>
 
 )
