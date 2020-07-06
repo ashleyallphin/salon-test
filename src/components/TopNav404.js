@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/components.css';
-import logo from '../assets/images/salon-wordmark-white.svg';
+import logo from '../assets/images/logos/salon-wordmark-white.svg';
 
 class TopNav404 extends Component {
 

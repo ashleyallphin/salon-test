@@ -255,7 +255,7 @@ class EditProfile extends Component {
         } = this.state;
         
         if (redirectToStudio) {
-            return <Redirect to={`/studio/${username}`} />;
+            return <Redirect to={`/artist/studio/${username}`} />;
         }
 
         return (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { listArtists } from "../api/user-api";
-import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
+import DefaultProfilePic from '../assets/images/default_pics/salon-default-profile-pic.png';
 import { Link } from 'react-router-dom';
 
 
@@ -49,7 +49,7 @@ class Users extends Component {
                     
                     </p>
                     
-                    <Link to={`/studio/${user.username}`}
+                    <Link to={`/artist/studio/${user.username}`}
                     className="btn visit-studio-button">
                     Visit Studio
                     </Link>

@@ -96,7 +96,9 @@ a:hover {
 .btn:active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn:focus-within
-.checkbox:focus {
+.checkbox:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #3E4854;
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
     outline: 0px auto -webkit-focus-ring-color;
@@ -409,7 +411,7 @@ a:hover {
 
 .footer a:hover,
 .footer a:focus {
-  opacity: 80%;
+  opacity: 100%;
   text-decoration: none;
 }
 
@@ -418,7 +420,7 @@ a:hover {
 }
 
 .footer a {
-  opacity: 50%;
+  opacity: 80%;
   color: #fff;
 }
 

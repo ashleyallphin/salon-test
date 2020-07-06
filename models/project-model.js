@@ -35,7 +35,7 @@ const projectSchema = new mongoose.Schema ({
     projectLink: {
         contentType: String
     },
-    projectWIP: {
+    projectStatus: {
         contentType: Boolean
     },
     // build relationship between the post schema and the user schema

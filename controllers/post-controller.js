@@ -71,7 +71,7 @@ exports.createPost = (req, res, next) => {
 exports.postsByUser = (req, res) => {
     Post.find({postedBy: req.profile._id})
     .populate("postedBy", "_id username email")
-    .sort("_created")
+    .sort("posted")
     .exec((err, posts) => {
         if (err) {
             return res.status(400).json({
@@ -83,7 +83,7 @@ exports.postsByUser = (req, res) => {
 };
 
 exports.isPoster = (req, res, next) => {
-    let isPoster = req.post && req.auth && req.post.postedBy._id == req.auth._id
+    let isPoster = req.post && req.auth && req.post.postedBy._id === req.auth._id
     if (!isPoster) {
         return res.status(403).json({
             error: "User is not authorized to perform this action."

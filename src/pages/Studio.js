@@ -7,7 +7,7 @@ import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Redirect, Link } from 'react-router-dom';
 import { read } from '../api/user-api';
 import { isAuthenticated } from '../api/authentication-api';
-import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
+import DefaultProfilePic from '../assets/images/default_pics/salon-default-profile-pic.png';
 import UserGallery from '../components/UserGallery';
 
 class Profile extends Component {
@@ -126,11 +126,12 @@ class Profile extends Component {
                                     </Button>
                                 </Link>
                                     
-
+                                <Link to={`/artist/upload/${user.username}`}>
                                     <Button className="upload-project-button"
                                     variant="primary">
                                     Upload a Project
                                     </Button>
+                                </Link>
                                 
                                 </div>
                             )}

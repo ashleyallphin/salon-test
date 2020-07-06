@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/pages.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import logo from '../assets/images/salon-404.svg'
+import logo from '../assets/images/logos/salon-404.svg'
 
 class PageNotFound extends Component {
 

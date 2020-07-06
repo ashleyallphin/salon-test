@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../assets/images/salon-wordmark-white.svg';
+import logo from '../assets/images/logos/salon-wordmark-white.svg';
 
 const TopNav = () => {
 

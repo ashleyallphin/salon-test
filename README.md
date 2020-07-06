@@ -1,1 +1,1 @@
-![Salon MERN Application Banner](public/assets/images/salon-banner.png "Salon Banner")
+![Salon MERN Application Banner](public/assets/images/logos/salon-banner.png "Salon Banner")

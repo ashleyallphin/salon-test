@@ -20,10 +20,10 @@ const MainRouter = () => (
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route path="/pagenotfound" component={PageNotFound} />
-            <PrivateRoute exact path="/upload" component={Upload} />
             <PrivateRoute path="/artists" component={Artists} />
-            <PrivateRoute exact path="/studio/:username" component={Studio} />
+            <PrivateRoute exact path="/artist/studio/:username" component={Studio} />
             <PrivateRoute path="/artist/edit/:username" component={EditProfile} />
+            <PrivateRoute path="/artist/upload/:username" component={Upload} />
             <Redirect to="/pagenotfound" />
         </Switch>
         <Footer />

@@ -1,5 +1,4 @@
 exports.createPostValidator = (req, res, next) => {
-
     // title is required
     req.check('title', "Please declare a title. If you have not named your project, you may input 'Untitled.'").notEmpty();
     req.check('title', "Title input is limited to 100 characters.").isLength({
@@ -7,11 +6,10 @@ exports.createPostValidator = (req, res, next) => {
         max: 100
     });
     // description max is 1000 characters
-    req.check('body', "Please keep your description fewer than 1,000 characters.").isLength({
+    req.check('body', "Please keep your description fewer than 700 characters.").isLength({
         min: 0,
-        max: 999
+        max: 699
     });
-
     // check for errors
     const errors = req.validationErrors()
     // if error, resond first error so 
@@ -21,7 +19,6 @@ exports.createPostValidator = (req, res, next) => {
     }
     // let the operation run to the next middleware so won't halt application -- proceed to next middleware
     next();
-
 };
 
 exports.userSignUpValidator = (req, res, next) => {
@@ -94,6 +91,5 @@ exports.userSignUpValidator = (req, res, next) => {
     }
     // let the operation run to the next middleware so won't halt application -- proceed to next middleware
     next();
-
 };
 
