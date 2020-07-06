@@ -9,7 +9,6 @@ import { read } from '../api/user-api';
 import TopNav from '../components/TopNav';
 import { isAuthenticated } from '../api/authentication-api';
 import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
-import DeleteUserButton from '../components/DeleteUserButton';
 
 class Profile extends Component {
     constructor () {
@@ -135,10 +134,6 @@ class Profile extends Component {
                                     variant="primary">
                                     Upload a Project
                                     </Button>
-
-                                    <DeleteUserButton
-                                    // to access the user id in the delete user component, from this.state above
-                                    username={user.username} />
                                 
                                 </div>
                             )}

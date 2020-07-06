@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { isAuthenticated } from '../api/authentication-api';
 import { read, updateAccount } from '../api/user-api';
 import { Link, Redirect } from 'react-router-dom';
+import DeleteUserButton from '../components/DeleteUserButton';
 
 class EditProfile extends Component {
 
@@ -120,7 +121,10 @@ class EditProfile extends Component {
             <div>
                 <h1>Edit Profile </h1>
 
-                {/* renders form from above */}
+                <DeleteUserButton
+                // to access the user id in the delete user component, from this.state above
+                username={username} />
+
                 {this.updateProfileInputFields( firstName, lastName, email, username, password)}
                 
             </div>
