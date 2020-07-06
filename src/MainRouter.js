@@ -4,9 +4,10 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Upload from "./pages/Upload";
 import PageNotFound from './pages/PageNotFound';
-import Studio from './pages/Studio'
-import Artists from './pages/Artists'
-import EditProfile from './pages/EditProfile'
+import Studio from './pages/Studio';
+import Artists from './pages/Artists';
+import EditProfile from './pages/EditProfile';
+import PrivateRoute from './components/PrivateRoute';
 
 
 const MainRouter = () => (
@@ -16,11 +17,11 @@ const MainRouter = () => (
             <Route exact path="/" component={LogIn} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/studio/:username" component={Studio} />
-            <Route exact path="/upload" component={Upload} />
             <Route path="/pagenotfound" component={PageNotFound} />
-            <Route path="/artists" component={Artists} />
-            <Route path="/artist/edit/:username" component={EditProfile} />
+            <PrivateRoute exact path="/upload" component={Upload} />
+            <PrivateRoute path="/artists" component={Artists} />
+            <PrivateRoute exact path="/studio/:username" component={Studio} />
+            <PrivateRoute path="/artist/edit/:username" component={EditProfile} />
             <Redirect to="/pagenotfound" />
         </Switch>
     </div>
