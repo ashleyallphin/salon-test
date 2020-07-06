@@ -57,37 +57,44 @@ exports.getSingleUser = (req, res) => {
     return res.json(req.profile);
 };
 
-exports.updateUserProfile = ( req, res, next ) => {
-    let form = new formidable.IncomingForm()
-    form.keepExtenions = true
-    form.parse (req, (err, fields, files) => {
-        if(err) {
+exports.updateUser = (req, res, next) => {
+    let form = new formidable.IncomingForm();
+    console.log("incoming form data: ", form);
+    form.keepExtensions = true;
+    form.parse(req, (err, fields, files) => {
+        if (err) {
             return res.status(400).json({
-                message: "Image could not be uploaded."
-            })
+                error: 'Image could not be uploaded.'
+            });
         }
-        let user = req.profile
-        user= _.extend(user, fields)
-        user.updated = Date.now()
+        // save user
+        let user = req.profile;
+        // console.log("user in update: ", user);
+        user = _.extend(user, fields);
 
-        if(files.profileImage) {
-            user.profileImage.data = fs.readFileSync(files.profileImage.path)
-            user.profileImage.contentType = files.profileImage.type
+        user.updated = Date.now();
+        console.log("USER FORM DATA UPDATE: ", user);
+
+        if (files.profileImage) {
+            user.profileImage.data = fs.readFileSync(files.profileImage.path);
+            user.profileImage.contentType = files.profileImage.type;
         }
 
         user.save((err, result) => {
-            if(err) {
+            if (err) {
                 return res.status(400).json({
                     error: err
-                })
+                });
             }
-            user.hashed_password = undefined
-            user.salt = undefined
+            user.hashed_password = undefined;
+            user.salt = undefined;
+            console.log("user after update with formdata: ", user);
             res.json(user);
-        })
-
-    })
+        });
+    });
 };
+
+
 
 exports.deleteUser = (req, res, next) => {
     let user = req.profile;
@@ -102,4 +109,12 @@ exports.deleteUser = (req, res, next) => {
         res.json({ 
             message: "User account deleted successfully." });
     })
+};
+
+exports.showProfileImage = (req, res, next) => {
+    if (req.profile.profileImage.data) {
+        res.set(('Content-Type', req.profile.profileImage.contentType));
+        return res.send(req.profile.profileImage.data);
+    }
+    next();
 };

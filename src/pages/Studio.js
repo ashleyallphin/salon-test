@@ -8,6 +8,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { read } from '../api/user-api';
 import { isAuthenticated } from '../api/authentication-api';
 import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
+import UserGallery from '../components/UserGallery';
 
 class Profile extends Component {
     constructor () {
@@ -46,6 +47,10 @@ class Profile extends Component {
         const { redirectToSignIn, user } = this.state;
         if(redirectToSignIn) return <Redirect to="/login" />
 
+        const profileImageURL = user.username
+        ? `/user/image/${user.username}?${new Date().getTime()}`
+        : DefaultProfilePic;
+
         return (
             
             <> 
@@ -60,8 +65,9 @@ class Profile extends Component {
                         
                         <Card.Img
                             className="profile-image"
-                            src={DefaultProfilePic}
-                            alt={user.username}>
+                            src={profileImageURL}
+                            alt={user.username}
+                            onError = {i => (i.target.src = `${DefaultProfilePic}`)}>
                             </Card.Img>
                         
                         <Card.Body
@@ -153,6 +159,8 @@ class Profile extends Component {
                     </Card>
 
 				</div>  
+
+                <UserGallery />
 
             </>          
 

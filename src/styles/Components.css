@@ -99,7 +99,11 @@ a:hover {
 .checkbox:focus {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
-    outline: none !important;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+button:focus {
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
 .form-group,
@@ -134,7 +138,7 @@ a:hover {
 /* FUNCTIONAL NAVIGATION & TOP NAV ============  */
 
 .navbar {
-  padding: 10px 20px 10px 30px;
+  padding: 10px 20px 10px 20px;
 }
 
 .navbar-active {
@@ -154,8 +158,9 @@ a:hover {
 
 .functional-navigation img,
 .top-nav img {
-  height: 3.75vh;
+  height: 4vh;
   min-height: 30px;
+  margin: 10px;
 }
 
 .top-nav img {
@@ -172,8 +177,8 @@ a:hover {
   color: #fff !important;
   max-height: calc(.5 * 3);
   line-height: 1;
-  margin-left: 12px;
-  padding: 0 !important;
+  margin-left: 5px;
+  padding-left: 0 !important;
 }
 
 .functional-navigation h6 span:hover {
@@ -196,7 +201,7 @@ a:hover {
   height: 1.5em;
   width: 1.5em;
   opacity: 75%;
-  margin: 0 0 4px 0;
+  margin: 0 0px 4px 0;
 }
 
 .navbar-toggler-icon:focus {
@@ -398,6 +403,7 @@ a:hover {
   font-size: calc(2vh + 1rem);
   line-height: 1.5;
   border-top: 5px solid #fff;
+  padding: 2vh;
 }
 
 .footer a:hover,
@@ -451,6 +457,16 @@ a:hover {
   border: 5px #A8DCD9 solid;
 }
 
+.edit-profile-image {
+  border-radius: 50%;
+  width: calc(18vh + 30px);
+  height: calc(18vh + 30px);
+  object-fit:cover;
+  cursor: pointer;
+  border: 5px #fff solid;
+  margin-bottom: 3vh;
+}
+
 .profile-card-body {
   padding-left: 30px;
   padding-bottom: 10px;
@@ -487,7 +503,7 @@ a:hover {
 
 .delete-profile-icon {
   cursor: pointer;
-  margin-top: 15px;
+  margin: 15px 0;
 }
 
 .delete-profile-icon:hover {

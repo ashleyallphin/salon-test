@@ -27,7 +27,8 @@ const TopNav = ({ history }) => (
 
                 {isAuthenticated() && (
                     <>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Toggle
+                    aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         {/* <Nav.Link><Link to="/login">Log In</Link></Nav.Link>

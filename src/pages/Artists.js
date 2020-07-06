@@ -30,11 +30,13 @@ class Users extends Component {
             
             <div className="card col-md-6" key={i}>
             
-                <img
-                    className="artist-profile-pic card-img-top"
-                    src={DefaultProfilePic}
+            <img
+                    className="edit-profile-image"
+                    src={`/user/image/${user.username}`}
                     alt={user.username}
-                    />
+                    onError = {i => (i.target.src = `${DefaultProfilePic}`)}
+                >
+                </img>
             
                 <div className="card-body">
                     <h2 className="card-title">{user.username}</h2>

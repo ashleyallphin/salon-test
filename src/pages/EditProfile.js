@@ -3,11 +3,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { isAuthenticated } from '../api/authentication-api';
 import { read, updateAccount } from '../api/user-api';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import DeleteUserButton from '../components/DeleteUserButton';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 // import loadingImage from '../assets/images/salon-mustach-twitch.gif';
 import bsCustomFileInput from 'bs-custom-file-input';
+// import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
 
 class EditProfile extends Component {
 
@@ -22,11 +23,10 @@ class EditProfile extends Component {
             password: "",
             redirectToStudio: false,
             error: "",
+            fileSize: 0,
             // loading: false
         }
     }
-
-
 
     init = (username) => {
         const token = isAuthenticated().token
@@ -46,12 +46,10 @@ class EditProfile extends Component {
         });
     };
 
-    
-    handleChange = (name) => (event) => {
+    handleChange = name => event => {
         this.setState({ error: "" });
         const value = name === "profileImage" ? event.target.files[0] : event.target.value;
         const fileSize = name === "profileImage" ? event.target.files[0].size : 0;
-        // populate the form data
         this.userData.set(name, value);
         this.setState({ [name]: value, fileSize });
     };
@@ -66,33 +64,34 @@ class EditProfile extends Component {
 
     // check if the input fields are valid
     isValid = () => {
-        const { firstName, lastName, email, password } = this.state;
+        const { firstName, lastName, email, password, fileSize } = this.state;
+            if ( fileSize > 2000000 ) {
+            this.setState({
+                error: "Maximum image size is 2MB. Please select a smaller file.", loading: false });
+            return false;
+            }
             if (firstName.length === 0) {
-            this.setState({ error: "First name is required", loading: false });
+            this.setState({ error: "First name is required.", loading: false });
             return false;
             }
             if (lastName.length === 0) {
-                this.setState({ error: "Last name is required", loading: false });
+                this.setState({ error: "Last name is required.", loading: false });
                 return false;
             }
             if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             this.setState({
-                error: "Please enter a valid email address.",
-                loading: false
-            });
+                error: "Please enter a valid email address.", loading: false });
             return false;
             }
             if (password.length >= 1 && (password.length < 6 || password.length > 15)) {
             this.setState({
-                error: "Password must be between 6 and 15 characters long",
-                loading: false
-            });
+                error: "Password must be between 6 and 15 characters long.",
+                loading: false });
             return false;
             }
             return true;
         };
 
-    // grab data when sign up button is pressed to send to backend
     clickUpdateProfile = event => {
         event.preventDefault();
         this.setState({ loading:true });
@@ -173,15 +172,19 @@ class EditProfile extends Component {
             password,
             redirectToStudio,
             error,
-            loading
+            // loading
         } = this.state;
         
         if (redirectToStudio) {
             return <Redirect to={`/studio/${username}`} />;
         }
 
+        // const profileImageURL = username
+        // ? `/user/image/${username}?${new Date().getTime()}`
+        // : DefaultProfilePic;
+
         return (
-            <div className="component">
+            <div className="component text-center">
                 
                 <Jumbotron fluid className="jumbotron" >
                     <div className="vertical-center">
@@ -207,6 +210,13 @@ class EditProfile extends Component {
                 ) : (
                     ""
                 )} */}
+
+                {/* <img
+                    className="edit-profile-image"
+                    src={profileImageURL}
+                    alt={username}
+                >
+                </img> */}
 
                 {this.updateProfileInputFields( firstName, lastName, email, username, password)}
                 
