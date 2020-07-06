@@ -17,7 +17,8 @@ class EditProfile extends Component {
             username: "",
             email: "",
             password: "",
-            redirectToStudio: false
+            redirectToStudio: false,
+            error: ""
         }
     }
 
@@ -49,27 +50,59 @@ class EditProfile extends Component {
         this.init(username);
     }
 
+    // check if the input fields are valid
+    isValid = () => {
+        const { firstName, lastName, email, password } = this.state;
+            if (firstName.length === 0) {
+            this.setState({ error: "First name is required", loading: false });
+            return false;
+            }
+            if (lastName.length === 0) {
+                this.setState({ error: "Last name is required", loading: false });
+                return false;
+            }
+            if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            this.setState({
+                error: "Please enter a valid email address.",
+                loading: false
+            });
+            return false;
+            }
+            if (password.length >= 1 && (password.length < 6 || password.length > 15)) {
+            this.setState({
+                error: "Password must be between 6 and 15 characters long",
+                loading: false
+            });
+            return false;
+            }
+            return true;
+        };
+
     // grab data when sign up button is pressed to send to backend
     clickUpdateProfile = event => {
         event.preventDefault();
-        const { firstName, lastName, email, username, password } = this.state;
-        const user = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            username: username,
-            password: password || undefined
-        };
-        console.log(user);
-        const token = isAuthenticated().token;
-        
-        updateAccount(username, token, user).then(data => {
-            if (data.error) this.setState({ error: data.error });
-            else
-                this.setState ({
-                    redirectToStudio: true
-                });
-        })
+
+        if (this.isValid()) {
+            const { firstName, lastName, email, username, password } = this.state;
+            const user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                username: username,
+                password: password || undefined
+            };
+            
+            console.log(user);
+            const token = isAuthenticated().token;
+            
+            updateAccount(username, token, user).then(data => {
+                if (data.error) this.setState({ error: data.error });
+                else
+                    this.setState ({
+                        redirectToStudio: true
+                    });
+        });
+        }
 
     };
 
@@ -111,7 +144,7 @@ class EditProfile extends Component {
 
     render() {
         
-        const { firstName, lastName, email, username, password, redirectToStudio } = this.state;
+        const { firstName, lastName, email, username, password, redirectToStudio, error } = this.state;
         
         if (redirectToStudio) {
             return <Redirect to={`/studio/${username}`} />;
@@ -121,6 +154,12 @@ class EditProfile extends Component {
             <div>
                 <h1>Edit Profile </h1>
 
+                <div
+                    className="form-message-error text-center"
+                    style={{ display: error ? "" : "none"}}>    
+                        { error }
+                </div>
+
                 <DeleteUserButton
                 // to access the user id in the delete user component, from this.state above
                 username={username} />
@@ -129,7 +168,7 @@ class EditProfile extends Component {
                 
             </div>
         );
-    }
+    };
 }
 
 export default EditProfile
