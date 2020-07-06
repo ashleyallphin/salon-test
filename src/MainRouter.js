@@ -6,6 +6,8 @@ import Upload from "./pages/Upload";
 import PageNotFound from './pages/PageNotFound';
 import Studio from './pages/Studio'
 import Artists from './pages/Artists'
+import EditProfile from './pages/EditProfile'
+
 
 const MainRouter = () => (
 
@@ -18,6 +20,7 @@ const MainRouter = () => (
             <Route exact path="/upload" component={Upload} />
             <Route path="/pagenotfound" component={PageNotFound} />
             <Route path="/artists" component={Artists} />
+            <Route path="/artist/edit/:username" component={EditProfile} />
             <Redirect to="/pagenotfound" />
         </Switch>
     </div>

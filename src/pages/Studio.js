@@ -27,7 +27,7 @@ class Profile extends Component {
             if (data.error) {
                 this.setState({ redirectToSignin:true });
             } else {
-                this.setState({ user: data });
+                this.setState({ user:data });
             }
         });
     };
@@ -136,11 +136,13 @@ class Profile extends Component {
                                     Upload a Project
                                     </Button>
 
-                                    <DeleteUserButton />
+                                    <DeleteUserButton
+                                    // to access the user id in the delete user component, from this.state above
+                                    username={user.username} />
                                 
                                 </div>
                             )}
-
+                            
                             {isAuthenticated().user &&
                             isAuthenticated().user._id !== user._id && (
 

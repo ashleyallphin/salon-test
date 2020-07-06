@@ -17,8 +17,8 @@ const router = express.Router();
 // hand over to controller (use express.method(URL, middleware, run function))
 router.get("/users", getAllUsers);
 router.get("/user/:username", restrictedRouteAccess, getSingleUser);
-router.put("/studio/:username", restrictedRouteAccess, updateUserProfile);
-router.delete("/studio/:username", restrictedRouteAccess, deleteUser);
+router.put("/user/:username", restrictedRouteAccess, updateUserProfile);
+router.delete("/user/:username", restrictedRouteAccess, deleteUser);
 // router.get("/user/:username", restrictedRouteAccess,  getSingleUser);
 
 //if these params are in the routes above, the following middle and method will fire

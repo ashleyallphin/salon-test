@@ -31,7 +31,7 @@ exports.logIn = (req, res) => {
             // if username is not found
             if (err || !user) {
                 return res.status(401).json({
-                    error: "Username not found."
+                    error: "."
                 })
             }
             // if user is found, but username and password combo do not match

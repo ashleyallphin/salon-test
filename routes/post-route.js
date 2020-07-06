@@ -18,8 +18,8 @@ const router = express.Router();
     // ============== can only see posts WITH authorization
         router.get('/', restrictedRouteAccess, getPosts);
 router.get("/posts/by/:userId", restrictedRouteAccess, postsByUser);
-router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost)
-router.put("/post/:postId", restrictedRouteAccess, isPoster, updatePost)
+router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
+;
 
 // post to backend from frontend
 // before creating the post, run middleware to validate post meets specified criteria
