@@ -13,8 +13,9 @@ class UserGallery extends Component {
         return (
             < div className="component">                    
                 <div className="section-title">
-                    {isAuthenticated().user.username}'s Gallery
-                </div>
+                       ***Add username from route param****'s Gallery
+                        {/* {user.username}'s Profile */}
+                    </div>
                 <h1>display user projects here</h1>
             </div>
         )            
