@@ -3,6 +3,10 @@ import SignUpForm from '../components/SignUpForm';
 
 class SignUp extends Component {
 
+    componentDidMount() {
+        document.title = `Salon: Sign Up`;
+    }
+
     render() {
         return (
             <div className="page">

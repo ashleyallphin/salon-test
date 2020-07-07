@@ -13,6 +13,7 @@ class Users extends Component {
     }
 
     componentDidMount() {
+        document.title = 'Salon: Artists';
         listArtists().then(data => {
             if (data.error) {
                 console.log(data.error);

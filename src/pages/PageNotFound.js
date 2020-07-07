@@ -5,6 +5,10 @@ import logo from '../assets/images/logos/salon-404.svg';
 
 class PageNotFound extends Component {
 
+    componentDidMount() {
+        document.title = 'Salon: Page Not Found';
+    }
+
     render() {
         return (
             <div className="page">

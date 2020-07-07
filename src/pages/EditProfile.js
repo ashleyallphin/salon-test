@@ -67,6 +67,7 @@ class EditProfile extends Component {
     };
 
     componentDidMount() {
+        document.title = 'Salon: Edit Profile';
         bsCustomFileInput.init()
         // for sending the file
         this.userData = new FormData();

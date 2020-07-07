@@ -4,7 +4,10 @@ import LogInForm from '../components/LogInForm';
 
 class LogIn extends Component {
 
-    
+    componentDidMount() {
+        document.title = `Salon: Log In`;
+    }
+
     render() {
         return (
                 <>

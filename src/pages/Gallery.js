@@ -13,6 +13,7 @@ class Gallery extends Component {
     }
 
     componentDidMount() {
+        document.title = `Salon: Gallery`;
         listProjects().then(data => {
             if (data.error) {
                 console.log(data.error);
