@@ -20,15 +20,16 @@ exports.postsById = (req, res, next, id) => {
 };
 
 exports.getPosts = (req, res) => {
+    console.log(`getPosts method from post-controller`.x155)
     // get posts from database
     const posts = Post.find()
     .populate("postedBy", "_id username email")
     // this select method is optional -- if left out, ALL of the values will be returned
     .select("_id body title")
-    .then((posts) => {
+    .then(posts => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('posts')
-        res.status(200).json({ posts:posts })
+        res.status(200).json (posts);
     })
     .catch(err => console.log(err))
 };

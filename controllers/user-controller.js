@@ -1,12 +1,10 @@
 const color = require('colors-cli/toxic');
-
 const User = require ('../models/user-model');
 const _ = require ('lodash');
 const formidable = require ('formidable');
 const fs = require ('fs');
 
 exports.getAllUsers = (req, res) => {
-    console.log("getallusers")
     User.find((err, users) => {
         if(err) {
             return res.status(400).json({
