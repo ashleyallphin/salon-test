@@ -4,10 +4,14 @@ const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
 
+
 exports.postsById = (req, res, next, id) => {
     console.log(`\npostsById method from post-controller because of the postId in the URL`.x211)
     Post.findById(id)
-    .populate("postedBy", "_id username email")
+    // get the comments and who posted the comment from these populate methods
+    .populate("comments", "text created")
+    .populate("comments.postedBy", "_id username")
+    .populate("postedBy", "_id username")
     .exec((err, post) => {
         if (err || !post) {
             return res.status(400).json({
@@ -24,7 +28,10 @@ exports.getPosts = (req, res) => {
     console.log(`\ngetPosts method from post-controller`.x211)
     // get posts from database
     const posts = Post.find()
-    .populate("postedBy", "_id username email")
+    // get the comments and who posted the comment from these populate methods
+    .populate("comments", "text created")
+    .populate("comments.postedBy", "_id username")
+    .populate("postedBy", "_id username")
     // this select method is optional -- if left out, ALL of the values will be returned
     .sort ({ posted: -1 })
     .select("_id body title projectMedium projectCategory projectTags projectYear projectLink projectStatus posted")
@@ -142,3 +149,50 @@ exports.getProjectImage = (req, res, next) => {
 exports.getOnePost = (req, res) => {
     return res.json(req.post);
 };
+
+exports.leaveFeedback = (req, res) => {
+    console.log(`\n\nhitting leaveFeedback method from post-controller`.x211)
+    let comment = req.body.comment;
+    comment.postedBy = req.body.userId
+    // https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate
+    Post.findByIdAndUpdate (
+        req.body.postId,
+        { $push: { comments: comment } },
+        { new: true },
+    )
+    .populate ('comments.postedBy', '_id username email')
+    .populate ('postedBy', "_id username email")
+    .exec((err, result) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        } else {
+            res.json(result);
+            console.log(`Successful leaveFeedback method from post-controller!`.x161);
+        }
+    });
+}
+
+exports.removeFeedback = (req, res) => {
+    console.log(`\n\nhitting removeFeedback method from post-controller`.x211)
+    let comment = req.body.comment;
+    // https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate
+    Post.findByIdAndUpdate (
+        req.body.postId,
+        { $pull: { comments: { _id:comment._id} } },
+        { new: true },
+    )
+    .populate ('comments.postedBy', '_id username email')
+    .populate ('postedBy', "_id username email")
+    .exec((err, result) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        } else {
+            res.json(result);
+            console.log(`Successful removeFeedback method from post-controller!`.x161);
+        }
+    });
+}

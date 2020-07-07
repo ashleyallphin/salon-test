@@ -11,8 +11,8 @@ const
     updatePost,
     deletePost,
     getProjectImage,
-    // comment,
-    // uncomment,
+    leaveFeedback,
+    removeFeedback
     // updateComment
     } = require('../controllers/post-controller');
 // bring in any USER controller methods
@@ -39,8 +39,8 @@ router.delete("/post/:postId", isArtist, deletePost);
 
 
 // comments
-// router.put('/post/comment', comment);
-// router.put('/post/uncomment', uncomment);
+router.put('/post/comment', leaveFeedback);
+router.put('/post/uncomment', removeFeedback);
 // router.put('/post/updatecomment', updateComment);
 
 // make query to database and get user information for any route containing :username
