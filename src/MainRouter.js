@@ -4,22 +4,29 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Upload from "./pages/Upload";
 import PageNotFound from './pages/PageNotFound';
-import Studio from './pages/Studio'
-import Artists from './pages/Artists'
+import Studio from './pages/Studio';
+import Artists from './pages/Artists';
+import EditProfile from './pages/EditProfile';
+import PrivateRoute from './components/PrivateRoute';
+import TopNav from './components/TopNav';
+import Footer from './components/Footer';
 
 const MainRouter = () => (
 
     <div>
+        <TopNav />
         <Switch>
             <Route exact path="/" component={LogIn} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/studio/:username" component={Studio} />
-            <Route exact path="/upload" component={Upload} />
             <Route path="/pagenotfound" component={PageNotFound} />
-            <Route path="/artists" component={Artists} />
+            <PrivateRoute path="/artists" component={Artists} />
+            <PrivateRoute exact path="/artist/studio/:username" component={Studio} />
+            <PrivateRoute path="/artist/edit/:username" component={EditProfile} />
+            <PrivateRoute path="/artist/upload/:username" component={Upload} />
             <Redirect to="/pagenotfound" />
         </Switch>
+        <Footer />
     </div>
 
 )

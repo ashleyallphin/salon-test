@@ -1,9 +1,8 @@
 // import post model
-const Post = require ('../models/post-model')
+const Post = require ('../models/post-model');
 const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
-const { post } = require('../routes/post-route');
 
 exports.postsById = (req, res, next, id) => {
     Post.findById(id)
@@ -28,7 +27,7 @@ exports.getPosts = (req, res) => {
     .then((posts) => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('posts')
-        res.status(200).json({ posts: posts })
+        res.status(200).json({ posts:posts })
     })
     .catch(err => console.log(err))
 };
@@ -72,7 +71,7 @@ exports.createPost = (req, res, next) => {
 exports.postsByUser = (req, res) => {
     Post.find({postedBy: req.profile._id})
     .populate("postedBy", "_id username email")
-    .sort("_created")
+    .sort("posted")
     .exec((err, posts) => {
         if (err) {
             return res.status(400).json({
@@ -84,7 +83,7 @@ exports.postsByUser = (req, res) => {
 };
 
 exports.isPoster = (req, res, next) => {
-    let isPoster = req.post && req.auth && req.post.postedBy._id == req.auth._id
+    let isPoster = req.post && req.auth && req.post.postedBy._id === req.auth._id
     if (!isPoster) {
         return res.status(403).json({
             error: "User is not authorized to perform this action."

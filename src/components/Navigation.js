@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/components.css';
-import logo from '../assets/images/salon-wordmark-white.svg';
+import logo from '../assets/images/logos/salon-wordmark-white.svg';
 import { NavLink } from 'react-router-dom'
 
 class Navigation extends Component {

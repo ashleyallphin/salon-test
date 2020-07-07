@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "body-parser": "^1.19.0",
     "bootstrap-material-design": "^4.1.1",
+    "bs-custom-file-input": "^1.3.4",
     "colors": "^1.4.0",
     "colors-cli": "^1.0.27",
     "concurrently": "^5.2.0",

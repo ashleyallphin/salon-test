@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { listArtists } from "../api/user-api";
-import DefaultProfilePic from '../assets/images/salon-default-profile-pic.png';
+import DefaultProfilePic from '../assets/images/default_pics/salon-default-profile-pic.png';
 import { Link } from 'react-router-dom';
+
 
 class Users extends Component {
     constructor() {
@@ -30,28 +31,31 @@ class Users extends Component {
             <div className="card col-md-6" key={i}>
             
             <img
-                className="artist-profile-pic card-img-top"
-                src={DefaultProfilePic}
-                alt={user.username}
-                />
+                    className="edit-profile-image"
+                    src={`/user/image/${user.username}`}
+                    alt={user.username}
+                    onError = {i => (i.target.src = `${DefaultProfilePic}`)}
+                >
+                </img>
             
-            <div className="card-body">
-                <h2 className="card-title">{user.username}</h2>
-                <p className="card-text">
-                
-                <p>
-                    Display user email until add option to fill out bio.<br></br>
-                    {user.email}
-                </p>
-                
-                </p>
-                
-                <Link to={`/studio/${user.username}`}
-                className="btn visit-studio-button">
-                Visit Studio
-                </Link>
+                <div className="card-body">
+                    <h2 className="card-title">{user.username}</h2>
+                    <p className="card-text">
+                    
+                    <p>
+                        Display user email until add option to fill out bio.<br></br>
+                        {user.email}
+                    </p>
+                    
+                    </p>
+                    
+                    <Link to={`/artist/studio/${user.username}`}
+                    className="btn visit-studio-button">
+                    Visit Studio
+                    </Link>
 
-            </div>
+                </div>
+
             </div>
         ))}
 

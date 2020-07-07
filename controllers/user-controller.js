@@ -1,6 +1,7 @@
 const User = require ('../models/user-model');
-// requre lodash
 const _ = require ('lodash');
+const formidable = require ('formidable');
+const fs = require ('fs');
 
 exports.getAllUsers = (req, res) => {
     console.log("getallusers")
@@ -57,23 +58,43 @@ exports.getSingleUser = (req, res) => {
 };
 
 exports.updateUserProfile = (req, res, next) => {
-    // extract user information from the profile
-    let user = req.profile
-    // lodash method: extend
-    user = _.extend(user, req.body) // changes the source object
-    user.updated = Date.now();
-    // save user database
-    user.save((err) => {
-        if(err) {
+    let form = new formidable.IncomingForm();
+    console.log("incoming form data: ", form);
+    form.keepExtensions = true;
+    form.parse(req, (err, fields, files) => {
+        if (err) {
             return res.status(400).json({
-                error: "User is not authroized to perform this action."
-            })
-        };
-        user.hashed_password = undefined;
-        user.salt = undefined;
-        res.json({ user: user });
+                error: 'Image could not be uploaded.'
+            });
+        }
+        // save user
+        let user = req.profile;
+        // console.log("user in update: ", user);
+        user = _.extend(user, fields);
+
+        user.updated = Date.now();
+        console.log("USER FORM DATA UPDATE: ", user);
+
+        if (files.profileImage) {
+            user.profileImage.data = fs.readFileSync(files.profileImage.path);
+            user.profileImage.contentType = files.profileImage.type;
+        }
+
+        user.save((err, result) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            }
+            user.hashed_password = undefined;
+            user.salt = undefined;
+            console.log("user after update with formdata: ", user);
+            res.json(user);
+        });
     });
 };
+
+
 
 exports.deleteUser = (req, res, next) => {
     let user = req.profile;
@@ -88,4 +109,12 @@ exports.deleteUser = (req, res, next) => {
         res.json({ 
             message: "User account deleted successfully." });
     })
+};
+
+exports.showProfileImage = (req, res, next) => {
+    if (req.profile.profileImage.data) {
+        res.set(('Content-Type', req.profile.profileImage.contentType));
+        return res.send(req.profile.profileImage.data);
+    }
+    next();
 };

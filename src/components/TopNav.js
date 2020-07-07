@@ -3,14 +3,14 @@ import { NavLink, withRouter } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { isAuthenticated, logout } from '../api/authentication-api';
+import '../styles/components.css';
+import logo from '../assets/images/logos/salon-wordmark-white.svg';
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 // import FormControl from 'react-bootstrap/FormControl';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import '../styles/components.css';
-import logo from '../assets/images/salon-wordmark-white.svg';
 
 const TopNav = ({ history }) => (
 
@@ -27,7 +27,8 @@ const TopNav = ({ history }) => (
 
                 {isAuthenticated() && (
                     <>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Toggle
+                    aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         {/* <Nav.Link><Link to="/login">Log In</Link></Nav.Link>
@@ -67,7 +68,7 @@ const TopNav = ({ history }) => (
                             <NavLink
                                 activeClassName="navbar-active"
                                 className="nav-link"
-                                to={`/studio/${isAuthenticated().user.username}`}
+                                to={`/artist/studio/${isAuthenticated().user.username}`}
                             >
                                 Studio
                             </NavLink>

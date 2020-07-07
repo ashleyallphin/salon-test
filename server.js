@@ -1,8 +1,5 @@
 // VARIABLES
 // ================================================
-// import dependencies
-// colors terminal output
-// const colors = require('colors');
 const color = require('colors-cli/toxic');
 const express = require ('express');
 const bodyParser = require ('body-parser');
@@ -15,7 +12,6 @@ const mongoose = require("mongoose");
     mongoose.set('useCreateIndex', true);
 const expressValidator = require ('express-validator');
 const dotenv = require ('dotenv');
-// invoke config method for dotenv
 dotenv.config();
 
 // invoke express
@@ -28,7 +24,6 @@ const userRoutes = require("./routes/user-route");
 
 // DATABASE
 // ================================================
-// If deployed, use the deployed database. Otherwise, use the 'salon' database on localhost.
 var db = process.env.MONGODB_URI
 
 mongoose.connect(db)
@@ -40,14 +35,10 @@ console.log(`Error connectiong to MongoDB: ${err.message}`.x196));
 
 // MIDDLEWARE
 // ================================================
-// morgan middleware - posts methods to the terminal
 app.use(morgan('dev'));
-// express get method for getting routes
 app.use(bodyParser.json());
 app.use(cookieParser());
-// validator for content posts
 app.use(expressValidator());
-// ues getPosts function from routes/post-route.js
 app.use(postRoutes);
 app.use(userRoutes);
 app.use(authRoutes);
@@ -57,10 +48,9 @@ app.use(function (err, req, res, next) {
     }
     });
 
-    
+
 // LISTEN
 // ================================================
-//set up port -- deployed port or localhost 8080
 var PORT = 8080
 app.listen(PORT, () => {
     console.log(`\nApp listening on `.x81 + `http://localhost:${PORT}`.x226.underline);

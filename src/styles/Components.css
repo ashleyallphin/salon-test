@@ -99,7 +99,18 @@ a:hover {
 .checkbox:focus {
     border: 1px solid #78828f;
     box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
-    outline: none !important;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #3E4854;
+  border: 1px solid #78828f;
+  box-shadow: 0 0 0 0.15rem rgba(75, 86, 99, .25);
+  outline: 0px auto -webkit-focus-ring-color;
+}
+
+button:focus {
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
 .form-group,
@@ -113,7 +124,8 @@ a:hover {
 
 .form-control,
 .custom-file-input,
-.custom-file {
+.custom-file,
+.input-group {
   margin-bottom: 2vh;
   min-height: 1.5rem;
   font-size: calc(1vh + 10px) !important;
@@ -134,7 +146,7 @@ a:hover {
 /* FUNCTIONAL NAVIGATION & TOP NAV ============  */
 
 .navbar {
-  padding: 0;
+  padding: 10px 20px 10px 20px;
 }
 
 .navbar-active {
@@ -145,6 +157,7 @@ a:hover {
 .top-nav {
   background-color: #F26A21;
   border-bottom: 5px solid white;
+  font-family: "St Ryde Medium";
 }
 
 .nav-404 {
@@ -153,12 +166,13 @@ a:hover {
 
 .functional-navigation img,
 .top-nav img {
-  height: 3.75vh;
+  height: 4vh;
   min-height: 30px;
+  margin: 10px;
 }
 
 .top-nav img {
-  opacity: 50%;
+  opacity: 80%;
 }
 
 .functional-navigation a {
@@ -166,12 +180,12 @@ a:hover {
 }
 
 .nav-link {
-  opacity: 50%;
+  opacity: 80%;
   font-size: calc(.5em + 13px);
   color: #fff !important;
   max-height: calc(.5 * 3);
   line-height: 1;
-  margin-left: 12px;
+  margin-left: 5px;
   padding-left: 0 !important;
 }
 
@@ -195,7 +209,7 @@ a:hover {
   height: 1.5em;
   width: 1.5em;
   opacity: 75%;
-  margin: 0 0 4px 0;
+  margin: 0 0px 4px 0;
 }
 
 .navbar-toggler-icon:focus {
@@ -397,11 +411,12 @@ a:hover {
   font-size: calc(2vh + 1rem);
   line-height: 1.5;
   border-top: 5px solid #fff;
+  padding: 2vh;
 }
 
 .footer a:hover,
 .footer a:focus {
-  opacity: 80%;
+  opacity: 100%;
   text-decoration: none;
 }
 
@@ -410,7 +425,7 @@ a:hover {
 }
 
 .footer a {
-  opacity: 50%;
+  opacity: 80%;
   color: #fff;
 }
 
@@ -425,7 +440,7 @@ a:hover {
   font-size: calc(1vh + 14px);
   color: #fff;
   line-height: 1;
-  padding: 16px 0;
+  padding: 12px 0 12px 30px;
   border-bottom: 5px solid #C6D930;
 }
 
@@ -448,6 +463,7 @@ a:hover {
   object-fit:cover;
   cursor: pointer;
   border: 5px #A8DCD9 solid;
+  cursor: default;
 }
 
 .profile-card-body {
@@ -474,7 +490,7 @@ a:hover {
   color: #fff;
   font-family: "St Ryde Medium";
   border: transparent 1px solid;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
 }
 
 .visit-studio-button {
@@ -484,3 +500,11 @@ a:hover {
   border: transparent 1px solid;
 }
 
+.delete-profile-icon {
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.delete-profile-icon:hover {
+  color: #c42c3b;
+}
