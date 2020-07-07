@@ -4,7 +4,6 @@ const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
 
-
 exports.postsById = (req, res, next, id) => {
     console.log(`\npostsById method from post-controller because of the postId in the URL`.x211)
     Post.findById(id)
@@ -19,7 +18,7 @@ exports.postsById = (req, res, next, id) => {
             });
         }
         req.post = post;
-        console.log("from postsById method in post-controller", post);
+        console.log("moved through postsById method in post-controller", post);
         next();
     });
 };
@@ -78,7 +77,6 @@ exports.createPost = (req, res, next) => {
             res.json(result);
         });
     });
-    
 };
 
 exports.postsByUser = (req, res) => {
@@ -169,7 +167,7 @@ exports.leaveFeedback = (req, res) => {
             });
         } else {
             res.json(result);
-            console.log(`Successful leaveFeedback method from post-controller!`.x161);
+            console.log(`moved through leaveFeedback method from post-controller!`.x161);
         }
     });
 }
@@ -192,7 +190,7 @@ exports.removeFeedback = (req, res) => {
             });
         } else {
             res.json(result);
-            console.log(`Successful removeFeedback method from post-controller!`.x161);
+            console.log(`moved through removeFeedback method from post-controller!`.x161);
         }
     });
 }

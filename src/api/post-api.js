@@ -43,7 +43,7 @@ export const listOneProject = (postId) => {
 };
 
 export const listProjectsByUser = (username, token) => {
-    console.log(`\nhitting listProjectsByUser from post-api.js\n`.x205);
+    console.log(`\nhitting listProjectsByUser method from post-api.js\n`.x205);
     return fetch(`/posts/by/${username}`, {
         method: "GET",
         headers: {
@@ -51,6 +51,40 @@ export const listProjectsByUser = (username, token) => {
             "Content-Type": 'application/json',
             Authorization: `Bearer ${token}`
         },
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const postFeedback = (userId, token, postId, comment) => {
+    console.log(`\nhitting postFeedback method from post-api.js\n`.x205);
+    return fetch(`/project/comment`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ userId, postId, comment })
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const deleteFeedback = (userId, token, postId, comment) => {
+    console.log(`\nhitting deleteFeedback method from post-api.js\n`.x205);
+    return fetch(`/project/comment`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ userId, postId, comment })
     })
         .then(response => {
             return response.json();

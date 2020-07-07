@@ -39,8 +39,8 @@ router.delete("/post/:postId", isArtist, deletePost);
 
 
 // comments
-router.put('/post/comment', leaveFeedback);
-router.put('/post/uncomment', removeFeedback);
+router.put('/project/comment', leaveFeedback);
+router.put('/project/uncomment', removeFeedback);
 // router.put('/post/updatecomment', updateComment);
 
 // make query to database and get user information for any route containing :username
