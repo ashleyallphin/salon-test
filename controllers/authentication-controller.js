@@ -1,3 +1,4 @@
+const color = require('colors-cli/toxic');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const cookieParser = require ('cookie-parser');

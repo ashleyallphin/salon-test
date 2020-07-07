@@ -1,3 +1,4 @@
+const color = require('colors-cli/toxic');
 // router.get('/posts', restrictedRouteAccess, getPosts);
 // router.get("/posts/by/:username", restrictedRouteAccess, postsByUser);
 // router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
@@ -22,6 +23,17 @@ export const uploadProject = (username, token, post) => {
 
 export const listProjects = () => {
     return fetch(`/posts`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const listOneProject = (postId) => {
+    console.log(`\nhitting listOneProject from post-api.js\n`.x205);
+    return fetch(`/post/${postId}`, {
         method: "GET"
     })
         .then(response => {

@@ -1,46 +1,33 @@
-import React, { Component } from "react";
-import { listProjects } from "../api/post-api";
-import DefaultProjectImage from '../assets/images/default_pics/salon-default-project-pic.png';
-import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button';
-import wip from '../assets/images/default_pics/WIP.svg';
+import React, { Component } from 'react';
+import { listOneProject }  from '../api/post-api';
 
 class SingleProject extends Component {
-
-    constructor() {
-    super();
-    this.state = {
-        posts: [],
-    };
+    
+    state = {
+        post: ''
     }
 
-    componentDidMount() {
-    document.title = `Salon: Gallery`;
-    listProjects().then((data) => {
-        if (data.error) {
-        console.log(data.error);
-        } else {
-        this.setState({ posts: data });
-        }
-    });
+    componentDidMount = () => {
+        const postId = this.props.match.params.postId
+        listOneProject(postId).then(data => {
+            console.log("listOneProject")
+            if (data.error) {
+                console.log(data.error)
+            } else {
+                this.setState( { post:data });
+            }
+            console.log("from page", this.state.post);
+        });
     }
-
-    renderProjects = (posts) => (
-        
-        <div className="projects container fluid">
-
-        </div>
-    );
 
     render() {
-        const { posts } = this.state;
-        return (
-        <>
-            <div className="section-title">Public Gallery</div>
-            {this.renderProjects(posts)}
-        </>
-    );
-}}
 
-export default SingleProject;
+        return (
+            <div>
+                
+            </div>
+        )
+    }
+}
+
+export default SingleProject

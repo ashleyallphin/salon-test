@@ -4,7 +4,7 @@ import DefaultProjectImage from '../assets/images/default_pics/salon-default-pro
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
-import wip from '../assets/images/default_pics/WIP.svg';
+// import wip from '../assets/images/default_pics/WIP.svg';
 
 class ProjectCard extends Component {
 
@@ -26,9 +26,11 @@ class ProjectCard extends Component {
     });
     }
 
-    renderProjects = (posts) => (
-        
-        <div className="projects container fluid">
+    renderProjects = (posts) => {
+
+        return (
+
+            <div className="projects container fluid">
             {posts.map((post, i) => (
                 
                 <Card
@@ -78,7 +80,7 @@ class ProjectCard extends Component {
                         </Card.Text>
 
                         <Card.Text className="project-materials">
-                        {posts.materials}
+                        {post.projectMedium}
                         </Card.Text>
 
                         <div className="project-card-buttons">
@@ -108,7 +110,12 @@ class ProjectCard extends Component {
             
             ))}
         </div>
-    );
+    
+        
+            )
+        
+        
+        };
 
     render() {
         const { posts } = this.state;

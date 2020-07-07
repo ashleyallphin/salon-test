@@ -1,11 +1,11 @@
-// import post model
+const color = require('colors-cli/toxic');
 const Post = require ('../models/post-model');
 const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
-const color = require('colors-cli/toxic');
 
 exports.postsById = (req, res, next, id) => {
+    console.log(`\npostsById method from post-controller because of the postId in the URL`.x211)
     Post.findById(id)
     .populate("postedBy", "_id username email")
     .exec((err, post) => {
@@ -15,12 +15,13 @@ exports.postsById = (req, res, next, id) => {
             });
         }
         req.post = post;
+        console.log("from postsById method in post-controller", post);
         next();
     });
 };
 
 exports.getPosts = (req, res) => {
-    console.log(`getPosts method from post-controller`.x155)
+    console.log(`\ngetPosts method from post-controller`.x211)
     // get posts from database
     const posts = Post.find()
     .populate("postedBy", "_id username email")
@@ -32,13 +33,13 @@ exports.getPosts = (req, res) => {
         // when key and value are the same, we can leave it as one word ('posts')
         res.status(200).json (posts);
     })
-    console.log(`POST FORM DATA: `.x117, posts)
+    console.log(`\n\nPOST FORM DATA: `.x117, posts)
     .catch(err => console.log(err))
 };
 
 // method to create a post
 exports.createPost = (req, res, next) => {
-    console.log(`createPost method from post-controller`.x155)
+    console.log(`\n\ncreatePost method from post-controller`.x211)
     // method from formidable package
     let form = new formidable.IncomingForm();
     // keep extensions of the images
@@ -74,11 +75,14 @@ exports.createPost = (req, res, next) => {
 };
 
 exports.postsByUser = (req, res) => {
+    console.log(`\n\npostsByUser method from post-controller`.x211)
     Post.find({postedBy: req.profile._id})
+    // use .populate from a different model (rather than select)
     .populate("postedBy", "_id username email")
     .sort("posted")
     .exec((err, posts) => {
         if (err) {
+            console.log(`getting posts by user`.x204)
             return res.status(400).json({
                 error: err
             })
@@ -88,6 +92,7 @@ exports.postsByUser = (req, res) => {
 };
 
 exports.isPoster = (req, res, next) => {
+    console.log(`\n\nisPoster method from post-controller`.x211)
     let isPoster = req.post && req.auth && req.post.postedBy._id === req.auth._id
     if (!isPoster) {
         return res.status(403).json({
@@ -98,6 +103,7 @@ exports.isPoster = (req, res, next) => {
 };
 
 exports.updatePost = (req, res, next) => {
+    console.log(`\n\nupdatePost method from post-controller`.x211)
     let post = req.post
     post= _.extend(post, req.body)
     post.updated = Date.now()
@@ -112,6 +118,7 @@ exports.updatePost = (req, res, next) => {
 };
 
 exports.deletePost = (req, res) => {
+    console.log(`\n\ndeletePost method from post-controller`.x211)
     let post = req.post
     post.remove((err, post) => {
         if (err) {
@@ -126,6 +133,11 @@ exports.deletePost = (req, res) => {
 };
 
 exports.getProjectImage = (req, res, next) => {
+    console.log(`\n\ngetProjectImage method from post-controller`.x211)
     res.set('Content-Type', req.post.projectImage.contentType);
     return res.send(req.post.projectImage.data);
+};
+
+exports.getOnePost = (req, res) => {
+    return res.json(req.post);
 };

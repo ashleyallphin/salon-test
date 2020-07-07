@@ -17,9 +17,9 @@ dotenv.config();
 // invoke express
 const app = express();
 // bring in routes
-const postRoutes = require("./routes/post-route");
 const authRoutes = require("./routes/authentication-route");
 const userRoutes = require("./routes/user-route");
+const postRoutes = require("./routes/post-route");
 
 
 // DATABASE
@@ -28,7 +28,7 @@ var db = process.env.MONGODB_URI
 
 mongoose.connect(db)
 .then(() => console.log(`Successfully connected to MongoDB.`.x206 + 
-`\n-----------------------------------------------------`.x255))
+`\n+++++++++++++++++++++++++++++++++++++++++\n`.x255))
 mongoose.connection.on('error', err =>
 console.log(`Error connectiong to MongoDB: ${err.message}`.x196));
 

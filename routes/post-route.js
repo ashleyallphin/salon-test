@@ -1,47 +1,47 @@
-// require express
 const express = require('express');
-// bring in post controllers
+// bring in POST controller methods
 const
     {
-    getPosts,
     createPost,
+    getPosts,
+    getOnePost,
     postsByUser,
     postsById,
     isPoster,
     updatePost,
     deletePost,
     getProjectImage,
-    // projectImage,
-    // singlePost,
     // comment,
     // uncomment,
     // updateComment
     } = require('../controllers/post-controller');
-// bring in protected routes authentication controller
-const { restrictedRouteAccess } = require('../controllers/authentication-controller');
-// bring in user controllers
+// bring in any USER controller methods
 const { getUserById, getUserByUsername } = require('../controllers/user-controller');
-// bring in validator from validator/index.js
+// bring in any VALIDATOR mehods
 const { createPostValidator } = require ('../validator');
+
+// ***************************************
+// const { restrictedRouteAccess } = require('../controllers/authentication-controller');
 
 // use express router
 const router = express.Router();
 
 // HAND ROUTES OVER TO CONTROLLER
-// post to backend from frontend
-// before creating the post, run middleware to validate post meets specified criteria  -- then run validator after post is created
+// ***************************************
+// disabled restrictedRouteAccess
 router.get('/posts', getPosts);
-router.post('/post/new/:username', restrictedRouteAccess, createPost, createPostValidator)
-router.get("/posts/by/:username", restrictedRouteAccess, postsByUser);
-router.put('/post/:postId', restrictedRouteAccess, isPoster, updatePost);
-router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
+router.get('/post/:postId', getOnePost);
+router.get("/posts/by/:username", postsByUser);
 router.get("/post/image/:postId", getProjectImage); 
+router.post('/post/new/:username', createPost, createPostValidator)
+router.put('/post/:postId', isPoster, updatePost);
+router.delete("/post/:postId", isPoster, deletePost);
 
 
-// // comments
-// router.put('/post/comment', restrictedRouteAccess, comment);
-// router.put('/post/uncomment', restrictedRouteAccess, uncomment);
-// router.put('/post/updatecomment', restrictedRouteAccess, updateComment);
+// comments
+// router.put('/post/comment', comment);
+// router.put('/post/uncomment', uncomment);
+// router.put('/post/updatecomment', updateComment);
 
 // make query to database and get user information for any route containing :username
 router.param("username", getUserByUsername);
