@@ -1,3 +1,6 @@
 {
-    "colorWheel.settings.workspaceColor": "hsl(238,27%,59%)"
+    "colorWheel.settings.workspaceColor": "hsl(238,27%,59%)",
+    "launch": {
+    },
+    "editor.snippetSuggestions": "top"
 }

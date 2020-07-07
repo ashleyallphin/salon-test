@@ -40,12 +40,22 @@ const postSchema = new mongoose.Schema ({
     // build relationship between the post schema and the user schema
     postedBy: {
         type: ObjectId,
+        // reference User schema
         ref: "User"
     },
     posted: {
         type: Date,
         default: Date.now
-    }
+    },
+    // COMMENTS  COMMENTS  COMMENTS COMMENTS  COMMENTS  COMMENTS  COMMENTS
+    comments: [
+        {
+            text: String,
+            created: {type: Date, default:Date.now},
+            postedBy: {type: ObjectId, ref: "User"}
+        }
+    ]
+
 });
 
 module.exports = mongoose.model("Post", postSchema)
