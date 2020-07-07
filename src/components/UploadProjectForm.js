@@ -73,8 +73,8 @@ class UploadProjectForm extends Component {
                 this.setState({ error: "Please select a project category." });
                 return false;
                 }
-            if (body.length === 0) {
-                this.setState({ error: "Please provide a description of your project." });
+            if (body.length > 300) {
+                this.setState({ error: "Please keep your description fewer than 300 characters or fewer." });
                 return false;
             }
             if (projectMedium.length === 0) {

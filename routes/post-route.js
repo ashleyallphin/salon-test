@@ -9,7 +9,8 @@ const
     postsById,
     isPoster,
     updatePost,
-    deletePost
+    deletePost,
+    getProjectImage,
     // projectImage,
     // singlePost,
     // comment,
@@ -34,7 +35,7 @@ router.post('/post/new/:username', restrictedRouteAccess, createPost, createPost
 router.get("/posts/by/:username", restrictedRouteAccess, postsByUser);
 router.put('/post/:postId', restrictedRouteAccess, isPoster, updatePost);
 router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
-// router.get('/post/photo/:postId', photo);
+router.get("/post/image/:postId", getProjectImage); 
 
 
 // // comments

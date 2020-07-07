@@ -5,10 +5,10 @@ exports.createPostValidator = (req, res, next) => {
         min: 1,
         max: 100
     });
-    // description max is 1000 characters
-    req.check('body', "Please keep your description fewer than 1,000 characters or fewer.").isLength({
+    // description max is 300 characters
+    req.check('body', "Please keep your description fewer than 300 characters or fewer.").isLength({
         min: 0,
-        max: 1000
+        max: 300
     });
     // check for errors
     const errors = req.validationErrors()

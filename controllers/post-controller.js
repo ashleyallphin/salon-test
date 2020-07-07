@@ -25,12 +25,14 @@ exports.getPosts = (req, res) => {
     const posts = Post.find()
     .populate("postedBy", "_id username email")
     // this select method is optional -- if left out, ALL of the values will be returned
-    .select("_id body title")
+    .sort ({ posted: -1 })
+    .select("_id body title projectMedium projectCategory projectTags projectYear projectLink projectStatus posted")
     .then(posts => {
         // status 200 is default, so we can leave it out in the future
         // when key and value are the same, we can leave it as one word ('posts')
         res.status(200).json (posts);
     })
+    console.log(`POST FORM DATA: `.x117, posts)
     .catch(err => console.log(err))
 };
 
@@ -122,3 +124,8 @@ exports.deletePost = (req, res) => {
         });
     });
 };
+
+exports.getProjectImage = (req, res, next) => {
+    res.set("Content-Type", req.post.projectImage.contentType)
+    return res.send(req.post.projectImage.data);
+}

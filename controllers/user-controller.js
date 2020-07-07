@@ -113,7 +113,7 @@ exports.deleteUser = (req, res, next) => {
     })
 };
 
-exports.showProfileImage = (req, res, next) => {
+exports.getProfileImage = (req, res, next) => {
     if (req.profile.profileImage.data) {
         res.set(('Content-Type', req.profile.profileImage.contentType));
         return res.send(req.profile.profileImage.data);

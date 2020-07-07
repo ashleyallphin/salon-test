@@ -9,9 +9,9 @@ class Gallery extends Component {
 
     render() {
         return (
-                <>
-                <ProjectCard />
-                </>
+                <div class="page">
+                    <ProjectCard />
+                </div>
         );
     }
 }
