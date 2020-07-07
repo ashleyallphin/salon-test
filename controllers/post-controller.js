@@ -3,6 +3,9 @@ const Post = require ('../models/post-model');
 const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
+const color = require('colors-cli/toxic');
+const { x0 } = require('colors-cli/lib/color');
+
 
 exports.postsById = (req, res, next, id) => {
     Post.findById(id)
@@ -34,6 +37,7 @@ exports.getPosts = (req, res) => {
 
 // method to create a post
 exports.createPost = (req, res, next) => {
+    console.log(`createPost method from post-controller`.x155)
     // method from formidable package
     let form = new formidable.IncomingForm();
     // keep extensions of the images
@@ -52,9 +56,9 @@ exports.createPost = (req, res, next) => {
         req.profile.hashed_password = undefined;
         req.profile.salt = undefined;
         // handle files
-        if(files.photo) {
-            post.photo.data = fs.readFileSync(files.photo.path);
-            post.photo.contentType = files.photo.type;
+        if(files.projectImage) {
+            post.projectImage.data = fs.readFileSync(files.projectImage.path);
+            post.projectImage.contentType = files.projectImage.type;
         };
         post.save((err, result) => {
         if (err) {

@@ -1,3 +1,5 @@
+const color = require('colors-cli/toxic');
+
 const User = require ('../models/user-model');
 const _ = require ('lodash');
 const formidable = require ('formidable');
@@ -59,7 +61,8 @@ exports.getSingleUser = (req, res) => {
 
 exports.updateUserProfile = (req, res, next) => {
     let form = new formidable.IncomingForm();
-    console.log("incoming form data: ", form);
+    console.log(`updateUserProfile method from user-controller`.x117);
+    console.log(`incoming form data: `.x117, form);
     form.keepExtensions = true;
     form.parse(req, (err, fields, files) => {
         if (err) {
@@ -73,7 +76,8 @@ exports.updateUserProfile = (req, res, next) => {
         user = _.extend(user, fields);
 
         user.updated = Date.now();
-        console.log("USER FORM DATA UPDATE: ", user);
+
+        console.log(`USER FORM DATA UPDATE: `.x117, user);
 
         if (files.profileImage) {
             user.profileImage.data = fs.readFileSync(files.profileImage.path);
@@ -88,7 +92,7 @@ exports.updateUserProfile = (req, res, next) => {
             }
             user.hashed_password = undefined;
             user.salt = undefined;
-            console.log("user after update with formdata: ", user);
+            console.log(`user after update with formdata: `.x117, user);
             res.json(user);
         });
     });

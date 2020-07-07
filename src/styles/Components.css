@@ -17,6 +17,11 @@ COLORS
 
 /* GLOBAL ============================================ GLOBAL */
 
+.custom-file {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .component {
   background-color: #A8DCD9;
   width: 100vw;
