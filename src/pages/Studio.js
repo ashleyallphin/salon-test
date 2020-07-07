@@ -34,7 +34,6 @@ class Profile extends Component {
     componentDidMount() {
         const username = this.props.match.params.username;
         this.init(username);
-            document.title = `${username}'s Salon Studio`;
     }
 
     // upload current logged in user data on return to studio from navbar from someone else's studio
@@ -114,7 +113,6 @@ class Profile extends Component {
 
                         </div>
 
-
                         {isAuthenticated().user &&
                             isAuthenticated().user._id === user._id && (
 
@@ -148,19 +146,17 @@ class Profile extends Component {
                                     Donate to Artist
                                     </Button>
                                 </a>
-                                    
                                 
                                 </div>
                             )}
 
-                        
                         </Card.Body>
 
                     </Card>
 
 				</div>  
 
-                <UserGallery />
+            <UserGallery />
 
             </>          
 

@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button';
 import DefaultProjectImage from '../assets/images/default_pics/salon-default-project-pic.png';
 import { Link } from 'react-router-dom';
 
-
-
 class SingleProject extends Component {
     
     state = {
@@ -38,21 +36,45 @@ class SingleProject extends Component {
         
         return (
 
+            <>
+<h2>switch to image on top and info underneath -- maybe add lightbox</h2>
+<Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={`/post/image/${post._id}`} />
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+  </Card.Body>
+  <Card.Body>
+    <Card.Link href="#">Card Link</Card.Link>
+    <Card.Link href="#">Another Link</Card.Link>
+  </Card.Body>
+</Card>
+            
             <Card
                 className="project-card card">
                     
+
+                    
                     <Card.Img
+                        variant="top" 
                         className="project-image"
                         src={`/post/image/${post._id}`}
                         alt={post.title}
-                        onError = {i => (i.target.src = `${DefaultProjectImage}`)} />
+                        onError = {i => (i.target.src = `${DefaultProjectImage}`)} >
 
                         {/* apply this image overlay if work in progress */}
                         {/* <div className="card-img-overlay wip">
                         <img className="wip-icon" src={wip}
                         alt="work in progress"></img>
                         </div> */}
-                    
+                    </Card.Img>
+
+
+
+
                         <Card.Body
                         className="project-card-body ">
                         
@@ -111,6 +133,13 @@ class SingleProject extends Component {
                     </Card.Body>
                 
                 </Card>
+
+
+
+                </>
+
+
+
         )
     }
 

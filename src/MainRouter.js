@@ -13,6 +13,7 @@ import Artists from './pages/Artists';
 import PageNotFound from './pages/PageNotFound';
 import Footer from './components/Footer';
 
+
 const MainRouter = () => (
 
     <div>

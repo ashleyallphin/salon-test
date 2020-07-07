@@ -75,7 +75,7 @@ exports.createPost = (req, res, next) => {
 };
 
 exports.postsByUser = (req, res) => {
-    console.log(`\n\npostsByUser method from post-controller`.x211)
+    console.log(`\n\nhitting postsByUser method from post-controller`.x211)
     Post.find({postedBy: req.profile._id})
     // use .populate from a different model (rather than select)
     .populate("postedBy", "_id username email")
@@ -88,6 +88,7 @@ exports.postsByUser = (req, res) => {
             })
         }
         res.json(posts);
+        console.log("GET POSTS BY USER from post-controller postsByUserMethod", posts)
     });
 };
 
