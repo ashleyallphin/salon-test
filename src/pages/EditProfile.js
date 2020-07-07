@@ -177,7 +177,7 @@ class EditProfile extends Component {
             
             <InputGroup className="input-group">
                 <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">http://</InputGroup.Text>
                 </InputGroup.Prepend>
             <Form.Control
                 onChange={this.handleChange("websiteURL")}
@@ -187,7 +187,7 @@ class EditProfile extends Component {
             
             <InputGroup className="input-group">
             <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">http://</InputGroup.Text>
                 </InputGroup.Prepend>
                 <Form.Control
                     onChange={this.handleChange("shopURL")}

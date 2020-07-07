@@ -4,8 +4,6 @@ const formidable = require ('formidable');
 const fs = require ('fs');
 const _ = require ('lodash');
 const color = require('colors-cli/toxic');
-const { x0 } = require('colors-cli/lib/color');
-
 
 exports.postsById = (req, res, next, id) => {
     Post.findById(id)

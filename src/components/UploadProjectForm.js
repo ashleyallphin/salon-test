@@ -21,8 +21,9 @@ class UploadProjectForm extends Component {
             projectYear: "",
             projectLink: "",
             projectStatus: "",
+            projectCategory: "",
             user: {},
-            // redirectToStudio: false,
+            redirectToStudio: false,
             fileSize: 0,
             error: ""
         }
@@ -49,10 +50,10 @@ class UploadProjectForm extends Component {
 
     // check if the input fields are valid
     isValid = () => {
-        const { fileSize, title, body, projectMedium, projectYear } = this.state;
+        const { fileSize, title, body, projectMedium, projectYear, projectCategory } = this.state;
             
             if (title.length === 0) {
-                this.setState({ error: "Please declare a title for your project. If you have not named your project, you may input 'Untitled.'" });
+                this.setState({ error: `Please declare a title for your project.\nIf you have not named your project, you may input 'Untitled.'` });
                 return false;
             }
             if (title.length > 100) {
@@ -68,10 +69,14 @@ class UploadProjectForm extends Component {
                 this.setState({ error: "Please provide a description of your project." });
                 return false;
             }
-            if (body.length > 1000 ) {
-                this.setState({ error: "Maximum description input is 1000 characters." });
+            if (projectCategory.length === 0 ) {
+                this.setState({ error: "Please select a project category." });
                 return false;
                 }
+            if (body.length === 0) {
+                this.setState({ error: "Please provide a description of your project." });
+                return false;
+            }
             if (projectMedium.length === 0) {
                 this.setState({ error: "Please provide the media you used in your project."});
                 return false;
@@ -91,7 +96,20 @@ class UploadProjectForm extends Component {
             uploadProject(username, token, this.postData).then(data => {
                 if (data.error) this.setState({ error: data.error });
                 else
-                    console.log("New Post: ", data);
+                    this.setState({
+                        title: "",
+                        projectImage: "",
+                        body: "",
+                        projectMedium: "",
+                        projectTags: "",
+                        projectYear: "",
+                        projectLink: "",
+                        projectStatus: "",
+                        projectCategory: "",
+                        redirectToStudio: true,
+                        fileSize: 0,
+                        error: ""
+                    })
                     });
         };
         }
@@ -104,7 +122,8 @@ class UploadProjectForm extends Component {
         projectTags,
         projectYear,
         projectLink,
-        projectStatus
+        projectStatus,
+        projectCategory
         ) => (
 
         <Form.Group className="text-center">   
@@ -132,13 +151,25 @@ class UploadProjectForm extends Component {
                 as="textarea" rows="3" />
 
             <Form.Control
+                className="category-select"
+                as="select"
+                onChange={this.handleChange("projectCategory")}
+            >
+                <option hidden>project category</option>
+                <option value='visual arts'>visual arts</option>
+                <option value='performance arts'>performance arts</option>
+                <option value='literary arts'>literary arts</option>
+
+            </Form.Control>
+
+            <Form.Control
                 onChange={this.handleChange("projectMedium")}
                 value={this.state.projectMedium}
                 id="project-medium-input" type="text" placeholder="project medium" />
 
             <InputGroup className="input-group">
                 <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">http://</InputGroup.Text>
                 </InputGroup.Prepend>
             
             <Form.Control
@@ -159,6 +190,7 @@ class UploadProjectForm extends Component {
                 as="select"
                 onChange={this.handleChange("projectYear")}
             >
+            {/* set for loop to render these options with this year and back, to dynamically populate and update with each passing year */}
                 <option hidden>year</option>
                     <option value='2020'>2020</option>
                     <option value='2019'>2019</option>
@@ -267,12 +299,15 @@ class UploadProjectForm extends Component {
             projectYear,
             projectLink,
             projectStatus,
-            error
+            projectCategory,
+            redirectToStudio,
+            error,
+            user
         } = this.state;
         
-        // if (redirectToStudio) {
-        //     return <Redirect to={`/artist/studio/${username}`} />;
-        // }
+        if (redirectToStudio) {
+            return <Redirect to={`/artist/studio/${user.username}`} />;
+        }
 
         return (
             <div className="component text-center">
@@ -298,7 +333,9 @@ class UploadProjectForm extends Component {
                     projectTags,
                     projectYear,
                     projectLink,
-                    projectStatus )}
+                    projectCategory,
+                    projectStatus
+                )}
                 
             </div>
         );
