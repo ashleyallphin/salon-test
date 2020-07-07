@@ -24,11 +24,12 @@ red: #C44D58
 /* GLOBAL ====================================================== GLOBAL */
 
 .page {
-    background-color: #A8DCD9;
-    width: 100vw;
+    font-family: 'St Ryde W03 Medium';
+    padding: 0; 
+    flex: 1;
     display: flex;
     flex-direction: column;
-}
+    }
 
 .vertical-center {
     margin:auto;

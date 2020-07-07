@@ -92,8 +92,6 @@ class Profile extends Component {
                             Upload a Project
                             </Button>
                             
-
-
                         </div>
 
                         

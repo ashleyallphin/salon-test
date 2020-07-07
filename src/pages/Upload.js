@@ -5,6 +5,10 @@ import UploadProjectForm from '../components/UploadProjectForm';
 
 class Upload extends Component {
 
+    componentDidMount() {
+        document.title = 'Salon: Upload Project';
+    }
+
     render() {
         return (
             <div className="page">

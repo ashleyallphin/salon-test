@@ -7,7 +7,7 @@ const {
     getSingleUser,
     updateUserProfile,
     deleteUser,
-    showProfileImage
+    getProfileImage
     // getUserById,
 } = require('../controllers/user-controller');
 // bring in validator from validator/index.js
@@ -20,11 +20,10 @@ router.get("/users", getAllUsers);
 router.get("/user/:username", restrictedRouteAccess, getSingleUser);
 router.put("/user/:username", restrictedRouteAccess, updateUserProfile);
 router.delete("/user/:username", restrictedRouteAccess, deleteUser);
-router.get("/user/image/:username", showProfileImage); 
-// router.get("/user/:username", restrictedRouteAccess,  getSingleUser);
+router.get("/user/image/:username", getProfileImage); 
 
-//if these params are in the routes above, the following middle and method will fire
-// (make query to database and get user information for any route containing :userId)
+//if these params are in the routes above, the following middleware and methods will fire
+// (make query to database and get user information for any route containing :username)
 router.param("username", getUserByUsername);
 // make query to database and get user information for any route containing :username
 

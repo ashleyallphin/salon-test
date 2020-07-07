@@ -67,6 +67,7 @@ class EditProfile extends Component {
     };
 
     componentDidMount() {
+        document.title = 'Salon: Edit Profile';
         bsCustomFileInput.init()
         // for sending the file
         this.userData = new FormData();
@@ -177,7 +178,7 @@ class EditProfile extends Component {
             
             <InputGroup className="input-group">
                 <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">http://</InputGroup.Text>
                 </InputGroup.Prepend>
             <Form.Control
                 onChange={this.handleChange("websiteURL")}
@@ -187,7 +188,7 @@ class EditProfile extends Component {
             
             <InputGroup className="input-group">
             <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">www.</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">http://</InputGroup.Text>
                 </InputGroup.Prepend>
                 <Form.Control
                     onChange={this.handleChange("shopURL")}

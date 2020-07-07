@@ -19,3 +19,13 @@ export const uploadProject = (username, token, post) => {
         })
         .catch (err => console.log(err))
 };
+
+export const listProjects = () => {
+    return fetch(`/posts`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

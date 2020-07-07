@@ -9,7 +9,8 @@ const
     postsById,
     isPoster,
     updatePost,
-    deletePost
+    deletePost,
+    getProjectImage,
     // projectImage,
     // singlePost,
     // comment,
@@ -29,12 +30,12 @@ const router = express.Router();
 // HAND ROUTES OVER TO CONTROLLER
 // post to backend from frontend
 // before creating the post, run middleware to validate post meets specified criteria  -- then run validator after post is created
-router.get('/posts', restrictedRouteAccess, getPosts);
+router.get('/posts', getPosts);
 router.post('/post/new/:username', restrictedRouteAccess, createPost, createPostValidator)
 router.get("/posts/by/:username", restrictedRouteAccess, postsByUser);
 router.put('/post/:postId', restrictedRouteAccess, isPoster, updatePost);
 router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
-// router.get('/post/photo/:postId', photo);
+router.get("/post/image/:postId", getProjectImage); 
 
 
 // // comments

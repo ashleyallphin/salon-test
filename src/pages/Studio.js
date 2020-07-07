@@ -34,6 +34,7 @@ class Profile extends Component {
     componentDidMount() {
         const username = this.props.match.params.username;
         this.init(username);
+            document.title = `${username}'s Salon Studio`;
     }
 
     // upload current logged in user data on return to studio from navbar from someone else's studio
@@ -84,28 +85,28 @@ class Profile extends Component {
 
                             <a
                             className="profile-link-icon"
-                            href={`http://www.${user.websiteURL}`}
+                            href={`http://${user.websiteURL}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faHome} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href={`http://www.${user.shopURL}`}
+                            href={`http://${user.shopURL}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faStore} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href={`http://www.instagram.com/${user.instagramHandle}`}
+                            href={`http://instagram.com/${user.instagramHandle}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faInstagram} />
                             </a>
                             <a
                             className="profile-link-icon"
-                            href={`http://www.twitter.com/${user.twitterHandle}`}
+                            href={`http://twitter.com/${user.twitterHandle}`}
                             rel="noopener noreferrer"
                             target="_blank">
                                 <FontAwesomeIcon icon={faTwitter} />
@@ -141,7 +142,7 @@ class Profile extends Component {
 
                                 <div className="flex-div">
                                 
-                                <a href="http://www.paypal.com">
+                                <a href="http://paypal.com">
                                     <Button className="edit-profile-button"
                                     variant="primary">
                                     Donate to Artist
