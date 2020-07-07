@@ -82,15 +82,17 @@ class ProjectCard extends Component {
                         </Card.Text>
 
                         <div className="project-card-buttons">
-                            <Button
-                                className="view-feedback-button"
-                                variant="primary">
-                                View Feedback</Button>
+                            <Link to={`/gallery/${post._id}`}>
+                                <Button
+                                    className="view-feedback-button"
+                                    variant="primary">
+                                    Visit Project</Button>
+                                </Link>
 
-                            <Button
+                            {/* <Button
                                 className="edit-project-button"
                                 variant="primary">
-                                Edit Project</Button>
+                                Edit Project</Button> */}
                         </div>
 
                         <div className="flex-grow"> 

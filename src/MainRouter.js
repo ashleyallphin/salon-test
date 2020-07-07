@@ -5,6 +5,7 @@ import TopNav from './components/TopNav';
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Gallery from "./pages/Gallery";
+import SingleProject from "./pages/SingleProject";
 import Studio from './pages/Studio';
 import Upload from "./pages/Upload";
 import EditProfile from './pages/EditProfile';
@@ -22,7 +23,8 @@ const MainRouter = () => (
             <Route exact path="/signup" component={SignUp} />
             <Route path="/pagenotfound" component={PageNotFound} />
             <PrivateRoute path="/artists" component={Artists} />
-            <PrivateRoute path="/gallery" component={Gallery} />
+            <PrivateRoute exact path="/gallery/:postId" component={SingleProject} />
+            <PrivateRoute exact path="/gallery" component={Gallery} />
             <PrivateRoute exact path="/artist/studio/:username" component={Studio} />
             <PrivateRoute path="/artist/edit/:username" component={EditProfile} />
             <PrivateRoute path="/artist/upload/:username" component={Upload} />
