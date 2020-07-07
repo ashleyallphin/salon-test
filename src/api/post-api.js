@@ -1,7 +1,7 @@
 const color = require('colors-cli/toxic');
 // router.get('/posts', restrictedRouteAccess, getPosts);
 // router.get("/posts/by/:username", restrictedRouteAccess, postsByUser);
-// router.delete("/post/:postId", restrictedRouteAccess, isPoster, deletePost);
+// router.delete("/post/:postId", restrictedRouteAccess, isArtist, deletePost);
 // router.post('/post/new/:username', restrictedRouteAccess, createPost, createPostValidator)
 // router.param("username", getUserByUsername);
 // router.param("postId", postsById);

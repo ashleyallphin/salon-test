@@ -40,6 +40,7 @@ const postSchema = new mongoose.Schema ({
     // build relationship between the post schema and the user schema
     postedBy: {
         type: ObjectId,
+        // reference User schema
         ref: "User"
     },
     posted: {
