@@ -86,7 +86,7 @@ class LogInForm extends Component {
         const { username, password, error, redirectToReferer } = this.state;
 
         if(redirectToReferer) {
-            return <Redirect to="/gallery" />
+            return <Redirect to={`/artist/studio/${this.state.username}`} />
         }
 
         return (
