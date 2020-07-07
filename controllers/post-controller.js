@@ -126,6 +126,6 @@ exports.deletePost = (req, res) => {
 };
 
 exports.getProjectImage = (req, res, next) => {
-    res.set("Content-Type", req.post.projectImage.contentType)
+    res.set('Content-Type', req.post.projectImage.contentType);
     return res.send(req.post.projectImage.data);
-}
+};

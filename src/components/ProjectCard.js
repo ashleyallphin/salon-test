@@ -37,14 +37,15 @@ class ProjectCard extends Component {
                     
                     <Card.Img
                         className="project-image"
-                        src={`/post/photo/${post.projectImage}`}
+                        src={`/post/image/${post._id}`}
                         alt={post.title}
                         onError = {i => (i.target.src = `${DefaultProjectImage}`)} />
-                    
-                        <div className="card-img-overlay wip">
+
+                        {/* apply this image overlay if work in progress */}
+                        {/* <div className="card-img-overlay wip">
                         <img className="wip-icon" src={wip}
                         alt="work in progress"></img>
-                        </div>
+                        </div> */}
                     
                         <Card.Body
                         className="project-card-body ">
